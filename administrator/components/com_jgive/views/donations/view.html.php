@@ -20,8 +20,8 @@ use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 
-jimport('techjoomla.tjmoney.tjmoney');
-jimport('techjoomla.tjtoolbar.button.csvexport');
+if (!class_exists('TjMoney')) { require_once JPATH_LIBRARIES . '/techjoomla/tjmoney/tjmoney.php'; }
+if (!class_exists('TjtoolbarButtonCsvexport')) { require_once JPATH_LIBRARIES . '/techjoomla/tjtoolbar/button/csvexport.php'; }
 
 HTMLHelper::_('bootstrap.renderModal', 'a.modal');
 HTMLHelper::_('stylesheet', 'media/com_jgive/css/jgive_admin.css');
@@ -125,7 +125,7 @@ class JgiveViewDonations extends BaseHtmlView
 		}
 
 		$this->logged_userid        = $this->user->id;
-		$this->layout               = $app->input->get('layout', 'default');
+		$this->layout               = $app->getInput()->get('layout', 'default');
 		$this->retryPayment         = new StdClass;
 		$this->retryPayment->status = '';
 		$this->retryPayment->msg    = '';

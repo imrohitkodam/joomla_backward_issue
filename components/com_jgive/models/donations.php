@@ -120,13 +120,13 @@ class JgiveModelDonations extends ListModel
 		}
 
 		$list      = $app->getUserStateFromRequest($this->context . '.list', 'list', null, 'array');
-		$ordering  = $app->input->get('filter_order', '', 'STRING');
-		$direction = $app->input->get('filter_order_Dir', '', 'STRING');
+		$ordering  = $app->getInput()->get('filter_order', '', 'STRING');
+		$direction = $app->getInput()->get('filter_order_Dir', '', 'STRING');
 
-		$contributorId = $app->input->get('filter_contributor_id', 0, 'INTEGER');
+		$contributorId = $app->getInput()->get('filter_contributor_id', 0, 'INTEGER');
 		$this->setState('filter.contributor_id', $contributorId);
 
-		$donorType = $app->input->get('filter_donor_type', '', 'STRING');
+		$donorType = $app->getInput()->get('filter_donor_type', '', 'STRING');
 		$this->setState('filter.donor_type', $donorType);
 
 		if (!empty($ordering) && in_array($ordering, $this->orderingFields))
@@ -141,14 +141,14 @@ class JgiveModelDonations extends ListModel
 
 		$this->setState('list.direction', $direction);
 
-		$listStart = $app->input->get('limitstart', 0, 'INT');
+		$listStart = $app->getInput()->get('limitstart', 0, 'INT');
 		$this->setState('list.start', $listStart);
 
-		$listlimit = $app->input->get('limit', 20, 'INT');
+		$listlimit = $app->getInput()->get('limit', 20, 'INT');
 		$this->setState('list.limit', $listlimit);
 
 		// Layout
-		$this->setState('layout', $app->input->getString('layout'));
+		$this->setState('layout', $app->getInput()->getString('layout'));
 		parent::populateState($ordering, $direction);
 	}
 
@@ -273,7 +273,7 @@ class JgiveModelDonations extends ListModel
     {
 		$app = Factory::getApplication();
         $form = parent::getFilterForm($data, $loadData);
-		if ($app->input->getString('layout') != 'all_donations')
+		if ($app->getInput()->getString('layout') != 'all_donations')
 		{
 			$form->removeField('campaign_id', 'filter');
 			$form->removeField('donor_type', 'filter');
@@ -418,7 +418,7 @@ class JgiveModelDonations extends ListModel
 	 */
 	public function getCampaignId()
 	{
-		$input   = Factory::getApplication()->input;
+		$input   = Factory::getApplication()->getInput();
 		$session = Factory::getSession();
 		$post    = $input->post->getArray();
 

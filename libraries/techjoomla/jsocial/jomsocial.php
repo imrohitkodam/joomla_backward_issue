@@ -16,8 +16,8 @@ use Joomla\CMS\User\User;
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Table\Table;
 
-jimport('techjoomla.common');
-jimport('techjoomla.jsocial.jsocial');
+if (!class_exists('TechjoomlaCommon')) { require_once JPATH_LIBRARIES . '/techjoomla/common.php'; }
+if (!class_exists('JSocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jsocial.php'; }
 
 /**
  * Interface to handle Social Extensions

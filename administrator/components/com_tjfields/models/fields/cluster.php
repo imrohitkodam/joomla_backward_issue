@@ -192,7 +192,7 @@ class JFormFieldCluster extends ListField
 	 */
 	protected function getInput()
 	{
-		$clusterId = Factory::getApplication()->input->getInt('cluster_id', 0);
+		$clusterId = Factory::getApplication()->getInput()->getInt('cluster_id', 0);
 
 		if (!empty($clusterId))
 		{

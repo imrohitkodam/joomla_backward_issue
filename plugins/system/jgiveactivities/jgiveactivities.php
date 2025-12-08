@@ -336,7 +336,7 @@ class PlgSystemJgiveActivities extends CMSPlugin
 	 */
 	public function onPostActivity($data)
 	{
-		$jinput        = Factory::getApplication()->input;
+		$jinput        = Factory::getApplication()->getInput();
 		$componentName = $jinput->post->get('option');
 
 		if ($componentName == 'com_jgive' && !empty($data))

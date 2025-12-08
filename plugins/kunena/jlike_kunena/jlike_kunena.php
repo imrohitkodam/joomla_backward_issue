@@ -37,7 +37,7 @@ class plgKunenajlike_kunena extends CMSPlugin {
 		}
 
 		$route = Uri::getInstance()->toString();
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 
 		$cont_id	=	$input->get('id','','INT');
 		if($context=='kunena.topics')
@@ -69,7 +69,7 @@ class plgKunenajlike_kunena extends CMSPlugin {
 		$element	=$context;
 		if(!empty($data)) //this is used since there are three triggers which will print like button three times onKunenaPrepare com_kunena on line no 94
 		return;
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $topic->subject, 'url' => $route,'plg_name'=>'jlike_kunena','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons ) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $topic->subject, 'url' => $route,'plg_name'=>'jlike_kunena','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons ) ) );
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();
 		$html = $jlikehelperObj->showlike();

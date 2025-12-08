@@ -48,7 +48,7 @@ class JFormFieldCountries extends ListField
 	{
 		$db = Factory::getDbo();
 		$query = $db->getQuery(true);
-		$client = Factory::getApplication()->input->get('client', '', 'STRING');
+		$client = Factory::getApplication()->getInput()->get('client', '', 'STRING');
 
 		// Select the required fields from the table.
 		$query->select('c.id, c.country, c.country_text');

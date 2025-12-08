@@ -34,7 +34,7 @@ class JgiveControllerReceiptTemplate extends FormController
 		// Prevent CSRF attack
 		Session::checkToken('get') or Factory::getApplication()->close();
 
-		$donationId = $this->input->get('donationId', '', 'INT');
+		$donationId = $this->getInput()->get('donationId', '', 'INT');
 
 		if ($donationId)
 		{

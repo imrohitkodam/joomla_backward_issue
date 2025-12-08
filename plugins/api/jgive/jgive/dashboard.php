@@ -32,7 +32,7 @@ class JgiveApiResourceDashboard extends ApiResource
 	public function get()
 	{
 		$resultArr = new stdclass;
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$user  = Factory::getUser();
 
 		if (empty($user->id))

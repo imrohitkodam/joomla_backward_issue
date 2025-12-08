@@ -57,7 +57,7 @@ class TjvendorsViewPayouts extends HtmlView
 		$this->state = $this->get('State');
 		$this->items = $this->get('Items');
 		$this->model = $this->getModel('payouts');
-		$this->input = Factory::getApplication()->input;
+		$this->input = Factory::getApplication()->getInput();
 
 		// Getting vendor id from url
 		$vendor_id = $this->input->get('vendor_id', '', 'INT');
@@ -91,7 +91,7 @@ class TjvendorsViewPayouts extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$client = $input->get('client', '', 'STRING');
 
 		$state = $this->get('State');

@@ -53,7 +53,7 @@ class JFormFieldPaymentGateway extends ListField
 	protected function getOptions()
 	{
 		$type = "payment";
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$client = $input->get('client', '', 'STRING');
 		$options = array();
 		$options[] = HTMLHelper::_('select.option', '', Text::_('COM_TJVENDOR_PAYMENT_DETAILS_DEFAULT'));

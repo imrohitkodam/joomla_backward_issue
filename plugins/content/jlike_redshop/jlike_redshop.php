@@ -62,7 +62,7 @@ class plgContentJLike_redshop extends CMSPlugin {
 
 		$url	=	$route;
 		$show_like_buttons = 1;
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $data->product_name, 'url' => $route,'plg_name'=>'jlike_redshop','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons ) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $data->product_name, 'url' => $route,'plg_name'=>'jlike_redshop','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons ) ) );
 
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();

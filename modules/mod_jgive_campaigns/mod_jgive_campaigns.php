@@ -51,7 +51,7 @@ $group_page = 0;
 if ($module_for == 'js_group_camp')
 {
 	// Get js group id
-	$input = Factory::getApplication()->input;
+	$input = Factory::getApplication()->getInput();
 
 	if ($input->get('task') == 'viewgroup')
 	{

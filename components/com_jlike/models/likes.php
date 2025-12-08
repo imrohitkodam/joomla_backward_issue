@@ -68,7 +68,7 @@ class JlikeModelLikes extends JlikeModelLikesHelper
 	{
 		// Initialise variables.
 		$app = Factory::getApplication();
-		$jinput  = Factory::getApplication()->input;
+		$jinput  = Factory::getApplication()->getInput();
 		$layout = $jinput->get('layout', 'default', 'STRING');
 
 		// List state information

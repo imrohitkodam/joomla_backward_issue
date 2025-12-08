@@ -74,5 +74,5 @@ if (JVERSION > '3.0')
 // Include dependancies
 
 $controller	= BaseController::getInstance('Jlike');
-$controller->execute(Factory::getApplication()->input->get('task'));
+$controller->execute(Factory::getApplication()->getInput()->get('task'));
 $controller->redirect();

@@ -46,7 +46,7 @@ class JGiveControllerOrganizations extends BaseController
 				return;
 			}
 
-			$search = $app->input->get('search', '', 'STRING');
+			$search = $app->getInput()->get('search', '', 'STRING');
 			BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_jgive/models');
 			$JGiveModelOrganizations = BaseDatabaseModel::getInstance("Organizations", 'JgiveModel', array("ignore_request" => true));
 			$JGiveModelOrganizations->setState("search", $search);

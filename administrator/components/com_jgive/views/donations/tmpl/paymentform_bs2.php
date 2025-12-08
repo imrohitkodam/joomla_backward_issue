@@ -682,7 +682,7 @@ var givebackDetails=" ";
 							<input type="hidden" name="option" value="com_jgive" />
 							<input type="hidden" name="view" value="donations" />
 							<input type="hidden" id="controller" name="controller" value="donations" />
-							<input type="hidden" name="Itemid" value="<?php echo $this->input->get('Itemid', '', 'INT');?>" />
+							<input type="hidden" name="Itemid" value="<?php echo Factory::getApplication()->getInput()->get('Itemid', '', 'INT');?>" />
 							<input type="hidden" name="order_id" id="order_id" value="0" />
 							<input type="hidden" name="platform_fee" id="platform_fee_value" value="0" />
 							<input type="hidden" name="task" id="task" value="placeOrder" />

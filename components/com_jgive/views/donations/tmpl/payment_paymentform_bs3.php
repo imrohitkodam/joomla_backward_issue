@@ -378,7 +378,7 @@ $document->addScriptDeclaration($js);
         }
 
         com_jgive.UI.Donation.updatePlatformFee(document.getElementById("donation_amount"),
-            <?php echo $this->input->get('cid', 0, 'INT') ?>);
+            <?php echo Factory::getApplication()->getInput()->get('cid', 0, 'INT') ?>);
     });
 
     //Populate selectd giveback amount in donation amount field
@@ -478,7 +478,7 @@ if (isset($this->jomsocialToolbarHtml)) {
                                     <input type="password" name="password" value="" />
                                     <br />
                                     <input type="hidden" name="cid"
-                                        value="<?php echo $this->input->get('cid', '', 'INT'); ?>" />
+                                        value="<?php echo Factory::getApplication()->getInput()->get('cid', '', 'INT'); ?>" />
                                     <input type="button" value="<?php echo Text::_('COM_JGIVE_CHECKOUT_LOGIN'); ?>"
                                         id="button-login" onclick="jgive.donations.jgive_login()" class="btn btn-primary" />
                                     <br />
@@ -804,7 +804,7 @@ if (isset($this->jomsocialToolbarHtml)) {
                                                         $predefinedAmount = $this->cdata['campaign']->minimum_amount ? $this->cdata['campaign']->minimum_amount : 0;
                                                     }
 
-                                                    $campaignId = $this->input->get('cid', 0, 'INT');
+                                                    $campaignId = Factory::getApplication()->getInput()->get('cid', 0, 'INT');
                                                     $allow_high_value_donation = $this->params->get('allow_high_value_donation');
                                                     $max_allow_high_donation_value = $this->params->get('max_allow_high_donation_value');
 
@@ -1115,11 +1115,11 @@ if (isset($this->jomsocialToolbarHtml)) {
                                     onclick="jGive_submitbutton('save');">
 
                                 <input type="hidden" name="cid" id="cid"
-                                    value="<?php echo $this->input->get('cid', '', 'INT'); ?>" />
+                                    value="<?php echo Factory::getApplication()->getInput()->get('cid', '', 'INT'); ?>" />
                                 <input type="hidden" name="option" value="com_jgive" />
                                 <input type="hidden" name="view" value="donations" />
                                 <input type="hidden" name="Itemid"
-                                    value="<?php echo $this->input->get('Itemid', '', 'INT'); ?>" />
+                                    value="<?php echo Factory::getApplication()->getInput()->get('Itemid', '', 'INT'); ?>" />
                                 <input type="hidden" name="order_id" id="order_id" value="0" />
                                 <input type="hidden" name="platform_fee" id="platform_fee_value" value="0" />
                                 <input type="hidden" name="task" value="donations.placeOrder" />

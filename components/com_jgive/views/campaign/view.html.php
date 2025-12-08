@@ -59,7 +59,7 @@ class JGiveViewCampaign extends HtmlView
 		$user = Factory::getUser();
 		$this->logged_userid = $user->id;
 		$app = Factory::getApplication();
-		$input = $this->app->input;
+		$input = $this->getApplication()->input;
 		$this->utilitiesObj = JGive::utilities();
 
 		if ($app->isClient("administrator"))
@@ -137,11 +137,11 @@ class JGiveViewCampaign extends HtmlView
 			$itemid = $jgiveFrontendHelper->getItemId('index.php?option=com_jgive&view=campaigns&layout=all');
 			$link   = Route::_('index.php?option=com_jgive&view=campaigns&layout=all&Itemid=' . $itemid, false);
 			$msg    = Text::_('COM_JGIVE_CAMPAIGN_NOT_PUBLISHED');
-			$this->app->enqueueMessage($msg);
-			$this->app->redirect($link);
+			$this->getApplication()->enqueueMessage($msg);
+			$this->getApplication()->redirect($link);
 		}
 
-		$pathway = $this->app->getPathway();
+		$pathway = $this->getApplication()->getPathway();
 		$pathway->addItem($cdata['campaign']->title, '');
 		$modelCampaign = $this->getModel('campaign');
 		$content_id    = $this->cdata['campaign']->id;
@@ -183,7 +183,7 @@ class JGiveViewCampaign extends HtmlView
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
 		{
-			$this->app->enqueueMessage(Text::_('COM_JGIVE_EXPORT_FILE_ERROR'));
+			$this->getApplication()->enqueueMessage(Text::_('COM_JGIVE_EXPORT_FILE_ERROR'));
 
 			return false;
 		}

@@ -36,7 +36,7 @@ class JlikeControllerRatings extends AdminController
 	public function getRatings()
 	{
 		$app = Factory::getApplication();
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 		$model = $this->getModel('ratings');
 		$contentId = $jinput->get('content_id', '', 'INT');
 		$start = $jinput->get('start', '0');

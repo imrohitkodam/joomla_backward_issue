@@ -231,7 +231,7 @@ class JlikeModelReminders extends ListModel
 		// Load file to call api of the table
 		Table::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_jlike/tables');
 
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 		$jinput->set('filter_published', 1);
 		$reminders = $this->getItems();
 

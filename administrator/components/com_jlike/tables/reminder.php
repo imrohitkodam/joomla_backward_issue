@@ -71,7 +71,7 @@ class JlikeTablereminder extends Table
 	 */
 	public function bind($array, $ignore = '')
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$task = $input->getString('task', '');
 
 		if ($array['id'] == 0)

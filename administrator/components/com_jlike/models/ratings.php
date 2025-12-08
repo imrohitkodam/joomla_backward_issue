@@ -79,7 +79,7 @@ class JLikeModelRatings extends ListModel
 		// Initialise variables.
 		$app = Factory::getApplication();
 
-		$orderCol = $app->input->get('filter_order', 'DESC');
+		$orderCol = $app->getInput()->get('filter_order', 'DESC');
 
 		if (!(in_array($orderCol, $this->filter_fields)))
 		{
@@ -88,7 +88,7 @@ class JLikeModelRatings extends ListModel
 
 		$this->setState('list.ordering', $orderCol);
 
-		$listOrder = $app->input->get('filter_order_Dir', 'DESC');
+		$listOrder = $app->getInput()->get('filter_order_Dir', 'DESC');
 
 		if (!in_array(strtoupper($listOrder), array('ASC', 'DESC', '')))
 		{

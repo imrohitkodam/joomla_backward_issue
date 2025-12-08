@@ -42,7 +42,7 @@ class JgiveControllermasspayment extends BaseController
 
 		if (!$send_payments_to_owner)
 		{
-			$input = Factory::getApplication()->input;
+			$input = Factory::getApplication()->getInput();
 			$pkey = $input->get('pkey', '');
 			$params->get('private_key_cronjob');
 

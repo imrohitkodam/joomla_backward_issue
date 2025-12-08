@@ -23,7 +23,7 @@ HTMLHelper::_('behavior.formvalidator');
 $lang = Factory::getLanguage();
 $lang->load('com_jlike', JPATH_SITE);
 
-$menu   = $this->app->getMenu();
+$menu   = $this->getApplication()->getMenu();
 $menuItem = $menu->getItems('link', 'index.php?option=com_tjucm&view=itemform', true);
 ?>
 <div>

@@ -55,7 +55,7 @@ class JFormFieldItemCategory extends CategoryField
 
 		if (empty($client))
 		{
-			$jinput = $app->input;
+			$jinput = $app->getInput();
 			$client = $jinput->get('client', '', "STRING");
 		}
 

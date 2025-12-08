@@ -65,7 +65,7 @@ class JlikeViewrecommend extends HtmlView
 		}
 
 		$app   = Factory::getApplication();
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$this->state		= $this->get('State');
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
@@ -105,7 +105,7 @@ class JlikeViewrecommend extends HtmlView
 	 */
 	public function _getElementData()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$plg_type            = $input->get('plg_type', 'content');
 		$plg_name            = $input->get('plg_name', '');
 		$elementId           = $input->get('id', '', 'INT');

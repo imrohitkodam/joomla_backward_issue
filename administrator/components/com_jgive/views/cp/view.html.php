@@ -19,7 +19,7 @@ use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 
-jimport('techjoomla.tjmoney.tjmoney');
+if (!class_exists('TjMoney')) { require_once JPATH_LIBRARIES . '/techjoomla/tjmoney/tjmoney.php'; }
 
 /**
  * Dashboard form controller class.
@@ -96,7 +96,7 @@ class JGiveViewCp extends HtmlView
 		$this->_setToolbar();
 
 		$this->sidebar = '';
-		if (!Factory::getApplication()->input->get('layout') || Factory::getApplication()->input->get('layout') != 'dashboard')
+		if (!Factory::getApplication()->getInput()->get('layout') || Factory::getApplication()->getInput()->get('layout') != 'dashboard')
 		{
 			$this->setLayout('dashboard');
 		}

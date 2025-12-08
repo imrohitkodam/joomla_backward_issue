@@ -84,7 +84,7 @@ class JlikeModelRecommend extends ListModel
 		$limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->getCfg('list_limit'), 'uint');
 		$this->setState('list.limit', $limit);
 
-		$limitstart = $app->input->get('limitstart', 0, 'uint');
+		$limitstart = $app->getInput()->get('limitstart', 0, 'uint');
 		$this->setState('list.start', $limitstart);
 	}
 
@@ -125,7 +125,7 @@ class JlikeModelRecommend extends ListModel
 		// $query     = $db->getQuery(true);
 		$oluser_id = Factory::getUser()->id;
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		// $socialIntegration   = $input->get('socialIntegration', 'joomla', 'STRING');
 		$socialIntegration = 'joomla';
@@ -303,7 +303,7 @@ class JlikeModelRecommend extends ListModel
 		$items = parent::getItems();
 
 		// Get integration
-		$input      = Factory::getApplication()->input;
+		$input      = Factory::getApplication()->getInput();
 		$plg_type   = $input->get('plg_type', 'content', 'STRING');
 		$plg_name   = $input->get('plg_name', '', 'STRING');
 		$helperPath = JPATH_SITE . '/components/com_jlike/helpers/main.php';

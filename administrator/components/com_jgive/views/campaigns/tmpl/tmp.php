@@ -65,7 +65,7 @@ Factory::getDocument()->addScriptDeclaration('
 	}
 ');
 ?>
-<form action="<?php echo Route::_('index.php?option=com_jgive&view=campaigns&layout=' . $this->input->get('layout', '', 'STRING')); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo Route::_('index.php?option=com_jgive&view=campaigns&layout=' . Factory::getApplication()->getInput()->get('layout', '', 'STRING')); ?>" method="post" name="adminForm" id="adminForm">
 	<div id="jgiveWrapper" class="row jgive <?php echo JVERSION < '3.0' ? 'techjoomla-bootstrap' : ''; ?>">
 		<div class="col-md-12">
 			<div id="j-main-container">

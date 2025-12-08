@@ -65,7 +65,7 @@ class TjfieldsModelFields extends ListModel
 		$app = Factory::getApplication('administrator');
 
 		// Set client in model state
-		$client = $app->input->get('client', '', 'STRING');
+		$client = $app->getInput()->get('client', '', 'STRING');
 
 		if (!empty($client))
 		{

@@ -25,7 +25,7 @@ HTMLHelper::_('behavior.keepalive');
 $document = Factory::getDocument();
 $document->addScript(Uri::root() . 'libraries/techjoomla/assets/js/tjvalidator.js');
 
-$input = Factory::getApplication()->input;
+$input = Factory::getApplication()->getInput();
 $reminder_id = $input->get('id',0,'INT');
 $extension = $input->get('extension','','CMD');
 

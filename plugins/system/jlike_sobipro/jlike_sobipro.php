@@ -37,8 +37,8 @@ class plgSystemJlike_sobipro extends CMSPlugin
 			return;
 		}
 		$article		= new stdClass;
-		$article->id	= Factory::getApplication()->input->get( 'sid' );
-		$article->title	= Factory::getApplication()->input->get('sid','string');;
+		$article->id	= Factory::getApplication()->getInput()->get( 'sid' );
+		$article->title	= Factory::getApplication()->getInput()->get('sid','string');;
 		$params			= new stdClass;
 
 		$this->execute( __FUNCTION__, null, $article, $params, null );
@@ -58,7 +58,7 @@ class plgSystemJlike_sobipro extends CMSPlugin
 		$cont_id	=	$article->id;
 
 		$element	=	'';
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 		$option=$input->get('option','','STRING');
 		$view=$input->get('view','','STRING');
 		$layout=$input->get('layout','','STRING');
@@ -73,7 +73,7 @@ class plgSystemJlike_sobipro extends CMSPlugin
 
 		$show_like_buttons = 1;
 		//echo "<pre>";print_r(array ('cont_id' => $cont_id, 'element' => $element, 'title' => $article->titlearr[1], 'url' => $route  ));die;
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' =>''.$article->titlearr[1], 'url' => $route,'show_like_buttons'=>$show_like_buttons) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' =>''.$article->titlearr[1], 'url' => $route,'show_like_buttons'=>$show_like_buttons) ) );
 
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();

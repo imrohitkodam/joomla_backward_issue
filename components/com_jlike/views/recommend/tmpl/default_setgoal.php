@@ -21,7 +21,7 @@ HTMLHelper::_('bootstrap.tooltip');
 
 $document =	Factory::getDocument();
 $document->addStylesheet(Uri::root(true) . '/media/com_jlike/font-awesome/css/font-awesome.css');
-$input  = Factory::getApplication()->input;
+$input  = Factory::getApplication()->getInput();
 $type   = $input->get('type', 'reco');
 $assignto   = $input->get('assignto', '');
 $user = Factory::getUser();

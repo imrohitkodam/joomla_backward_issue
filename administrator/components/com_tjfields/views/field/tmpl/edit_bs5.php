@@ -19,7 +19,7 @@ HTMLHelper::_('bootstrap.tooltip');
 HTMLHelper::_('behavior.formvalidator');
 HTMLHelper::_('behavior.keepalive');
 
-$input = Factory::getApplication()->input;
+$input = Factory::getApplication()->getInput();
 $fullClient = $input->get('client', '', 'STRING');
 $fullClient =  explode('.', $fullClient);
 

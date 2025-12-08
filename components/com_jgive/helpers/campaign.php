@@ -460,7 +460,7 @@ class CampaignHelper
 			}
 
 			$errorList[] = Text::_('FILE_BIG') . " " . $max_size . "KB<br>";
-			$this->app->enqueueMessage(Text::_('COM_JGIVE_MAX_FILE_SIZE') . ' ' . $max_size . 'KB<br>', 'error');
+			$this->getApplication()->enqueueMessage(Text::_('COM_JGIVE_MAX_FILE_SIZE') . ' ' . $max_size . 'KB<br>', 'error');
 
 			return false;
 		}

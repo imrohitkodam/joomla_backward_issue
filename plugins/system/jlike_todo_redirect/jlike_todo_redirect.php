@@ -68,9 +68,9 @@ class PlgSystemJLike_Todo_Redirect extends CMSPlugin
 	 */
 	public function onUserLogin()
 	{
-		$this->app->setUserState("com_jlike.todoSave", "");
-		$this->app->setUserState("com_jlike.todoSaveMsg", "");
-		$this->app->setUserState("com_jlike.todoSaveRedirectTimestamp", "");
+		$this->getApplication()->setUserState("com_jlike.todoSave", "");
+		$this->getApplication()->setUserState("com_jlike.todoSaveMsg", "");
+		$this->getApplication()->setUserState("com_jlike.todoSaveRedirectTimestamp", "");
 	}
 
 	/**
@@ -82,9 +82,9 @@ class PlgSystemJLike_Todo_Redirect extends CMSPlugin
 	 */
 	public function onUserLogout()
 	{
-		$this->app->setUserState("com_jlike.todoSave", "");
-		$this->app->setUserState("com_jlike.todoSaveMsg", "");
-		$this->app->setUserState("com_jlike.todoSaveRedirectTimestamp", "");
+		$this->getApplication()->setUserState("com_jlike.todoSave", "");
+		$this->getApplication()->setUserState("com_jlike.todoSaveMsg", "");
+		$this->getApplication()->setUserState("com_jlike.todoSaveRedirectTimestamp", "");
 	}
 
 	/**
@@ -96,27 +96,27 @@ class PlgSystemJLike_Todo_Redirect extends CMSPlugin
 	 */
 	public function onAfterRoute()
 	{
-		$isAjaxRequest = $this->app->input->server->getString('HTTP_X_REQUESTED_WITH', '');
+		$isAjaxRequest = $this->getApplication()->getInput()->server->getString('HTTP_X_REQUESTED_WITH', '');
 
 		$this->isAjax = ($isAjaxRequest == 'XMLHttpRequest') ? true : false;
 
-		if ($this->isAjax || !$this->app->isClient('site'))
+		if ($this->isAjax || !$this->getApplication()->isClient('site'))
 		{
 			return;
 		}
 
-		$todoSave = $this->app->getUserState("com_jlike.todoSave");
-		$pathId = $this->app->getUserState("com_jlike.pathId");
+		$todoSave = $this->getApplication()->getUserState("com_jlike.todoSave");
+		$pathId = $this->getApplication()->getUserState("com_jlike.pathId");
 
 		if ($todoSave == 1)
 		{
-			$todoSaveMsg = $this->app->getUserState("com_jlike.todoSaveMsg");
-			$todoSaveRedirectTimestamp = $this->app->getUserState("com_jlike.todoSaveRedirectTimestamp");
+			$todoSaveMsg = $this->getApplication()->getUserState("com_jlike.todoSaveMsg");
+			$todoSaveRedirectTimestamp = $this->getApplication()->getUserState("com_jlike.todoSaveRedirectTimestamp");
 
-			$this->app->setUserState("com_jlike.todoSave", "");
-			$this->app->setUserState("com_jlike.todoSaveMsg", "");
-			$this->app->setUserState("com_jlike.todoSaveRedirectTimestamp", "");
-			$this->app->setUserState("com_jlike.pathId", "");
+			$this->getApplication()->setUserState("com_jlike.todoSave", "");
+			$this->getApplication()->setUserState("com_jlike.todoSaveMsg", "");
+			$this->getApplication()->setUserState("com_jlike.todoSaveRedirectTimestamp", "");
+			$this->getApplication()->setUserState("com_jlike.pathId", "");
 
 			// Check if page doesn't reload in 10 Seconds after Todo save
 			$todoRedirectiontime = $this->params->get('todo_redirection_time', '10');
@@ -130,8 +130,8 @@ class PlgSystemJLike_Todo_Redirect extends CMSPlugin
 
 			if ($isToDoUrl != '')
 			{
-				$this->app->enqueueMessage($todoSaveMsg);
-				$this->app->redirect($isToDoUrl);
+				$this->getApplication()->enqueueMessage($todoSaveMsg);
+				$this->getApplication()->redirect($isToDoUrl);
 			}
 		}
 	}

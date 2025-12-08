@@ -55,7 +55,7 @@ class JgiveControllerOrganizations extends AdminController
 	public function getOrganizations()
 	{
 		$app    = Factory::getApplication();
-		$search = $app->input->get('search', '', 'STRING');
+		$search = $app->getInput()->get('search', '', 'STRING');
 
 		BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_jgive/models');
 		$JGiveModelOrganizations = BaseDatabaseModel::getInstance("Organizations", 'JgiveModel', array("ignore_request" => true));
@@ -79,7 +79,7 @@ class JgiveControllerOrganizations extends AdminController
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
 		$model = $this->getModel('organizations');
-		$post  = Factory::getApplication()->input->post;
+		$post  = Factory::getApplication()->getInput()->post;
 
 		$organizationIdArray = $post->get('cid', '', 'Array');
 

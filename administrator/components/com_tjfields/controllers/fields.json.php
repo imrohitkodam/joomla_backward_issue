@@ -36,7 +36,7 @@ class TjfieldsControllerFields extends FormController
 		// Check for request forgeries.
 		Session::checkToken('get') or Session::checkToken() or Factory::getApplication()->close();
 		$app = Factory::getApplication();
-		$jinput = $app->input;
+		$jinput = $app->getInput();
 
 		$data = array();
 		$data['fileName'] = base64_decode($jinput->get('fileName', '', 'BASE64'));
@@ -79,7 +79,7 @@ class TjfieldsControllerFields extends FormController
 		(Session::checkToken() or Session::checkToken('get')) or Factory::getApplication()->close();
 
 		$app = Factory::getApplication('administrator');
-		$client = $app->input->get('client', '', 'STRING');
+		$client = $app->getInput()->get('client', '', 'STRING');
 
 		$fieldsModel = parent::getModel("Fields", "TjfieldsModel", array('ignore_request' => true));
 

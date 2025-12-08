@@ -52,7 +52,7 @@ class JlikeControllerAnnotations extends AdminController
 	public function saveOrderAjax()
 	{
 		// Get the input
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$pks   = $input->post->get('cid', array(), 'array');
 		$order = $input->post->get('order', array(), 'array');
 
@@ -86,7 +86,7 @@ class JlikeControllerAnnotations extends AdminController
 		$context = "com_jlike.annotations";
 
 		$commentRes = array();
-		$input      = Factory::getApplication()->input;
+		$input      = Factory::getApplication()->getInput();
 
 		$data = array();
 

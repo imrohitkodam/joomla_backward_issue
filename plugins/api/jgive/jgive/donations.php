@@ -33,7 +33,7 @@ class JgiveApiResourceDonations extends ApiResource
 	{
 		$resultArr      = new stdclass;
 		$user           = Factory::getUser();
-		$input          = Factory::getApplication()->input;
+		$input          = Factory::getApplication()->getInput();
 		$donationStatus = COM_JGIVE_CONSTANT_ORDER_STATUS_COMPLETED;
 		$fromDate       = $input->get('from_date', '', 'STRING');
 		$endDate        = $input->get('end_date', '', 'STRING');

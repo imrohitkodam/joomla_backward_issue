@@ -63,7 +63,7 @@ class TjfieldsController extends BaseController
 		}
 		
 		$app = Factory::getApplication();
-		$jinput = $app->input;
+		$jinput = $app->getInput();
 		$mediaLocal = TJMediaStorageLocal::getInstance();
 
 		// Here, fpht means file encoded name

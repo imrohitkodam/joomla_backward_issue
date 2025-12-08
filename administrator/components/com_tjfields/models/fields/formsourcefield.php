@@ -40,7 +40,7 @@ class JFormFieldformsourcefield extends FormField
 	{
 		$options = array();
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$currentClient = $input->get('client', '', "STRING");
 
 		$db    = Factory::getDbo();

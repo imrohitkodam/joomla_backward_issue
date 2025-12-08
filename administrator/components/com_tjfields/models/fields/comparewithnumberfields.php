@@ -49,7 +49,7 @@ class JFormFieldCompareWithNumberFields extends ListField
 	{
 		$options = array();
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$fieldId = $input->get('id', '', 'INT');
 		$currentClient = $input->get('client', '', "STRING");
 

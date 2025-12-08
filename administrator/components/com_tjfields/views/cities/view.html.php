@@ -47,7 +47,7 @@ class TjfieldsViewCities extends HtmlView
 		$this->pagination = $this->get('Pagination');
 		$this->filterForm = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
-		$this->input = Factory::getApplication()->input;
+		$this->input = Factory::getApplication()->getInput();
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -110,7 +110,7 @@ class TjfieldsViewCities extends HtmlView
 		require_once JPATH_COMPONENT . '/helpers/tjfields.php';
 
 		// Let's get the extension name
-		$client = Factory::getApplication()->input->get('client', '', 'STRING');
+		$client = Factory::getApplication()->getInput()->get('client', '', 'STRING');
 
 		$extention = explode('.', $client);
 

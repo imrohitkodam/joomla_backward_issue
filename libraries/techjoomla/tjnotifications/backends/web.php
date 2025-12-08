@@ -19,7 +19,7 @@ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_tjnotifications/models', 'NotificationsModel');
 BaseDatabaseModel::addIncludePath(JPATH_SITE . '/components/com_tjnotifications/models', 'NotificationsModel');
 
-jimport('techjoomla.tjnotifications.backend');
+if (!class_exists('TjNotificationBackend')) { require_once JPATH_LIBRARIES . '/techjoomla/tjnotifications/backend.php'; }
 
 /**
  * Tjnotifications class for web backend
@@ -110,8 +110,8 @@ class TjnotificationsBackendWeb extends TjnotificationsBackendBase
 	public function getSocialLibraryObject($integrationOption = '')
 	{
 		// Load main file
-		jimport('techjoomla.jsocial.jsocial');
-		jimport('techjoomla.jsocial.joomla');
+		if (!class_exists('JSocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jsocial.php'; }
+		if (!class_exists('JSocialJoomla')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/joomla.php'; }
 
 		if (!$integrationOption)
 		{
@@ -121,12 +121,12 @@ class TjnotificationsBackendWeb extends TjnotificationsBackendBase
 
 		if ($integrationOption == 'easysocial')
 		{
-			jimport('techjoomla.jsocial.easysocial');
+			if (!class_exists('JSocialEasysocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/easysocial.php'; }
 			$socialLibraryObject = new JSocialEasySocial;
 		}
 		elseif ($integrationOption == 'jomsocial')
 		{
-			jimport('techjoomla.jsocial.jomsocial');
+			if (!class_exists('JSocialJomsocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jomsocial.php'; }
 			$socialLibraryObject = new JSocialJomSocial;
 		}
 

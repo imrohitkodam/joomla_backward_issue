@@ -39,7 +39,7 @@ class JlikeApiResourceLikes extends ApiResource
 		$user  = $this->plugin->get('user');
 
 		$commentRes = array();
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		$data = array();
 
@@ -113,7 +113,7 @@ class JlikeApiResourceLikes extends ApiResource
 	 */
 	public function post()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->post;
 		$user  = $this->plugin->get('user');
 
@@ -193,7 +193,7 @@ class JlikeApiResourceLikes extends ApiResource
 	 */
 	public function delete()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$data = array();
 		$id = $input->get('id', '', 'INT');
 

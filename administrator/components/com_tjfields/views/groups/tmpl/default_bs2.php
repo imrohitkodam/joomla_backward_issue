@@ -39,7 +39,7 @@ $listOrder	= $this->state->get('list.ordering');
 $listDirn	= $this->state->get('list.direction');
 $canOrder	= $user->authorise('core.edit.state', 'com_tjfields');
 $saveOrder	= $listOrder == 'a.ordering';
-$input = Factory::getApplication()->input;
+$input = Factory::getApplication()->getInput();
 if ($saveOrder)
 {
 	$saveOrderingUrl = 'index.php?option=com_tjfields&task=groups.saveOrderAjax&tmpl=component';

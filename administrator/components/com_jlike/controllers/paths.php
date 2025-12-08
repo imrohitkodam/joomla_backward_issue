@@ -49,7 +49,7 @@ class JlikeControllerPaths extends AdminController
 	public function delete()
 	{
 		$modelDelete = ListModel::getInstance('Paths', 'JLikeModel', array('ignore_request' => true));
-		$cid = Factory::getApplication()->input->get('cid', array(), 'array');
+		$cid = Factory::getApplication()->getInput()->get('cid', array(), 'array');
 		$modelDelete->delete($cid);
 		parent::delete();
 	}

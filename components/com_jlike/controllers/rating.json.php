@@ -49,8 +49,8 @@ class JlikeControllerRating extends FormController
 		$table = $model->getTable();
 
 		// Get the user data.
-		$data = $app->input->get('jform', array(), 'array');
-		$data['rating'] = $app->input->get('rating', '0', 'int');
+		$data = $app->getInput()->get('jform', array(), 'array');
+		$data['rating'] = $app->getInput()->get('rating', '0', 'int');
 		$table->load(array('content_id' => $data['content_id'], 'submitted_by' => $data['submitted_by']));
 
 		if ($table->id)
@@ -115,7 +115,7 @@ class JlikeControllerRating extends FormController
 		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
 
 		$app = Factory::getApplication();
-		$data = $app->input->get('jform', array(), 'array');
+		$data = $app->getInput()->get('jform', array(), 'array');
 		$contentId = $data['content_id'];
 
 		if ($contentId && Factory::getUser()->id)

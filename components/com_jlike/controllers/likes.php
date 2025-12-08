@@ -50,7 +50,7 @@ class JLikeControllerlikes extends BaseController
 	public function delete()
 	{
 		$app   = Factory::getApplication();
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		// Get like ontent id
 		$cid = $input->get('cid', '', 'array');
@@ -100,7 +100,7 @@ class JLikeControllerlikes extends BaseController
 	public function updateNote()
 	{
 		$app   = Factory::getApplication();
-		$data  = $app->input->post->get('form', array(), 'array');
+		$data  = $app->getInput()->post->get('form', array(), 'array');
 		$model = $this->getModel('likes');
 
 		$data['user_id'] = Factory::getUser()->id;
@@ -130,7 +130,7 @@ class JLikeControllerlikes extends BaseController
 	{
 		$user         = Factory::getUser();
 		$app          = Factory::getApplication();
-		$post         = $app->input->post;
+		$post         = $app->getInput()->post;
 		$selectedLabs = $post->get('labelList', array(), 'ARRAY');
 		$content_id   = $post->get('content_id', '', 'INT');
 
@@ -151,7 +151,7 @@ class JLikeControllerlikes extends BaseController
 	public function mailMyLikes()
 	{
 		$app    = Factory::getApplication();
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 		$post   = $jinput->post;
 		$model  = $this->getModel('likes');
 

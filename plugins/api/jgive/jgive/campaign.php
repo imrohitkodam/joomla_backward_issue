@@ -32,7 +32,7 @@ class JgiveApiResourceCampaign extends ApiResource
 	 */
 	public function get()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$id = $input->getInt('id', 0);
 
 		$data = array();

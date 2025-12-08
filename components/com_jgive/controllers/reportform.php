@@ -45,7 +45,7 @@ class JgiveControllerReportform extends FormController
 		parent::cancel($key);
 		$jgiveFrontendHelper = new JgiveFrontendHelper;
 
-		$input          = Factory::getApplication()->input;
+		$input          = Factory::getApplication()->getInput();
 		$campaignId     = $input->get('cid', 0, 'INT');
 		$campaignItemId = $jgiveFrontendHelper->getItemId('index.php?option=com_jgive&view=campaign&layout=default&id=' . $campaignId);
 		$redirect       = Route::_('index.php?option=com_jgive&view=campaign&layout=default&id=' . $campaignId . '&Itemid=' . $campaignItemId, false);
@@ -174,7 +174,7 @@ class JgiveControllerReportform extends FormController
 	 */
 	public function add()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->post;
 		$cid   = $post->get('cid', 0, 'INT');
 

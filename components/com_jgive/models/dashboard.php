@@ -204,17 +204,17 @@ class JgiveModelDashboard extends BaseDatabaseModel
 		$user_id = $user->id;
 
 		$mainframe = Factory::getApplication();
-		$option = $mainframe->input->get('option', '', 'STRING');
+		$option = $mainframe->getInput()->get('option', '', 'STRING');
 
 		$filter_searchCamp = $mainframe->getUserStateFromRequest("$option.filter_search", 'filter_search', '', 'string');
 		$filter_dashboard_filters = $mainframe->getUserStateFromRequest("$option.dashboard_filters", 'dashboard_filters');
 
-		$filter_dashboard_categories = $mainframe->input->get('cat', '', 'INT');
+		$filter_dashboard_categories = $mainframe->getInput()->get('cat', '', 'INT');
 
 		$filter_categories = $filter_dashboard_categories;
-		$filter_dashboard_campStatus = $mainframe->input->get('campStatus');
-		$filter_dashboard_campType = $mainframe->input->get('campType');
-		$filter_dashboard_orgType = $mainframe->input->get('orgType');
+		$filter_dashboard_campStatus = $mainframe->getInput()->get('campStatus');
+		$filter_dashboard_campType = $mainframe->getInput()->get('campType');
+		$filter_dashboard_orgType = $mainframe->getInput()->get('orgType');
 
 		if ($filter_dashboard_filters)
 		{

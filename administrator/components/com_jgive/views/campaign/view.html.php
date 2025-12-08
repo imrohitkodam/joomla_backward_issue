@@ -153,7 +153,7 @@ class JGiveViewCampaign extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		// Hide Joomla Administrator Main menu
 		$input->set('hidemainmenu', true);

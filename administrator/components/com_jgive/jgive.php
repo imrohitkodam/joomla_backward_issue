@@ -123,5 +123,5 @@ require_once JPATH_COMPONENT . '/controller.php';
 
 // Execute the task.
 $controller = BaseController::getInstance('jgive');
-$controller->execute(Factory::getApplication()->input->get('task'));
+$controller->execute(Factory::getApplication()->getInput()->get('task'));
 $controller->redirect();

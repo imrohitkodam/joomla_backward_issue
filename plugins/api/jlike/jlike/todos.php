@@ -34,7 +34,7 @@ class JlikeApiResourceTodos extends ApiResource
 	 */
 	public function post()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->post;
 
 		$data = array();
@@ -133,7 +133,7 @@ class JlikeApiResourceTodos extends ApiResource
 	{
 		$model       = BaseDatabaseModel::getInstance('Recommendations', 'JlikeModel');
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$data['content_id']  = $input->get('content_id', '', 'INT');
 
 		$result = new stdClass;
@@ -208,7 +208,7 @@ class JlikeApiResourceTodos extends ApiResource
 	 */
 	public function delete()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		$data = array();
 		$data['id'] = $input->get('id', '', 'INT');

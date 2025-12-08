@@ -62,7 +62,7 @@ class TjfieldsViewGroup extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		$input           = Factory::getApplication()->input;
+		$input           = Factory::getApplication()->getInput();
 		$client          = $input->get('client', '', 'STRING');
 
 		$input->set('hidemainmenu', true);

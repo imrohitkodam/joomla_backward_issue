@@ -83,7 +83,7 @@ class JGiveViewIndividualForm extends BaseHtmlView
 	{
 		$app         = Factory::getApplication();
 		$this->user  = Factory::getUser();
-		$this->tmpl  = $app->input->get('tmpl', '', 'STRING');
+		$this->tmpl  = $app->getInput()->get('tmpl', '', 'STRING');
 
 		// Validate user login.
 		if (!$this->user->id)

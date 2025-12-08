@@ -37,7 +37,7 @@ class TjfieldsHelper extends ContentHelper
 	 */
 	public static function addSubmenu($view = '')
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$full_client = $input->get('client', '', 'STRING');
 		$full_client = explode('.', $full_client);
 
@@ -151,7 +151,7 @@ class TjfieldsHelper extends ContentHelper
 	public function generateXml($data)
 	{
 		$client = $data['client'];
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		$client = explode(".", $client);
 		$extension = $client[0];

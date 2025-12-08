@@ -19,7 +19,7 @@ $params     = new Registry;
 
 JLoader::import('components.com_jlike.models.todos', JPATH_SITE);
 
-$menu   = $this->app->getMenu();
+$menu   = $this->getApplication()->getMenu();
 $menuItem = $menu->getItems('link', 'index.php?option=com_jlike&view=pathusers', true);
 
 // Create path description based on path status

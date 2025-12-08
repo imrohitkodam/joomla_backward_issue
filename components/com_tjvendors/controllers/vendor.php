@@ -36,7 +36,7 @@ class TjvendorsControllerVendor extends FormController
 	public function __construct()
 	{
 		$this->view_list = 'vendors';
-		$this->input = Factory::getApplication()->input;
+		$this->input = Factory::getApplication()->getInput();
 
 		$this->vendor_client = $this->input->get('client', '', 'STRING');
 
@@ -98,8 +98,8 @@ class TjvendorsControllerVendor extends FormController
 		$model = $this->getModel('Vendor', 'TjvendorsModel');
 
 		// Get the user data.
-		$data = Factory::getApplication()->input->get('jform', array(), 'array');
-		$data['vendor_client'] = $app->input->get('client', '', 'STRING');
+		$data = Factory::getApplication()->getInput()->get('jform', array(), 'array');
+		$data['vendor_client'] = $app->getInput()->get('client', '', 'STRING');
 
 		$data['user_id'] = Factory::getUser()->id;
 
@@ -149,8 +149,8 @@ class TjvendorsControllerVendor extends FormController
 			$app->setUserState('com_tjvendors.edit.vendor.data', $data);
 
 			// Redirect back to the edit screen.
-			$id = $app->input->get('vendor_id', '', 'INTEGER');
-			$client = $app->input->get('client', '', 'STRING');
+			$id = $app->getInput()->get('vendor_id', '', 'INTEGER');
+			$client = $app->getInput()->get('client', '', 'STRING');
 
 			$this->setRedirect(Route::_('index.php?option=com_tjvendors&view=vendor&layout=editinfo&vendor_id=' . $id . '&client=' . $client, false));
 
@@ -167,7 +167,7 @@ class TjvendorsControllerVendor extends FormController
 			$app->setUserState('com_tjvendors.edit.vendor.data', $all_jform_data);
 
 			// Redirect back to the edit screen.
-			$client = $app->input->get('client', '', 'STRING');
+			$client = $app->getInput()->get('client', '', 'STRING');
 
 			$id = $app->getUserState('com_tjvendors.edit.vendor.data.vendor_id');
 			$this->setMessage(Text::sprintf('Save failed', $model->getError()), 'warning');
@@ -195,7 +195,7 @@ class TjvendorsControllerVendor extends FormController
 		$query->where($db->quoteName('user_id') . ' = ' . $user_id);
 		$db->setQuery($query);
 		$vendor_id = $db->loadColumn()[0] ?? null;
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		$client = $input->get('client', '', 'STRING');
 
@@ -233,7 +233,7 @@ class TjvendorsControllerVendor extends FormController
 	public function cancel($key=null)
 	{
 		$app = Factory::getApplication();
-		$input = $app->input;
+		$input = $app->getInput();
 		$data = $input->get('jform', array(), 'array');
 		$client = $input->get('client', '', 'STRING');
 
@@ -270,7 +270,7 @@ class TjvendorsControllerVendor extends FormController
 	 */
 	public function generateGatewayFields()
 	{
-		$input  = Factory::getApplication()->input->post;
+		$input  = Factory::getApplication()->getInput()->post;
 		$payment_gateway = $input->get('payment_gateway', '', 'STRING');
 		$parentTag = $input->get('parent_tag', '', 'STRING');
 		$vendor_id = $input->get('vendor_id', '', 'INTEGER');

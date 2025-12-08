@@ -263,10 +263,10 @@ if (!class_exists('comjlikeHelper'))
 				}
 				else
 				{
-					$jinput = Factory::getApplication()->input;
+					$jinput = Factory::getApplication()->getInput();
 					$itemid = $jinput->getInt('Itemid', 0);
 
-					// $itemid = JFactory::getApplication()->input->get('Itemid', 0);
+					// $itemid = JFactory::getApplication()->getInput()->get('Itemid', 0);
 				}
 			}
 
@@ -921,7 +921,7 @@ if (!class_exists('comjlikeHelper'))
 		public function addEntryJlikeInvitexRefTb($importEmail_id)
 		{
 			$db            = Factory::getDbo();
-			$jinput        = Factory::getApplication()->input;
+			$jinput        = Factory::getApplication()->getInput();
 			$res = array();
 			$res['status'] = 0;
 			$res['msg']    = Text::_('JLIKE_MISSING_CONTENT_IDS');
@@ -1382,7 +1382,7 @@ if (!class_exists('comjlikeHelper'))
 			$jinput = $mainframe->input;
 			$setdata = $jinput->get('request');
 
-			// $setdata       = JFactory::getApplication()->input->get('request');
+			// $setdata       = JFactory::getApplication()->getInput()->get('request');
 			$urldata = json_decode($setdata['data']);
 
 			require_once JPATH_SITE . '/' . 'components/com_jlike/helper.php';

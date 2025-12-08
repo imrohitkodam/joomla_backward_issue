@@ -65,7 +65,7 @@ class JlikeViewannotations extends HtmlView
 		$app = Factory::getApplication();
 		$input = $app->input;
 		Factory::getLanguage()->load('com_jomlike');
-		$layout = Factory::getApplication()->input->get('layout', 'default');
+		$layout = Factory::getApplication()->getInput()->get('layout', 'default');
 		$user = Factory::getUser();
 
 		if (1 == $user->guest)
@@ -161,7 +161,7 @@ class JlikeViewannotations extends HtmlView
 
 			// No target
 			$act->target = 0;
-			$act->title = '{actor} ' . Text::_(Factory::getApplication()->input->get('task') . '_VERB') . ' <a href="' . base64_decode($data['jomLikeUrl']) . '">'
+			$act->title = '{actor} ' . Text::_(Factory::getApplication()->getInput()->get('task') . '_VERB') . ' <a href="' . base64_decode($data['jomLikeUrl']) . '">'
 				. base64_decode($data['title']) . '</a>.';
 			$act->content = '';
 			$act->app = 'wall';

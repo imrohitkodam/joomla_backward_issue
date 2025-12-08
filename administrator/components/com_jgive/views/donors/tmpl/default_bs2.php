@@ -34,7 +34,7 @@ $sortFields  = $this->getSortFields();
 $jgivehelper = $this->jgiveFrontendHelper;
 $params      = ComponentHelper::getParams('com_jgive');
 ?>
-<form action="<?php echo Route::_('index.php?option=com_jgive&view=donors&layout=' . $this->input->get('layout', '', 'STRING')); ?>"
+<form action="<?php echo Route::_('index.php?option=com_jgive&view=donors&layout=' . Factory::getApplication()->getInput()->get('layout', '', 'STRING')); ?>"
 method="post" name="adminForm" id="adminForm">
 	<?php
 	if(!empty($this->sidebar))

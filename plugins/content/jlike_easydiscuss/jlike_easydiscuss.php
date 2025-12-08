@@ -24,14 +24,14 @@ class plgContentJLike_easydiscuss extends CMSPlugin {
 		if (!$app->isClient('site')) {
 			return;
 		}
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 		$view=$input->get('view','','STRING');
 
 		//Not to show anything related to commenting
 		$show_comments=-1;
 		$show_like_buttons=1;
 
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' =>$item->id, 'element' => $element, 'title' => $item->title, 'url' => $item_url,'plg_name'=>'jlike_easydiscuss','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons ) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' =>$item->id, 'element' => $element, 'title' => $item->title, 'url' => $item_url,'plg_name'=>'jlike_easydiscuss','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons ) ) );
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();
 		$html = $jlikehelperObj->showlike();
@@ -58,7 +58,7 @@ class plgContentJLike_easydiscuss extends CMSPlugin {
 		$show_comments = -1;
 
 
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $element_id, 'element' => $element, 'title' => $title, 'url' => $item_url,'plg_name'=>'jlike_easydiscuss','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons ) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $element_id, 'element' => $element, 'title' => $title, 'url' => $item_url,'plg_name'=>'jlike_easydiscuss','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons ) ) );
 
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();

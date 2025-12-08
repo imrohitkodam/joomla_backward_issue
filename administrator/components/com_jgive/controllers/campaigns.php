@@ -100,7 +100,7 @@ class JgiveControllerCampaigns extends JgiveControllerJgivelist
 		$app = Factory::getApplication();
 
 		$user   = Factory::getUser();
-		$ids    = $this->input->get('cid', array(), 'array');
+		$ids    = $this->getInput()->get('cid', array(), 'array');
 		$values = array('featured' => 1, 'unfeatured' => 0);
 		$task   = $this->getTask();
 		$value  = ArrayHelper::getValue($values, $task, 0, 'int');
@@ -165,7 +165,7 @@ class JgiveControllerCampaigns extends JgiveControllerJgivelist
 	public function publish()
 	{
 		$app   = Factory::getApplication();
-		$ids    = $this->input->get('cid', array(), 'array');
+		$ids    = $this->getInput()->get('cid', array(), 'array');
 		$values = array('publish' => 1, 'unpublish' => 0, 'archive' => 2, 'trash' => -2);
 		$task   = $this->getTask();
 		$value  = ArrayHelper::getValue($values, $task, 0, 'int');

@@ -18,7 +18,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 
-jimport('techjoomla.tjtoolbar.button.csvexport');
+if (!class_exists('TjtoolbarButtonCsvexport')) { require_once JPATH_LIBRARIES . '/techjoomla/tjtoolbar/button/csvexport.php'; }
 
 JLoader::import('campaigns', JPATH_ADMINISTRATOR . '/components/com_jgive/helpers');
 JLoader::import('campaign', JPATH_SITE . '/components/com_jgive/helpers');

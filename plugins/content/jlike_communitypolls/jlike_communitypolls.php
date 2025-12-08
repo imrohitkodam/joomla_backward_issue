@@ -56,7 +56,7 @@ class plgContentJLike_communitypolls extends CMSPlugin {
 			$show_comments=1;
 		}
 
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $element_id, 'element' => $element, 'title' => $title, 'url' => $item_url,'plg_name'=>'jlike_communitypolls','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons  ) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $element_id, 'element' => $element, 'title' => $title, 'url' => $item_url,'plg_name'=>'jlike_communitypolls','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons  ) ) );
 
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();

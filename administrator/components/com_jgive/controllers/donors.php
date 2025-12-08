@@ -55,7 +55,7 @@ class JGiveControllerDonors extends AdminController
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
 		$mainframe = Factory::getApplication();
-		$redirect  = $mainframe->input->get('view');
+		$redirect  = $mainframe->getInput()->get('view');
 
 		if (!class_exists('JgiveControllerDonations'))
 		{

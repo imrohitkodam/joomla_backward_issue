@@ -37,7 +37,7 @@ class JgiveControllerDonor extends JgiveController
 
 		// Get the previous edit id (if any) and the current edit id.
 		$previousId = (int) $app->getUserState('com_jgive.edit.donor.id');
-		$editId     = $app->input->getInt('id', 0);
+		$editId     = $app->getInput()->getInt('id', 0);
 
 		// Set the user id for the user to edit in the session.
 		$app->setUserState('com_jgive.edit.donor.id', $editId);
@@ -82,8 +82,8 @@ class JgiveControllerDonor extends JgiveController
 			$model = $this->getModel('Donor', 'JgiveModel');
 
 			// Get the user data.
-			$id    = $app->input->getInt('id');
-			$state = $app->input->getInt('state');
+			$id    = $app->getInput()->getInt('id');
+			$state = $app->getInput()->getInt('state');
 
 			// Attempt to save the data.
 			$return = $model->publish($id, $state);
@@ -141,7 +141,7 @@ class JgiveControllerDonor extends JgiveController
 			$model = $this->getModel('Donor', 'JgiveModel');
 
 			// Get the user data.
-			$id = $app->input->getInt('id', 0);
+			$id = $app->getInput()->getInt('id', 0);
 
 			// Attempt to save the data.
 			$return = $model->delete($id);

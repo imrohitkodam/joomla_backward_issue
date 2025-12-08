@@ -15,7 +15,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
 
-jimport('techjoomla.view.csv');
+if (!class_exists('TjCSVView')) { require_once JPATH_LIBRARIES . '/techjoomla/view/csv.php'; }
 
 /**
  * Csv

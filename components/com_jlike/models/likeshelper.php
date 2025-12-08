@@ -81,7 +81,7 @@ class JlikeModelLikesHelper extends ListModel
 	public function Likecontent_classification($user)
 	{
 		$mainframe = Factory::getApplication();
-		$input     = Factory::getApplication()->input;
+		$input     = Factory::getApplication()->getInput();
 		$layout    = $input->get('layout', 'default', 'STRING');
 		$db = Factory::getDBO();
 
@@ -275,7 +275,7 @@ class JlikeModelLikesHelper extends ListModel
 	 */
 	public function getLineChartValues()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->getArray($_POST);
 
 		if (isset($post['todate']))

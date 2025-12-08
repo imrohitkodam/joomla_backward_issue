@@ -121,7 +121,7 @@ else
 										<?php
 											// Minimum donation amount
 											$predefinedAmount = $minAmount = 0;
-											$campaignId = $this->input->get('cid', 0, 'INT');
+											$campaignId = Factory::getApplication()->getInput()->get('cid', 0, 'INT');
 
 											if (!empty( $cdata['campaign']->minimum_amount))
 											{
@@ -140,7 +140,7 @@ else
 													}
 												}
 											}
-											$campaignId = $this->input->get('cid', 0, 'INT');
+											$campaignId = Factory::getApplication()->getInput()->get('cid', 0, 'INT');
 											$allow_high_value_donation = $this->params->get('allow_high_value_donation');
 											$max_allow_high_donation_value = $this->params->get('max_allow_high_donation_value');
 
@@ -433,8 +433,8 @@ else
 				<input type="hidden" name="option" value="com_jgive" />
 				<input type="hidden" name="view" value="donations" />
 				<input type="hidden" name="task" value="donations.placeOrder" />
-				<input type="hidden" name="cid" value="<?php echo $this->input->get('cid', '', 'INT');?>" />
-				<input type="hidden" name="Itemid" value="<?php echo $this->input->get('Itemid', '', 'INT');?>"/>
+				<input type="hidden" name="cid" value="<?php echo Factory::getApplication()->getInput()->get('cid', '', 'INT');?>" />
+				<input type="hidden" name="Itemid" value="<?php echo Factory::getApplication()->getInput()->get('Itemid', '', 'INT');?>"/>
 				<input type="hidden" name="userid" id="userid" value="<?php echo !empty($this->user->id) ? $this->user->id : 0; ?>">
 				<input type="hidden" name="order_id" id="order_id" value="0" />
 				<input type="hidden" name="platform_fee" id="platform_fee_value" value="0" />
@@ -541,6 +541,6 @@ else
 	var givebackDetails = <?php echo !empty($this->campaignGivebacks) ? json_encode($this->campaignGivebacks, 1) : 0;?>;
 	var donationTermsCondition = <?php echo $this->params->get('terms_condition')?>;
 	var donationTermsConditionArticle = <?php echo $this->params->get('payment_terms_article')?>;
-	var cid = <?php echo $this->input->get('cid', 0, 'INT')?>;
+	var cid = <?php echo Factory::getApplication()->getInput()->get('cid', 0, 'INT')?>;
 	jgive.donations.init();
 </script>

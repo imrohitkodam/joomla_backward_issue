@@ -28,7 +28,7 @@ if(JVERSION >= '3.0')
 // Import CSS
 $document = Factory::getDocument();
 $document->addStyleSheet('components/com_tjfields/assets/css/tjfields.css');
-$input = Factory::getApplication()->input;
+$input = Factory::getApplication()->getInput();
 
 // Import helper for declaring language constant
 JLoader::import('TjfieldsHelper', Uri::root().'administrator/components/com_tjfields/helpers/tjfields.php');

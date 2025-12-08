@@ -16,9 +16,9 @@ use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Factory;
 use Joomla\Filesystem\Folder;
 
-jimport('techjoomla.jsocial');
-jimport('techjoomla.jsocial.helper');
-jimport('techjoomla.jsocial.jsocial');
+if (!class_exists('JSocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jsocial.php'; }
+if (!class_exists('JSocialHelper')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/helper.php'; }
+if (!class_exists('JSocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jsocial.php'; }
 
 /**
  * Interface to handle Social Extensions

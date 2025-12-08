@@ -76,7 +76,7 @@ class JLikeModelTypes extends ListModel
 		// Omit double (white-)spaces and set state
 		$this->setState('filter.search', preg_replace('/\s+/', ' ', $search ? $search : ''));
 
-		$orderCol = $app->input->get('filter_order', 'ASC');
+		$orderCol = $app->getInput()->get('filter_order', 'ASC');
 
 		if (!(in_array($orderCol, $this->filter_fields)))
 		{
@@ -84,7 +84,7 @@ class JLikeModelTypes extends ListModel
 		}
 
 		$this->setState('list.ordering', $orderCol);
-		$listOrder = $app->input->get('filter_order_Dir', 'ASC');
+		$listOrder = $app->getInput()->get('filter_order_Dir', 'ASC');
 
 		if (!in_array(strtoupper($listOrder), array('ASC', 'DESC', '')))
 		{

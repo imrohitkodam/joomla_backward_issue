@@ -63,20 +63,20 @@ class JLikeModelPathDetail extends FormModel
 	protected function populateState()
 	{
 		// Load state from the request userState on edit or from the passed variable on default
-		if ($this->app->input->get('layout') == 'edit')
+		if ($this->getApplication()->getInput()->get('layout') == 'edit')
 		{
-			$id = $this->app->getUserState('com_jlike.edit.path.path_id');
+			$id = $this->getApplication()->getUserState('com_jlike.edit.path.path_id');
 		}
 		else
 		{
-			$id = $this->app->input->get('path_id');
-			$this->app->setUserState('com_jlike.edit.path.path_id', $id);
+			$id = $this->getApplication()->getInput()->get('path_id');
+			$this->getApplication()->setUserState('com_jlike.edit.path.path_id', $id);
 		}
 
 		$this->setState('path.path_id', $id);
 
 		// Load the parameters.
-		$params = $this->app->getParams();
+		$params = $this->getApplication()->getParams();
 
 		$this->setState('params', $params);
 	}

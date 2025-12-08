@@ -30,7 +30,7 @@ $userId    = $user->get('id');
 $listOrder = $this->state->get('list.ordering');
 $listDirn  = $this->state->get('list.direction');
 $canOrder  = $user->authorise('core.edit.state', 'com_tjvendors');
-$input     = Factory::getApplication()->input;
+$input     = Factory::getApplication()->getInput();
 $client    = $input->get('client', '', 'STRING');
 ?>
 <script type="text/javascript">

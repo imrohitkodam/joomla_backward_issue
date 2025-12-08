@@ -62,7 +62,7 @@ class JgiveViewCampaigns extends HtmlView
 	{
 		$app    = Factory::getApplication();
 		$user   = Factory::getUser();
-		$layout = $app->input->get('layout');
+		$layout = $app->getInput()->get('layout');
 
 		if (!Factory::getUser($user->id)->authorise('core.manage', 'com_jgive'))
 		{

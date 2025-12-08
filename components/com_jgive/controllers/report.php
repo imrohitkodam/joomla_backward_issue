@@ -40,7 +40,7 @@ class JgiveControllerReport extends AdminController
 	 */
 	public function view()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$reportId   = $input->get('id', '0', 'INT');
 
 		Table::addIncludePath(JPATH_ROOT . '/administrator/components/com_jgive/tables');
@@ -66,8 +66,8 @@ class JgiveControllerReport extends AdminController
 		// CSRF token check
 		Session::checkToken('get') or Factory::getApplication()->close();
 		$app      = Factory::getApplication();
-		$clientId = $app->input->get('reportId', '', 'INT');
-		$mediaId  = $app->input->get('id', '', 'INT');
+		$clientId = $app->getInput()->get('reportId', '', 'INT');
+		$mediaId  = $app->getInput()->get('id', '', 'INT');
 
 		$params = ComponentHelper::getParams('com_jgive');
 

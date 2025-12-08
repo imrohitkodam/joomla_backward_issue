@@ -80,7 +80,7 @@ class JgiveModelorders extends ListModel
 
 		parent::populateState($ordering, $direction);
 
-		$listlimit = $app->input->get('limit', '20', 'INT');
+		$listlimit = $app->getInput()->get('limit', '20', 'INT');
 
 		$this->setState('list.limit', $listlimit);
 	}

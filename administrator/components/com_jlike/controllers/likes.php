@@ -35,7 +35,7 @@ class JlikeControllerLikes extends AdminController
 		Jsession::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
 
 		// Get id(s)
-		$pks = $this->input->post->get('cid', array(), 'array');
+		$pks = $this->getInput()->post->get('cid', array(), 'array');
 
 		try
 		{
@@ -85,7 +85,7 @@ class JlikeControllerLikes extends AdminController
 	public function saveOrderAjax()
 	{
 		// Get the input
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$pks   = $input->post->get('cid', array(), 'array');
 		$order = $input->post->get('order', array(), 'array');
 

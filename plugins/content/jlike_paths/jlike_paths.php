@@ -35,7 +35,7 @@ class PlgContentJLike_Paths extends CMSPlugin
 	public function onContentBeforeDisplay($context, &$row, &$params, $page = 0)
 	{
 		$app   = Factory::getApplication();
-		$view  = $app->input->get('view');
+		$view  = $app->getInput()->get('view');
 
 		$parsePathPreDesc = array('#({pathprogress.*?}).*?({/pathprogress})#', '#({pathcomplete.*?}).*?({/pathcomplete})#');
 		$parsePathProgressDesc = array('#({pathpre.*?}).*?({/pathpre})#', '#({pathcomplete.*?}).*?({/pathcomplete})#');

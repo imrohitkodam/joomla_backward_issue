@@ -30,7 +30,7 @@ class JgiveController extends BaseController
 	 */
 	public function refreshDashboard()
 	{
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 
 		$fromDate = $jinput->get('fromDate', '', 'STRING');
 
@@ -69,9 +69,9 @@ class JgiveController extends BaseController
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
-		$view = Factory::getApplication()->input->getCmd('view', 'campaigns');
+		$view = Factory::getApplication()->getInput()->getCmd('view', 'campaigns');
 
-		Factory::getApplication()->input->set('view', $view);
+		Factory::getApplication()->getInput()->set('view', $view);
 
 		parent::display($cachable, $urlparams);
 

@@ -19,7 +19,7 @@ class JLikeModelJLike extends BaseDatabaseModel {
 	function __construct() {
 		parent::__construct ();
 
-		$array = Factory::getApplication()->input->get('cid', 0, 'array');
+		$array = Factory::getApplication()->getInput()->get('cid', 0, 'array');
 		$this->setId ( ( int ) $array [0] );
 	}
 
@@ -48,7 +48,7 @@ class JLikeModelJLike extends BaseDatabaseModel {
 	}
 
 	function store() {
-		$id = Factory::getApplication()->input->get ('published', 0);
+		$id = Factory::getApplication()->getInput()->get ('published', 0);
 
 		// This looks dumb, but joomla wouldn't allow me to chain them.
 		$sql = "UPDATE `#__jlike` set published=0";
@@ -62,7 +62,7 @@ class JLikeModelJLike extends BaseDatabaseModel {
 	}
 
 	function delete() {
-		$id = Factory::getApplication()->input->get('published', 0);
+		$id = Factory::getApplication()->getInput()->get('published', 0);
 		$row =  $this->getTable ();
 
 		if (! $row->delete ( $id )) {

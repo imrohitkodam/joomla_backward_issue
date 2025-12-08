@@ -59,7 +59,7 @@ class TjvendorsViewVendor extends HtmlView
 		$this->item  = $this->get('Item');
 		$this->form  = $this->get('Form');
 		$this->params = ComponentHelper::getParams('com_tjvendors');
-		$this->input = Factory::getApplication()->input;
+		$this->input = Factory::getApplication()->getInput();
 		Text::script('COM_TJVENDOR_DUPLICARE_VENDOR_ERROR');
 		Text::script('COM_TJVENDOR_PAYMENTGATEWAY_NO_FIELD_MESSAGE');
 		Text::script('COM_TJVENDOR_USER_ERROR');
@@ -123,12 +123,12 @@ class TjvendorsViewVendor extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		Factory::getApplication()->input->set('hidemainmenu', true);
+		Factory::getApplication()->getInput()->set('hidemainmenu', true);
 
 		$user  = Factory::getUser();
 		$isNew = ($this->item->vendor_id == 0);
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$this->full_client = $input->get('client', '', 'STRING');
 
 		if ($isNew)

@@ -65,8 +65,8 @@ class JlikeViewlikes extends HtmlView
 		global $option, $mainframe;
 		$mainframe = Factory::getApplication();
 		$this->params = ComponentHelper::getParams('com_jlike');
-		$jinput = Factory::getApplication()->input;
-		$layout    = Factory::getApplication()->input->get('layout', 'default');
+		$jinput = Factory::getApplication()->getInput();
+		$layout    = Factory::getApplication()->getInput()->get('layout', 'default');
 		$user = Factory::getUser();
 		$this->comjlikeHelper = new comjlikeHelper;
 
@@ -82,7 +82,7 @@ class JlikeViewlikes extends HtmlView
 				}
 				else
 				{
-					$uri = Factory::getApplication()->input->get('REQUEST_URI', '', 'server', 'string');
+					$uri = Factory::getApplication()->getInput()->get('REQUEST_URI', '', 'server', 'string');
 				}
 
 				$url = base64_encode($uri);

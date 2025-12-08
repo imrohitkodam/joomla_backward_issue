@@ -247,7 +247,7 @@ class JgiveViewOrganizations extends BaseHtmlView
 	protected function addTJtoolbar()
 	{
 		// Add toolbar buttons
-		jimport('techjoomla.tjtoolbar.toolbar');
+		if (!class_exists('TjToolbar')) { require_once JPATH_LIBRARIES . '/techjoomla/tjtoolbar/toolbar.php'; }
 		$tjbar = TToolbar::getInstance('tjtoolbar', 'pull-right');
 		$smallBtnClassName = (JGIVE_LOAD_BOOTSTRAP_VERSION == 'bs3') ? 'btn-small' : 'btn-sm';
 

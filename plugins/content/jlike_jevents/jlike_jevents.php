@@ -38,7 +38,7 @@ class plgContentjlike_jevents extends CMSPlugin {
 		}
 
 		$route=Uri::getInstance()->toString();
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 		$cont_id=$input->get('evid','','INT');
 		$task=$input->get('task','','STRING');
 		$option=$input->get('option','','STRING');
@@ -67,7 +67,7 @@ class plgContentjlike_jevents extends CMSPlugin {
 
 				$element	=	$option.'.icalevent.detail';
 
-				Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $eventTitle, 'url' => $route,'plg_name'=>'jlike_jevents','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons ) ) );
+				Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $eventTitle, 'url' => $route,'plg_name'=>'jlike_jevents','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons ) ) );
 
 				require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 				$jlikehelperObj=new comjlikeHelper();
@@ -91,7 +91,7 @@ class plgContentjlike_jevents extends CMSPlugin {
 		}
 
 		$route=Uri::getInstance()->toString();
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 		$cont_id=$input->get('evid','','INT');
 		$task=$input->get('task','','STRING');
 		$option=$input->get('option','','STRING');
@@ -133,7 +133,7 @@ class plgContentjlike_jevents extends CMSPlugin {
 				$eventData = $queryModel->listEventsById($cont_id, 1, "icaldb");
 				$eventTitle = isset($eventData->_title) ? $eventData->_title : '';
 
-				Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $eventTitle, 'url' => $route,'plg_name'=>'jlike_jevents','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons ) ) );
+				Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $eventTitle, 'url' => $route,'plg_name'=>'jlike_jevents','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons ) ) );
 
 				require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 				$jlikehelperObj=new comjlikeHelper();

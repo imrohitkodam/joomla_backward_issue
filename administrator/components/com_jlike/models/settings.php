@@ -20,7 +20,7 @@ class JLikeModelSettings extends BaseDatabaseModel
 	{
 		parent::__construct();
 
-		$array = Factory::getApplication()->input->get('cid', 0, 'array');
+		$array = Factory::getApplication()->getInput()->get('cid', 0, 'array');
 		$this->setId((int) $array[0]);
 	}
 
@@ -55,7 +55,7 @@ class JLikeModelSettings extends BaseDatabaseModel
 
 	public function store()
 	{
-		$post = Factory::getApplication()->input->post->getArray();
+		$post = Factory::getApplication()->getInput()->post->getArray();
 
 		if ($post)
 		{
@@ -64,7 +64,7 @@ class JLikeModelSettings extends BaseDatabaseModel
 			$db->setQuery($query);
 			$config_rows = $db->loadResultArray();
 
-			$jlike_config = Factory::getApplication()->input->post->get('config', '', 'string');
+			$jlike_config = Factory::getApplication()->getInput()->post->get('config', '', 'string');
 
 			foreach ($jlike_config as $k => $v)
 			{
@@ -99,7 +99,7 @@ class JLikeModelSettings extends BaseDatabaseModel
 
 	public function delete()
 	{
-		$id  = Factory::getApplication()->input->get('published', 0);
+		$id  = Factory::getApplication()->getInput()->get('published', 0);
 		$row = $this->getTable();
 
 		if (!$row->delete($id))

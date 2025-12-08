@@ -38,7 +38,7 @@ class JgiveViewCampaign extends HtmlView
 	public function display($tpl = null)
 	{
 		$mainframe            = Factory::getApplication();
-		$callback             = Factory::getApplication()->input->get('callback', '');
+		$callback             = Factory::getApplication()->getInput()->get('callback', '');
 		$this->campaignHelper = new campaignHelper;
 
 		// Get logged in user id
@@ -54,7 +54,7 @@ class JgiveViewCampaign extends HtmlView
 		$this->admin_approval         = $params->get('admin_approval');
 
 		// Create is a default layout
-		$layout = Factory::getApplication()->input->get('layout', 'create');
+		$layout = Factory::getApplication()->getInput()->get('layout', 'create');
 		$this->setLayout($layout);
 
 		// Create jgive helper object

@@ -165,8 +165,8 @@ class TjvendorsTablevendor extends Table
 		}
 
 		$app = Factory::getApplication();
-		$files = $app->input->files->get('jform', array(), 'raw');
-		$array = $app->input->get('jform', array(), 'ARRAY');
+		$files = $app->getInput()->files->get('jform', array(), 'raw');
+		$array = $app->getInput()->get('jform', array(), 'ARRAY');
 
 		if (! empty($files['vendor_logo']))
 		{

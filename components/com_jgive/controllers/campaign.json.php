@@ -15,7 +15,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Response\JsonResponse;
 
-jimport('techjoomla.common');
+if (!class_exists('TechjoomlaCommon')) { require_once JPATH_LIBRARIES . '/techjoomla/common.php'; }
 
 if (file_exists(JPATH_SITE . '/components/com_jgive/helpers/campaign.php')) {
 	require_once JPATH_SITE . '/components/com_jgive/helpers/campaign.php';
@@ -37,7 +37,7 @@ class JGiveControllerCampaign extends JGiveController
 	 */
 	public function getCampaignGraphData()
 	{
-		$input            = Factory::getApplication()->input;
+		$input            = Factory::getApplication()->getInput();
 		$techjoomlacommon = new TechjoomlaCommon;
 		$lastTwelveMonth  = $techjoomlacommon->getLastTwelveMonths();
 		$campaignHelper   = new CampaignHelper;
@@ -234,7 +234,7 @@ class JGiveControllerCampaign extends JGiveController
 	public function getState()
 	{
 		$jgiveFrontendHelper = new jgiveFrontendHelper;
-		$country             = $this->input->get('country', '', 'INT');
+		$country             = $this->getInput()->get('country', '', 'INT');
 		$defaultState        = array("id" => 0, "region" => Text::_('COM_JGIVE_STATE'),"region_text" => Text::_('COM_JGIVE_STATE'));
 
 		// Use helper file function
@@ -257,7 +257,7 @@ class JGiveControllerCampaign extends JGiveController
 	public function getCity()
 	{
 		$jgiveFrontendHelper = new jgiveFrontendHelper;
-		$country             = $this->input->get('country', '', 'INT');
+		$country             = $this->getInput()->get('country', '', 'INT');
 		$defaultCity         = array("id" => 0, "city" => Text::_('COM_JGIVE_CITY'),"city_text" => Text::_('COM_JGIVE_CITY'));
 
 		// Use helper file function
@@ -280,7 +280,7 @@ class JGiveControllerCampaign extends JGiveController
 	 */
 	public function showMoreDonors()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->post;
 		$cid         = $post->get('cid', '', 'INT');
 		$jgive_index = $post->get('jgive_index', '', 'INT');

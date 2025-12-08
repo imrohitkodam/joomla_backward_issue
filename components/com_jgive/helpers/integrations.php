@@ -54,23 +54,23 @@ class JgiveIntegrationsHelper
 		{
 			if ($socialIntegrationOption == 'joomla')
 			{
-				jimport('techjoomla.jsocial.joomla');
+				if (!class_exists('JSocialJoomla')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/joomla.php'; }
 			}
 			elseif ($socialIntegrationOption == 'jomsocial')
 			{
-				jimport('techjoomla.jsocial.jomsocial');
+				if (!class_exists('JSocialJomsocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jomsocial.php'; }
 			}
 			elseif ($socialIntegrationOption == 'easySocial')
 			{
-				jimport('techjoomla.jsocial.easysocial');
+				if (!class_exists('JSocialEasysocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/easysocial.php'; }
 			}
 			elseif($socialIntegrationOption == 'cb')
 			{
-				jimport('techjoomla.jsocial.cb');
+				if (!class_exists('JSocialCb')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/cb.php'; }
 			}
 			elseif($socialIntegrationOption == 'jomwall')
 			{
-				jimport('techjoomla.jsocial.jomwall');
+				if (!class_exists('JSocialJomwall')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jomwall.php'; }
 			}
 		}
 	}

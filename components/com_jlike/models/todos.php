@@ -156,21 +156,21 @@ class JLikeModelTodos extends ListModel
 		$end = $app->getUserStateFromRequest($this->context . '.filter.end', 'filter_end', '', 'string');
 		$this->setState('filter.end', $end);
 
-		$ordering = $app->input->get('filter_order');
+		$ordering = $app->getInput()->get('filter_order');
 
 		if (!empty($ordering))
 		{
 			$list             = $app->getUserState($this->context . '.list');
-			$list['ordering'] = $app->input->get('filter_order');
+			$list['ordering'] = $app->getInput()->get('filter_order');
 			$app->setUserState($this->context . '.list', $list);
 		}
 
-		$orderingDirection = $app->input->get('filter_order_Dir');
+		$orderingDirection = $app->getInput()->get('filter_order_Dir');
 
 		if (!empty($orderingDirection))
 		{
 			$list              = $app->getUserState($this->context . '.list');
-			$list['direction'] = $app->input->get('filter_order_Dir');
+			$list['direction'] = $app->getInput()->get('filter_order_Dir');
 			$app->setUserState($this->context . '.list', $list);
 		}
 
@@ -215,7 +215,7 @@ class JLikeModelTodos extends ListModel
 
 		if (empty($path_id))
 		{
-			$path_id = $app->input->get('path_id');
+			$path_id = $app->getInput()->get('path_id');
 		}
 
 		$user_id = $this->getState('filter.assigned_to');

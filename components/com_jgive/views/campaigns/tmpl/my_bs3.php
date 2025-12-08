@@ -20,7 +20,7 @@ use Joomla\CMS\Router\Route;
 HTMLHelper::_('behavior.multiselect'); // only for list tables
 
 
-$sortDirection       = Factory::getApplication()->input->get('filter_order_Dir', 'desc', 'STRING');
+$sortDirection       = Factory::getApplication()->getInput()->get('filter_order_Dir', 'desc', 'STRING');
 $campaignHelper      = new campaignHelper;
 $jgiveFrontendHelper = new jgiveFrontendHelper;
 

@@ -39,7 +39,7 @@ class TjfieldsViewFields extends HtmlView
 	 */
 	public function display($tpl = null)
 	{
-		$input           = Factory::getApplication()->input;
+		$input           = Factory::getApplication()->getInput();
 		$client          = $input->get('client', '', 'STRING');
 
 		$this->state      = $this->get('State');
@@ -73,7 +73,7 @@ class TjfieldsViewFields extends HtmlView
 	protected function addToolbar()
 	{
 		require_once JPATH_COMPONENT . '/helpers/tjfields.php';
-		$input           = Factory::getApplication()->input;
+		$input           = Factory::getApplication()->getInput();
 		$client          = $input->get('client', '', 'STRING');
 		$client          = explode('.', $client);
 		$component_title = '';

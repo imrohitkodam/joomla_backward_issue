@@ -51,7 +51,7 @@ class FormRuleGreaterThan extends NumberRule
 			return false;
 		}
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$recordId = $input->get('recordid', '', 'INT');
 
 		$test = '';

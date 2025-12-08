@@ -56,7 +56,7 @@ class JgiveViewIndividual extends HtmlView
 
 		$this->params          = ComponentHelper::getParams('com_jgive');
 		$this->default_country = $this->params->get('default_country');
-		$this->tmpl            = $app->input->get('tmpl', '', 'STRING');
+		$this->tmpl            = $app->getInput()->get('tmpl', '', 'STRING');
 		$this->user            = Factory::getUser();
 		$jgiveFrontendHelper = new jgiveFrontendHelper;
 		$this->countries     = $jgiveFrontendHelper->getCountries();
@@ -79,7 +79,7 @@ class JgiveViewIndividual extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		// Hide Joomla Administrator Main menu
 		$input->set('hidemainmenu', true);

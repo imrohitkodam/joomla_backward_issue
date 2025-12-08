@@ -45,8 +45,8 @@ class JGiveControllerIndividuals extends BaseController
 			return;
 			}
 
-			$search   = $app->input->get('search', '', 'STRING');
-			$vendorId = $app->input->get('vendorId', 0, 'INTEGER');
+			$search   = $app->getInput()->get('search', '', 'STRING');
+			$vendorId = $app->getInput()->get('vendorId', 0, 'INTEGER');
 			BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_jgive/models/');
 			$JGiveModelIndividuals = BaseDatabaseModel::getInstance('Individuals', 'JgiveModel');
 			$JGiveModelIndividuals->setState("search", $search);

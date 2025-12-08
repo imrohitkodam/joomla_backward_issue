@@ -55,7 +55,7 @@ class JgiveControllerJgivelist extends AdminController
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
 
-		$cid = Factory::getApplication()->input->get('cid', array(), 'array');
+		$cid = Factory::getApplication()->getInput()->get('cid', array(), 'array');
 
 		$data = array(
 			'publish' => 1,
@@ -162,7 +162,7 @@ class JgiveControllerJgivelist extends AdminController
 		Session::checkToken() or Factory::getApplication()->close();
 
 		// Get items to remove from the request.
-		$cid = Factory::getApplication()->input->get('cid', array(), 'array');
+		$cid = Factory::getApplication()->getInput()->get('cid', array(), 'array');
 
 		// Get called controller name
 		$controllerName = get_called_class();
@@ -233,7 +233,7 @@ class JgiveControllerJgivelist extends AdminController
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
 
-		$cid = Factory::getApplication()->input->get('cid', array(), 'array');
+		$cid = Factory::getApplication()->getInput()->get('cid', array(), 'array');
 		$data = array(
 			'featured' => 1,
 			'unfeatured' => 0
@@ -320,7 +320,7 @@ class JgiveControllerJgivelist extends AdminController
 		Session::checkToken() or Factory::getApplication()->close();
 
 		// Get the input
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$pks = $input->post->get('cid', array(), 'array');
 		$order = $input->post->get('order', array(), 'array');
 

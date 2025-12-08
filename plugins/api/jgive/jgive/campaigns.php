@@ -33,7 +33,7 @@ class JgiveApiResourceCampaigns extends ApiResource
 	public function get()
 	{
 		$user = Factory::getUser();
-		$input    = Factory::getApplication()->input;
+		$input    = Factory::getApplication()->getInput();
 		$result = new stdClass;
 		$result->results = array();
 		$result->empty_message = '';

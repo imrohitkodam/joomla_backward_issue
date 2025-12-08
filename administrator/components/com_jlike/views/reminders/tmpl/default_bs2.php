@@ -21,7 +21,7 @@ HTMLHelper::_('behavior.multiselect');
 HTMLHelper::_('behavior.multiselect'); // only for list tables
 
 
-$input = Factory::getApplication()->input;
+$input = Factory::getApplication()->getInput();
 // Import CSS
 $document = Factory::getDocument();
 //~ $document->addStyleSheet(JUri::root() . 'administrator/components/com_jlike/assets/css/jlike.css');

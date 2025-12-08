@@ -28,7 +28,7 @@ $params     = new Registry;
 $lang = Factory::getLanguage();
 $lang->load('com_jlike', JPATH_SITE);
 
-$menu   = $this->app->getMenu();
+$menu   = $this->getApplication()->getMenu();
 $menuItem = $menu->getItems('link', 'index.php?option=com_jlike&view=pathusers', true);
 
 if (count($this->items) == 0)

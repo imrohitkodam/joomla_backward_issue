@@ -32,7 +32,7 @@ class jlikeControllerElement_config extends FormController
 
 	function cancel()
 	{
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
  		switch ($input->get('task'))
 		{
 			case 'cancel':

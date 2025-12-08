@@ -17,7 +17,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Response\JsonResponse;
 use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 
-jimport('techjoomla.tjnotifications.tjnotifications');
+if (!class_exists('TjNotifications')) { require_once JPATH_LIBRARIES . '/techjoomla/tjnotifications/tjnotifications.php'; }
 if (file_exists(JPATH_SITE . '/components/com_jlike/models/pathuser.php')) {
 	require_once JPATH_SITE . '/components/com_jlike/models/pathuser.php';
 }
@@ -56,7 +56,7 @@ class JlikeControllerPathUser extends BaseController
 	public function __construct()
 	{
 		$this->app = Factory::getApplication();
-		$jinput = $this->app->input;
+		$jinput = $this->getApplication()->input;
 		$this->path_id  = $jinput->get('path_id');
 		$this->userId  = $jinput->get('user_id');
 		$this->status  = $jinput->get('status');
@@ -108,7 +108,7 @@ class JlikeControllerPathUser extends BaseController
 	 */
 	public function save($key = null, $urlVar = null)
 	{
-		$menu     = $this->app->getMenu();
+		$menu     = $this->getApplication()->getMenu();
 		$menuItem = $menu->getItems('link', 'index.php?option=com_jlike&view=pathdetail&path_id=' . $this->path_id, true);
 
 		$link['link'] = Route::_('index.php?option=com_jlike&view=pathdetail&path_id=' . $this->path_id . '&Itemid=' . $menuItem->id, false);
@@ -131,7 +131,7 @@ class JlikeControllerPathUser extends BaseController
 			{
 				$this->response = Text::_('JERROR_ALERTNOAUTHOR');
 
-				$this->redirectMsg = $this->app->enqueueMessage(Text::_('JERROR_ALERTNOAUTHOR'), 'error');
+				$this->redirectMsg = $this->getApplication()->enqueueMessage(Text::_('JERROR_ALERTNOAUTHOR'), 'error');
 
 				$redirectUrl = 'index.php';
 			}
@@ -151,8 +151,8 @@ class JlikeControllerPathUser extends BaseController
 		}
 		else
 		{
-			$this->app->enqueueMessage($this->redirectMsg);
-			$this->app->redirect($redirectUrl);
+			$this->getApplication()->enqueueMessage($this->redirectMsg);
+			$this->getApplication()->redirect($redirectUrl);
 		}
 	}
 
@@ -178,7 +178,7 @@ class JlikeControllerPathUser extends BaseController
 		// Check access for self approval
 		if (($this->userId && $pathParams->core->approval === 'self') || $canCompletePath)
 		{
-			$menu   = $this->app->getMenu();
+			$menu   = $this->getApplication()->getMenu();
 			$pathUserModel = BaseDatabaseModel::getInstance('PathUser', 'JLikeModel');
 			$pathUserDetails = $pathUserModel->getPathUserDetails($this->path_id, $this->userId);
 			$data['path_user_id'] = $pathUserDetails->path_user_id;
@@ -236,8 +236,8 @@ class JlikeControllerPathUser extends BaseController
 			}
 			else
 			{
-				$this->app->enqueueMessage($redirectMsg);
-				$this->app->redirect($redirectUrl);
+				$this->getApplication()->enqueueMessage($redirectMsg);
+				$this->getApplication()->redirect($redirectUrl);
 			}
 		}
 	}

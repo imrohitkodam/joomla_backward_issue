@@ -26,7 +26,7 @@ class jlikeModelElement_config extends BaseDatabaseModel
 
 		if (JVERSION < 3.0)
 		{
-			$config = $app->input->post->get('data', '', 'array');
+			$config = $app->getInput()->post->get('data', '', 'array');
 		}
 		else
 		{

@@ -14,7 +14,7 @@ use Joomla\Filesystem\File;
 use Joomla\CMS\User\User;
 use Joomla\CMS\Router\Route;
 
-jimport('techjoomla.jsocial.jsocial');
+if (!class_exists('JSocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jsocial.php'; }
 
 /**
  * Interface to handle Social Extensions

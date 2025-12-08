@@ -35,7 +35,7 @@ class JlikeControllerReminders extends AdminController
 		// Check for request forgeries
 		Session::checkToken() or jexit(Text::_('JINVALID_TOKEN'));
 
-		$pks = $this->input->post->get('cid', array(), 'array');
+		$pks = $this->getInput()->post->get('cid', array(), 'array');
 		ArrayHelper::toInteger($pks);
 
 		try
@@ -55,7 +55,7 @@ class JlikeControllerReminders extends AdminController
 		}
 
 		// Overrride the redirect Uri.
-		$redirectUri = 'index.php?option=' . $this->option . '&view=' . $this->view_list . '&extension=' . $this->input->get('extension', '', 'CMD');
+		$redirectUri = 'index.php?option=' . $this->option . '&view=' . $this->view_list . '&extension=' . $this->getInput()->get('extension', '', 'CMD');
 		$this->setRedirect(Route::_($redirectUri, false), $this->message, $this->messageType);
 	}
 
@@ -87,7 +87,7 @@ class JlikeControllerReminders extends AdminController
 	public function saveOrderAjax()
 	{
 		// Get the input
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$pks   = $input->post->get('cid', array(), 'array');
 		$order = $input->post->get('order', array(), 'array');
 
@@ -125,7 +125,7 @@ class JlikeControllerReminders extends AdminController
 		$result = parent::checkin();
 
 		// Overrride the redirect Uri.
-		$redirectUri = 'index.php?option=' . $this->option . '&view=' . $this->view_list . '&extension=' . $this->input->get('extension', '', 'CMD');
+		$redirectUri = 'index.php?option=' . $this->option . '&view=' . $this->view_list . '&extension=' . $this->getInput()->get('extension', '', 'CMD');
 		$this->setRedirect(Route::_($redirectUri, false), $this->message, $this->messageType);
 
 		return $result;

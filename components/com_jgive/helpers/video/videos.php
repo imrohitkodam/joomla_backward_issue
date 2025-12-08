@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 use Joomla\CMS\Factory;
 use Joomla\Filesystem\File;
 
-jimport('techjoomla.tjmedia.media');
+if (!class_exists('TjMedia')) { require_once JPATH_LIBRARIES . '/techjoomla/tjmedia/media.php'; }
 
 /**
  * JgiveModelVideos for campaign

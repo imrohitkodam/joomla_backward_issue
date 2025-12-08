@@ -39,8 +39,8 @@ class JlikeController extends BaseController
 	{
 		require_once JPATH_COMPONENT . '/helpers/jlike.php';
 
-		$view = Factory::getApplication()->input->getCmd('view', 'dashboard');
-		Factory::getApplication()->input->set('view', $view);
+		$view = Factory::getApplication()->getInput()->getCmd('view', 'dashboard');
+		Factory::getApplication()->getInput()->set('view', $view);
 
 		parent::display($cachable, $urlparams);
 
@@ -78,7 +78,7 @@ class JlikeController extends BaseController
 	public function add()
 	{
 		$db       = Factory::getDbo();
-		$file     = Factory::getApplication()->input->files->get('file');
+		$file     = Factory::getApplication()->getInput()->files->get('file');
 
 		$filename = $file['name'];
 		$arr      = explode('.', $file['name']);

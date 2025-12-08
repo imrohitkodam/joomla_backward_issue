@@ -146,7 +146,7 @@ class JgiveModelDonations extends ListModel
 	 */
 	protected function getListQuery()
 	{
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 		$cid    = $jinput->get('cid', 0, 'INT');
 
 		$db    = Factory::getDbo();

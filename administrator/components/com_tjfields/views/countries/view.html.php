@@ -43,7 +43,7 @@ class TjfieldsViewCountries extends HtmlView
 		$this->state      = $this->get('State');
 		$this->items      = $this->get('Items');
 		$this->pagination = $this->get('Pagination');
-		$this->input      = Factory::getApplication()->input;
+		$this->input      = Factory::getApplication()->getInput();
 
 		// Check for errors.
 		$errors = $this->get('Errors');
@@ -81,7 +81,7 @@ class TjfieldsViewCountries extends HtmlView
 		require_once JPATH_COMPONENT . '/helpers/tjfields.php';
 
 		// Let's get the extension name
-		$client        = Factory::getApplication()->input->get('client', '', 'STRING');
+		$client        = Factory::getApplication()->getInput()->get('client', '', 'STRING');
 		$extention     = explode('.', $client);
 		$canDo         = TjfieldsHelper::getActions($extention[0], 'country');
 		$extensionName = strtoupper($client);

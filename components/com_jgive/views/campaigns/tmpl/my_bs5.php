@@ -17,7 +17,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 
-$sortDirection       = Factory::getApplication()->input->get('filter_order_Dir', 'desc', 'STRING');
+$sortDirection       = Factory::getApplication()->getInput()->get('filter_order_Dir', 'desc', 'STRING');
 $campaignHelper      = new campaignHelper;
 $jgiveFrontendHelper = new jgiveFrontendHelper;
 

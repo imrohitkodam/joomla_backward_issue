@@ -57,7 +57,7 @@ class PlgActionlogJLike extends CMSPlugin
 			return;
 		}
 
-		$context = Factory::getApplication()->input->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 		$jUser   = Factory::getUser();
 
 		if ($isNew)
@@ -112,7 +112,7 @@ class PlgActionlogJLike extends CMSPlugin
 			return;
 		}
 
-		$context            = Factory::getApplication()->input->get('option');
+		$context            = Factory::getApplication()->getInput()->get('option');
 		$jUser              = Factory::getUser();
 		$messageLanguageKey = 'PLG_ACTIONLOG_JLIKE_COMMENT_DELETED';
 		$action             = 'delete';
@@ -154,7 +154,7 @@ class PlgActionlogJLike extends CMSPlugin
 			return;
 		}
 
-		$context = Factory::getApplication()->input->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 		$jUser   = Factory::getUser();
 
 		if ($todoData['status'] == 'I')
@@ -208,7 +208,7 @@ class PlgActionlogJLike extends CMSPlugin
 			return;
 		}
 
-		$context            = Factory::getApplication()->input->get('option');
+		$context            = Factory::getApplication()->getInput()->get('option');
 		$jUser              = Factory::getUser();
 		$messageLanguageKey = 'PLG_ACTIONLOG_JLIKE_TODO_DELETED';
 		$action             = 'delete';
@@ -250,7 +250,7 @@ class PlgActionlogJLike extends CMSPlugin
 			return;
 		}
 
-		$context            = Factory::getApplication()->input->get('option');
+		$context            = Factory::getApplication()->getInput()->get('option');
 		$jUser              = Factory::getUser();
 		$messageLanguageKey = 'PLG_ACTIONLOG_JLIKE_LIKE';
 		$action             = $commentData['method'] . 'd';
@@ -293,7 +293,7 @@ class PlgActionlogJLike extends CMSPlugin
 			return;
 		}
 
-		$context            = Factory::getApplication()->input->get('option');
+		$context            = Factory::getApplication()->getInput()->get('option');
 		$jUser              = Factory::getUser();
 		$messageLanguageKey = 'PLG_ACTIONLOG_JLIKE_LIKE_UNLIKE_COMMENTS';
 		$action             = $commentData['method'] . 'd';

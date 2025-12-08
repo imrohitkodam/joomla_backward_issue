@@ -31,7 +31,7 @@ class TjvendorsControllerVendor extends TjvendorsController
 	public function getRegion()
 	{
 		$app           = Factory::getApplication();
-		$input         = $app->input;
+		$input         = $app->getInput();
 		$country       = $input->get('country', 0, 'INT');
 		$defaultRegion = array(
 			"id"           => '',
@@ -64,7 +64,7 @@ class TjvendorsControllerVendor extends TjvendorsController
 	public function getCity()
 	{
 		$app         = Factory::getApplication();
-		$input       = $app->input;
+		$input       = $app->getInput();
 		$country     = $input->get('country', 0, 'INT');
 		$defaultCity = array(
 			"id"         => '',

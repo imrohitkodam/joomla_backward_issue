@@ -20,7 +20,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Session\Session;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 
-jimport('techjoomla.tjtoolbar.button.csvexport');
+if (!class_exists('TjtoolbarButtonCsvexport')) { require_once JPATH_LIBRARIES . '/techjoomla/tjtoolbar/button/csvexport.php'; }
 
 /**
  * Individual Contacts view class.
@@ -244,7 +244,7 @@ class JgiveViewIndividuals extends BaseHtmlView
 	protected function addToolbar()
 	{
 		// Add toolbar buttons
-		jimport('techjoomla.tjtoolbar.toolbar');
+		if (!class_exists('TjToolbar')) { require_once JPATH_LIBRARIES . '/techjoomla/tjtoolbar/toolbar.php'; }
 		$tjbar = TToolbar::getInstance('toolbar', 'pull-right');
 		$smallBtnClassName = (JGIVE_LOAD_BOOTSTRAP_VERSION == 'bs3') ? 'btn-small' : 'btn-sm';
 

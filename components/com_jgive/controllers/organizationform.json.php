@@ -39,9 +39,9 @@ class JGiveControllerOrganizationform extends JGiveController
 		try
 		{
 			$app             = Factory::getApplication();
-			$email           = $app->input->get('email', '', 'STRING');
-			$id              = $app->input->get('id', 0, 'INT');
-			$vendorId        = $app->input->get('vendor_id', 0, 'INT');
+			$email           = $app->getInput()->get('email', '', 'STRING');
+			$id              = $app->getInput()->get('id', 0, 'INT');
+			$vendorId        = $app->getInput()->get('vendor_id', 0, 'INT');
 			$organizationObj = JGive::organization($id);
 			$result          = $organizationObj->isExist($email, $vendorId);
 			echo new JsonResponse($result);

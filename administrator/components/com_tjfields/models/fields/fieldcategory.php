@@ -55,7 +55,7 @@ class JFormFieldFieldcategory extends FormField
 	 */
 	public function fetchElement($name, $value, &$node, $control_name)
 	{
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 		$id = $jinput->get('id', '', 'int');
 		$clientStr = $jinput->get("client");
 		$ClientDetail = explode('.', $clientStr);
@@ -128,7 +128,7 @@ class JFormFieldFieldcategory extends FormField
 	public function getSelectedCategories()
 	{
 		$catList = array();
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 		$fieldId = $jinput->get("id");
 
 		if (!empty($fieldId))

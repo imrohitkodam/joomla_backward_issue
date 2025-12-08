@@ -19,7 +19,7 @@ HTMLHelper::addIncludePath(JPATH_COMPONENT . '/helpers/');
 HTMLHelper::_('bootstrap.tooltip');
 HTMLHelper::_('behavior.multiselect');
 
-$input = Factory::getApplication()->input;
+$input = Factory::getApplication()->getInput();
 // Import CSS
 $document = Factory::getDocument();
 //~ $document->addStyleSheet(JUri::root() . 'administrator/components/com_jlike/assets/css/jlike.css');

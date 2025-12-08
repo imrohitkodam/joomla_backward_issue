@@ -68,7 +68,7 @@ if ($saveOrder)
 	}
 </script>
 
-<form action="<?php echo Route::_('index.php?option=com_jgive&view=campaigns&layout=' . $this->input->get('layout', '', 'STRING')); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo Route::_('index.php?option=com_jgive&view=campaigns&layout=' . Factory::getApplication()->getInput()->get('layout', '', 'STRING')); ?>" method="post" name="adminForm" id="adminForm">
 	<div class="jgive <?php echo JVERSION < '3.0' ? 'techjoomla-bootstrap' : ''; ?>">
 	<?php if (!empty($this->sidebar)): ?>
 		<div id="j-sidebar-container" class="span2">

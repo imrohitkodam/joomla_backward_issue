@@ -97,7 +97,7 @@ class JFormFieldtjfieldfields extends ListField
 
 		$options = array_merge(parent::getOptions(), $options);
 
-		$view = Factory::getApplication()->input->get('view', '', 'STRING');
+		$view = Factory::getApplication()->getInput()->get('view', '', 'STRING');
 
 		$onchange = ($view == 'field') ? "show_option_div(this.value);" : "this.form.submit();";
 

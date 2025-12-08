@@ -56,7 +56,7 @@ class TjvendorsViewReports extends HtmlView
 		$this->items = $this->get('Items');
 		$this->model = $this->getModel('reports');
 		$this->pagination = $this->get('Pagination');
-		$this->input = Factory::getApplication()->input;
+		$this->input = Factory::getApplication()->getInput();
 
 		// Getting vendor id from url
 		$vendor_id = $this->input->get('vendor_id', '', 'INT');
@@ -94,7 +94,7 @@ class TjvendorsViewReports extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$this->client = $input->get('client', '', 'STRING');
 
 		$state = $this->get('State');

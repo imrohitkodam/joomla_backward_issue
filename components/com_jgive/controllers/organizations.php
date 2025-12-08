@@ -147,7 +147,7 @@ class JgiveControllerOrganizations extends BaseAdminController
 	public function cancelToMail()
 	{
 		$app    = Factory::getApplication();
-		$itemid = $app->input->get('Itemid', '', 'POST', 'INT');
+		$itemid = $app->getInput()->get('Itemid', '', 'POST', 'INT');
 		$app->redirect(Route::_('index.php?option=com_jgive&view=organizations&Itemid=' . $itemid, false));
 	}
 
@@ -162,7 +162,7 @@ class JgiveControllerOrganizations extends BaseAdminController
 	{
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
-		$app    = Factory::getApplication()->input;
+		$app    = Factory::getApplication()->getInput();
 		$itemId = $app->get('Itemid', '', 'POST', 'INT');
 		$cid    = $app->get('cid', '', 'Array');
 

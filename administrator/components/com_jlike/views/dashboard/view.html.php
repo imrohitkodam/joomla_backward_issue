@@ -91,7 +91,7 @@ class JLikeViewDashboard extends HtmlView
 
 		$this->hasNotificationTmpls = $model->hasNotificationTemplates();
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->getArray($_POST);
 
 		if (isset($post['todate']))
@@ -117,7 +117,7 @@ class JLikeViewDashboard extends HtmlView
 
 		$this->sidebar = '';
 		// Default layout is default.php
-		$layout = Factory::getApplication()->input->get('layout', 'dashboard');
+		$layout = Factory::getApplication()->getInput()->get('layout', 'dashboard');
 		$this->setLayout($layout);
 
 		$this->_setToolbar();

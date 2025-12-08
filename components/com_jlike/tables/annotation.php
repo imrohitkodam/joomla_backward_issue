@@ -48,7 +48,7 @@ class JlikeTableannotation extends Table
 	 */
 	public function bind($array, $ignore = '')
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$task  = $input->getString('task', '');
 
 		if (($task == 'save' || $task == 'apply') && (!Factory::getUser()->authorise('core.edit.state', 'com_jlike') && $array['state'] == 1))

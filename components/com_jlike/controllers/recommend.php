@@ -33,7 +33,7 @@ class JlikeControllerRecommend extends JlikeController
 	{
 		Session::checkToken() or Session::checkToken('get') or Factory::getApplication()->close();
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->post;
 
 		// Store $post details in the array
@@ -65,7 +65,7 @@ class JlikeControllerRecommend extends JlikeController
 			$data['recommend_friends'] = $post->get('recommend_friends', '', 'ARRAY');
 		}
 
-		$cid   = Factory::getApplication()->input->get('cid', array(), 'array');
+		$cid   = Factory::getApplication()->getInput()->get('cid', array(), 'array');
 		$model = $this->getModel('recommend');
 
 		$plg_name   = $post->get('plg_name', '');

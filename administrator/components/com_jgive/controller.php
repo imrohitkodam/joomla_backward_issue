@@ -38,9 +38,9 @@ class JGiveController extends BaseController
 	{
 		require_once JPATH_COMPONENT . '/helpers/jgive.php';
 
-		$view = Factory::getApplication()->input->getCmd('view', 'cp');
+		$view = Factory::getApplication()->getInput()->getCmd('view', 'cp');
 
-		Factory::getApplication()->input->set('view', $view);
+		Factory::getApplication()->getInput()->set('view', $view);
 
 		parent::display($cachable, $urlparams);
 

@@ -119,7 +119,7 @@ class TjfieldsModelField extends AdminModel
 	protected function loadFormData()
 	{
 		$app = Factory::getApplication();
-		$input = $app->input;
+		$input = $app->getInput();
 
 		// Check the session for previously entered form data.
 		$data = $app->getUserState('com_tjfields.edit.field.data', array());
@@ -146,7 +146,7 @@ class TjfieldsModelField extends AdminModel
 	 */
 	public function getItem($pk = null)
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		if ($item = parent::getItem($pk))
 		{
@@ -247,7 +247,7 @@ class TjfieldsModelField extends AdminModel
 			return false;
 		}
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$data['label'] = trim($data['label']);
 
 		// Set field title as field label
@@ -283,7 +283,7 @@ class TjfieldsModelField extends AdminModel
 		}
 
 		// Add clint type in data as it is not present in jform
-		$input = $app->input;
+		$input = $app->getInput();
 		$data['client_type'] = $input->post->get('client_type', '', 'STRING');
 		$data['saveOption'] = 0;
 
@@ -688,7 +688,7 @@ if (isset($data['params']) && is_array($data['params']) && array_key_exists("ren
 		}
 
 		$db = Factory::getContainer()->get(\Joomla\Database\DatabaseInterface::class);
-		$jInput = Factory::getApplication()->input;
+		$jInput = Factory::getApplication()->getInput();
 		
 		if (file_exists(JPATH_ADMINISTRATOR . '/components/com_tjfields/tables/field.php'))
 		{

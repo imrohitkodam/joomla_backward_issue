@@ -480,7 +480,7 @@ class TjvendorFrontHelper
 	 */
 	public static function getPaidAmount($vendor_id, $currency, $filterClient)
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$urlClient = $input->get('client', '', 'STRING');
 		$com_params = ComponentHelper::getParams('com_tjvendors');
 		$bulkPayoutStatus = $com_params->get('bulk_payout');

@@ -51,7 +51,7 @@ class JlikeTablerecommendation extends Table
 	 */
 	public function bind($array, $ignore = '')
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$task  = $input->getString('task', '');
 
 		$authorise = Factory::getUser()->authorise('core.edit.state', 'com_jlike.recommendation.' . $array['id']);

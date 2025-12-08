@@ -33,8 +33,8 @@ class JgiveControllerIndividuals extends JGiveController
 		try
 		{
 			$app    = Factory::getApplication();
-			$search = $app->input->get('search', '', 'STRING');
-			$vendorId = $app->input->get('vendorId', 0, 'INTEGER');
+			$search = $app->getInput()->get('search', '', 'STRING');
+			$vendorId = $app->getInput()->get('vendorId', 0, 'INTEGER');
 			$JGiveModelIndividuals = JGive::model('Individuals', array('ignore_request' => true));
 			$JGiveModelIndividuals->setState("search", $search);
 			$JGiveModelIndividuals->setState("filter.vendor_id", $vendorId);

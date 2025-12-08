@@ -68,7 +68,7 @@ class TjfieldsViewField extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		$input           = Factory::getApplication()->input;
+		$input           = Factory::getApplication()->getInput();
 		$input->set('hidemainmenu', true);
 		$user  = Factory::getUser();
 		$isNew = ($this->item->id == 0);

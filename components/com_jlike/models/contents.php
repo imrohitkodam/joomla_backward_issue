@@ -150,31 +150,31 @@ class JlikeModelContents extends ListModel
 			}
 		}
 
-		$ordering = $app->input->get('filter_order');
+		$ordering = $app->getInput()->get('filter_order');
 
 		if (!empty($ordering))
 		{
 			$list             = $app->getUserState($this->context . '.list');
 
 			// Prevent invalid column ordering
-			if (in_array($app->input->get('filter_order'), $this->filter_fields))
+			if (in_array($app->getInput()->get('filter_order'), $this->filter_fields))
 			{
-				$list['ordering'] = $app->input->get('filter_order');
+				$list['ordering'] = $app->getInput()->get('filter_order');
 			}
 
 			$app->setUserState($this->context . '.list', $list);
 		}
 
-		$orderingDirection = $app->input->get('filter_order_Dir');
+		$orderingDirection = $app->getInput()->get('filter_order_Dir');
 
 		if (!empty($orderingDirection))
 		{
 			$list              = $app->getUserState($this->context . '.list');
 
 			// Prevent invalid
-			if (in_array(strtoupper($app->input->get('filter_order_Dir')), array('ASC', 'DESC', '')))
+			if (in_array(strtoupper($app->getInput()->get('filter_order_Dir')), array('ASC', 'DESC', '')))
 			{
-				$list['direction'] = $app->input->get('filter_order_Dir');
+				$list['direction'] = $app->getInput()->get('filter_order_Dir');
 			}
 
 			$app->setUserState($this->context . '.list', $list);

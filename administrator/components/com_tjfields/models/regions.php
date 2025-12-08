@@ -138,7 +138,7 @@ class TjfieldsModelRegions extends ListModel
 		// Create a new query object.
 		$db     = $this->getDbo();
 		$query  = $db->getQuery(true);
-		$client = Factory::getApplication()->input->get('client', '', 'STRING');
+		$client = Factory::getApplication()->getInput()->get('client', '', 'STRING');
 
 		// Select the required fields from the table.
 		$query->select($this->getState('list.select', 'a.*'));

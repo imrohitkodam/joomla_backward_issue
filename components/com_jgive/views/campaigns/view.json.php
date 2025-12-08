@@ -58,7 +58,7 @@ class JgiveViewCampaigns extends HtmlView
 	public function display($tpl = null)
 	{
 		$mainframe = Factory::getApplication();
-		$input     = Factory::getApplication()->input;
+		$input     = Factory::getApplication()->getInput();
 		$option    = $input->get('option', '', 'STRING');
 
 		$callback = $input->get('callback', '', 'STRING');
@@ -84,7 +84,7 @@ class JgiveViewCampaigns extends HtmlView
 		$this->params        = $params;
 
 		// Default layout is all
-		$layout = Factory::getApplication()->input->get('layout', 'all');
+		$layout = Factory::getApplication()->getInput()->get('layout', 'all');
 		$this->setLayout($layout);
 
 		// Category fillter

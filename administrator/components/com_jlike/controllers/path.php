@@ -33,7 +33,7 @@ class JlikeControllerPath extends FormController
 	 */
 	public function getCategory()
 	{
-		$jInput = Factory::getApplication()->input;
+		$jInput = Factory::getApplication()->getInput();
 		$extension = $jInput->post->get('extension', '', 'STRING');
 		$JlikeHelper = new JLikeHelper;
 		$categories = $JlikeHelper->getCategory($extension);

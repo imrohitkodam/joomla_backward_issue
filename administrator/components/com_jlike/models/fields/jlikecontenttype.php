@@ -50,7 +50,7 @@ class JFormFieldJlikecontenttype extends ListField
 		// Get all the content type from the classification file in the array
 		$jlike_content_array = parse_ini_file(JPATH_SITE . "/components/com_jlike/classification.ini");
 		$options 	 = array();
-		$input 		 = Factory::getApplication()->input;
+		$input 		 = Factory::getApplication()->getInput();
 		$reminder_id = $input->get('id');
 		$extension   = $input->get('extension');
 		asort($jlike_content_array);

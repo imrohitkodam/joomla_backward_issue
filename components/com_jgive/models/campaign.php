@@ -86,7 +86,7 @@ class JGiveModelCampaign extends ItemModel
 	 */
 	public function getItem($pk = null)
 	{
-		$pk = (!empty($pk)) ? $pk : (int) Factory::getApplication()->input->get('id', 0, 'INTEGER');
+		$pk = (!empty($pk)) ? $pk : (int) Factory::getApplication()->getInput()->get('id', 0, 'INTEGER');
 
 		if ($this->_item === null)
 		{
@@ -129,7 +129,7 @@ class JGiveModelCampaign extends ItemModel
 				// Get campaign donors count according to country
 				$cdata['areawise_donors'] = $this->campaignHelper->getCampaignDonorsCountAreaWise($cdata['campaign']->id);
 
-				$layout = $app->input->get('layout', 'default', 'STRING');
+				$layout = $app->getInput()->get('layout', 'default', 'STRING');
 
 				// Getting total no. of donors per campaign
 				$jgiveModelDonorsObj = BaseDatabaseModel::getInstance('Donors', 'JgiveModel');
@@ -449,7 +449,7 @@ class JGiveModelCampaign extends ItemModel
 	{
 		if (empty($item_id))
 		{
-			$input = Factory::getApplication()->input;
+			$input = Factory::getApplication()->getInput();
 			$item_id = $input->get('item_id', '', 'INT');
 		}
 

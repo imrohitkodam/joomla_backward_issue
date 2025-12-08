@@ -85,7 +85,7 @@ class JgiveViewDonations extends BaseHtmlView
 		/* ----------------------------Since JGive 2.1------------------------------ */
 		/* Common Data For all layout */
 		$app          = Factory::getApplication();
-		$this->layout = $app->input->get('layout', 'payment');
+		$this->layout = $app->getInput()->get('layout', 'payment');
 
 		$this->jgiveFrontendHelper = new jgiveFrontendHelper;
 		$this->donationsHelper     = new DonationsHelper;
@@ -175,7 +175,7 @@ class JgiveViewDonations extends BaseHtmlView
 			$this->activeFilters           = $this->get('ActiveFilters');
 			$this->currentUrl              = Uri::getInstance()->toString();
 			$this->lists['payment_status'] = $this->state->get('payment_status');
-			$this->sortDirection           = $app->input->get('filter_order_Dir', 'desc', 'STRING');
+			$this->sortDirection           = $app->getInput()->get('filter_order_Dir', 'desc', 'STRING');
 			$this->commissionFee           = $this->params->get('commission_fee', 0, 'INT');
 			$this->fixedCommissionFee      = $this->params->get('fixed_commissionfee', 0, 'INT');
 
@@ -202,8 +202,8 @@ class JgiveViewDonations extends BaseHtmlView
 		}
 
 		/*Layout Details Donation*/
-		$donationId = $this->input->get('donationid');
-		$guestEmail = $this->input->get('email');
+		$donationId = Factory::getApplication()->getInput()->get('donationid');
+		$guestEmail = Factory::getApplication()->getInput()->get('email');
 
 		if (!(($this->layout == 'details') && $donationId && $guestEmail))
 		{
@@ -214,16 +214,16 @@ class JgiveViewDonations extends BaseHtmlView
 				if ($this->guest_donation)
 				{
 					$msg         = Text::_('COM_JGIVE_LOGIN_MSG_SILENT');
-					$uri         = $app->input->get('REQUEST_URI', '', 'server', 'string');
+					$uri         = $app->getInput()->get('REQUEST_URI', '', 'server', 'string');
 					$url         = base64_encode($uri);
 					$guest_login = $this->session->get('quick_reg_no_login');
 					$this->session->clear('quick_reg_no_login');
 				}
 				else
 				{
-					$itemId = $this->input->get('Itemid', '', 'INT');
+					$itemId = Factory::getApplication()->getInput()->get('Itemid', '', 'INT');
 					$msg    = Text::_('COM_JGIVE_LOGIN_MSG');
-					$uri    = 'index.php?option=com_jgive&view=donations&layout=payment&cid=' . $this->input->get('cid', '', 'INT') . '&Itemid=' . $itemId;
+					$uri    = 'index.php?option=com_jgive&view=donations&layout=payment&cid=' . Factory::getApplication()->getInput()->get('cid', '', 'INT') . '&Itemid=' . $itemId;
 					$url    = base64_encode($uri);
 					$app->enqueueMessage($msg, 'error');
 					$app->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
@@ -239,7 +239,7 @@ class JgiveViewDonations extends BaseHtmlView
 			{
 				if (!$this->logged_userid)
 				{
-					$guestEmail = $this->input->get('email');
+					$guestEmail = Factory::getApplication()->getInput()->get('email');
 					$donarEmail = md5($donationDetails['donor']->email);
 
 					if ($guestEmail != $donarEmail)
@@ -280,7 +280,7 @@ class JgiveViewDonations extends BaseHtmlView
 		/*Layout Payment*/
 		if ($this->layout == 'payment')
 		{
-			$this->cdata = $jgiveModelCampaign->getItem($this->input->get('cid', '', 'INT'));
+			$this->cdata = $jgiveModelCampaign->getItem(Factory::getApplication()->getInput()->get('cid', '', 'INT'));
 
 			if (empty($this->cdata))
 			{

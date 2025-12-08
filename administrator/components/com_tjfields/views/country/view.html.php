@@ -43,7 +43,7 @@ class TjfieldsViewCountry extends HtmlView
 		$this->state = $this->get('State');
 		$this->item = $this->get('Item');
 		$this->form = $this->get('Form');
-		$this->input = Factory::getApplication()->input;
+		$this->input = Factory::getApplication()->getInput();
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -65,13 +65,13 @@ class TjfieldsViewCountry extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		Factory::getApplication()->input->set('hidemainmenu', true);
+		Factory::getApplication()->getInput()->set('hidemainmenu', true);
 
 		$user = Factory::getUser();
 		$isNew = ($this->item->id == 0);
 
 		// Let's get the extension name
-		$client = Factory::getApplication()->input->get('client', '', 'STRING');
+		$client = Factory::getApplication()->getInput()->get('client', '', 'STRING');
 		$extensionName = strtoupper($client);
 
 		// Need to load the menu language file as mod_menu hasn't been loaded yet.

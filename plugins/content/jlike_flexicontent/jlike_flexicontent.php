@@ -34,7 +34,7 @@ class plgContentJLike_flexicontent extends CMSPlugin {
    //This is for showing comment
 	function onContentAfterDisplay($context, &$article, &$params, $page = 0)
 	{
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 
 		//Not to show anything related to commenting
 		$show_comments=-1;
@@ -88,7 +88,7 @@ class plgContentJLike_flexicontent extends CMSPlugin {
 		$cont_id	=	$article->id;
 
 		$element	=	'';
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 		$option=$input->get('option','','STRING');
 		$view=$input->get('view','','STRING');
 		$layout=$input->get('layout','','STRING');
@@ -101,7 +101,7 @@ class plgContentJLike_flexicontent extends CMSPlugin {
 
 		$title	=	$article->title;
 
-		Factory::getApplication()->input->set('data', json_encode ( array ('cont_id' => $cont_id, 'element' => $context, 'title' => $article->title, 'url' => $url,'plg_name'=>'jlike_flexicontent','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons)));
+		Factory::getApplication()->getInput()->set('data', json_encode ( array ('cont_id' => $cont_id, 'element' => $context, 'title' => $article->title, 'url' => $url,'plg_name'=>'jlike_flexicontent','show_comments'=>$show_comments,'show_like_buttons'=>$show_like_buttons)));
 
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();

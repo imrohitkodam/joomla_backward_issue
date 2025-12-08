@@ -75,7 +75,7 @@ class JlikeModelRecommendations extends ListModel
 		$limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->getCfg('list_limit'));
 		$this->setState('list.limit', $limit);
 
-		$limitstart = $app->input->getInt('limitstart', 0);
+		$limitstart = $app->getInput()->getInt('limitstart', 0);
 		$this->setState('list.start', $limitstart);
 
 		if ($list = $app->getUserStateFromRequest($this->context . '.list', 'list', array(), 'array'))
@@ -152,21 +152,21 @@ class JlikeModelRecommendations extends ListModel
 			}
 		}
 
-		$ordering = $app->input->get('filter_order');
+		$ordering = $app->getInput()->get('filter_order');
 
 		if (!empty($ordering))
 		{
 			$list             = $app->getUserState($this->context . '.list');
-			$list['ordering'] = $app->input->get('filter_order');
+			$list['ordering'] = $app->getInput()->get('filter_order');
 			$app->setUserState($this->context . '.list', $list);
 		}
 
-		$orderingDirection = $app->input->get('filter_order_Dir');
+		$orderingDirection = $app->getInput()->get('filter_order_Dir');
 
 		if (!empty($orderingDirection))
 		{
 			$list              = $app->getUserState($this->context . '.list');
-			$list['direction'] = $app->input->get('filter_order_Dir');
+			$list['direction'] = $app->getInput()->get('filter_order_Dir');
 			$app->setUserState($this->context . '.list', $list);
 		}
 
@@ -202,7 +202,7 @@ class JlikeModelRecommendations extends ListModel
 	 */
 	protected function getListQuery()
 	{
-		$input  = Factory::getApplication()->input;
+		$input  = Factory::getApplication()->getInput();
 
 		if ($this->getstate("type", ''))
 		{

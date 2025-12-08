@@ -26,7 +26,7 @@ if (JVERSION >= '3.0')
 
 }
 
-$input  = Factory::getApplication()->input;
+$input  = Factory::getApplication()->getInput();
 $type   = $input->get('type', 'reco');
 
 // Pass below value as hidden

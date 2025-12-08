@@ -35,7 +35,7 @@ class plgContentJLike_virtuemart extends CMSPlugin {
 		}
 
 		$route= URI::getInstance()->toString();
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 
 		$view=$input->get('view','','STRING');
 
@@ -58,7 +58,7 @@ class plgContentJLike_virtuemart extends CMSPlugin {
 			return;
 			$cont_id	=	$virtuemart_product_id;
 			$show_like_buttons = 1;
-			Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'plg_name' => 'jlike_virtuemart', 'element' => $element, 'plg_type' => 'content', 'title' => $article->slug, 'url' => $route,'show_like_buttons'=>$show_like_buttons ) ) );
+			Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'plg_name' => 'jlike_virtuemart', 'element' => $element, 'plg_type' => 'content', 'title' => $article->slug, 'url' => $route,'show_like_buttons'=>$show_like_buttons ) ) );
 
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();

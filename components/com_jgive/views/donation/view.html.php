@@ -105,8 +105,8 @@ class JgiveViewDonation extends HtmlView
 			$this->gateWays = Factory::getApplication()->triggerEvent('onTP_GetInfo', array($gatewayParam));
 		}
 
-		$donationId = $app->input->get('donationid');
-		$guestEmail = $app->input->get('email');
+		$donationId = $app->getInput()->get('donationid');
+		$guestEmail = $app->getInput()->get('email');
 
 		if (!($donationId && $guestEmail))
 		{
@@ -117,16 +117,16 @@ class JgiveViewDonation extends HtmlView
 				if ($this->guestDonation)
 				{
 					$msg         = Text::_('COM_JGIVE_LOGIN_MSG_SILENT');
-					$uri         = $app->input->get('REQUEST_URI', '', 'server', 'string');
+					$uri         = $app->getInput()->get('REQUEST_URI', '', 'server', 'string');
 					$url         = base64_encode($uri);
 					$guest_login = $this->session->get('quick_reg_no_login');
 					$this->session->clear('quick_reg_no_login');
 				}
 				else
 				{
-					$itemId = $app->input->get('Itemid', '', 'INT');
+					$itemId = $app->getInput()->get('Itemid', '', 'INT');
 					$msg = Text::_('COM_JGIVE_LOGIN_MSG');
-					$uri    = 'index.php?option=com_jgive&view=donations&layout=payment&cid=' . $app->input->get('cid', '', 'INT') . '&Itemid=' . $itemId;
+					$uri    = 'index.php?option=com_jgive&view=donations&layout=payment&cid=' . $app->getInput()->get('cid', '', 'INT') . '&Itemid=' . $itemId;
 					$url    = base64_encode($uri);
 					$app->enqueueMessage($msg, 'error');
 					$app->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
@@ -151,7 +151,7 @@ class JgiveViewDonation extends HtmlView
 		{
 			if (!$this->loggedInUserId)
 			{
-				$guestEmail = $app->input->get('email');
+				$guestEmail = $app->getInput()->get('email');
 				$donarEmail = md5($this->donationDetails['donor']->email);
 
 				if ($guestEmail != $donarEmail)

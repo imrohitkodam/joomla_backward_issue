@@ -76,7 +76,7 @@ class JFormFieldRelated extends ListField
 		$html      = parent::getInput();
 		$fieldname = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname);
 		$user      = Factory::getUser();
-		$input     = Factory::getApplication()->input;
+		$input     = Factory::getApplication()->getInput();
 		$db        = Factory::getDbo();
 
 		Table::addIncludePath(JPATH_ROOT . '/administrator/components/com_tjfields/tables');

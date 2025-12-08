@@ -51,7 +51,7 @@ class TjvendorsViewVendors extends HtmlView
 		$this->state = $this->get('State');
 		$this->items = $this->get('Items');
 		$this->pagination = $this->get('Pagination');
-		$this->input = Factory::getApplication()->input;
+		$this->input = Factory::getApplication()->getInput();
 		$this->params = ComponentHelper::getParams('com_tjvendors');
 		Text::script('COM_TJVENDOR_VENDOR_APPROVAL');
 		Text::script('COM_TJVENDOR_VENDOR_DENIAL');
@@ -81,7 +81,7 @@ class TjvendorsViewVendors extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$this->client = $input->get('client', '', 'STRING');
 
 		$state = $this->get('State');

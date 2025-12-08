@@ -44,7 +44,7 @@ class JGiveControllerCampaignForm extends FormController
 
 		$model      = $this->getModel('CampaignForm', 'JGiveModel');
 		$app        = Factory::getApplication();
-		$data       = $app->input->get('jform', array(), 'array');
+		$data       = $app->getInput()->get('jform', array(), 'array');
 		$com_params = ComponentHelper::getParams('com_jgive');
 
 		$allJformData = $data;
@@ -141,7 +141,7 @@ class JGiveControllerCampaignForm extends FormController
 		if (!empty($data['id']))
 		{
 			$extraJformData = array_diff_key($allJformData, $data);
-			$filesData      = $app->input->files->get('jform', array(), 'ARRAY');
+			$filesData      = $app->getInput()->files->get('jform', array(), 'ARRAY');
 			unset($filesData['image']);
 			unset($filesData['gallery_file']);
 			unset($filesData['givebacks']);
@@ -254,7 +254,7 @@ class JGiveControllerCampaignForm extends FormController
 	 */
 	public function cancel($key = null)
 	{
-		$recordId            = $this->input->getInt('id');
+		$recordId            = $this->getInput()->getInt('id');
 		$link                = 'index.php?option=com_jgive&view=campaigns&layout=all';
 		$jgiveFrontendHelper = new JgiveFrontendHelper;
 		$itemId              = $jgiveFrontendHelper->getItemId($link);
@@ -274,7 +274,7 @@ class JGiveControllerCampaignForm extends FormController
 		Factory::getApplication()->setUserState('com_jgive.edit.campaignform.data', null);
 
 		// Check if there is a return value
-		$return = $this->input->get('return', null, 'base64');
+		$return = $this->getInput()->get('return', null, 'base64');
 
 		if (!is_null($return) && Uri::isInternal(base64_decode($return)))
 		{

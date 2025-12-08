@@ -46,12 +46,12 @@ class TjvendorsViewVendorFees extends HtmlView
 	 */
 	public function display($tpl = null)
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$this->vendor_id = $input->get('vendor_id', '', 'INT');
 		$this->state = $this->get('State');
 		$this->items = $this->get('Items');
 		$this->pagination = $this->get('Pagination');
-		$this->input = Factory::getApplication()->input;
+		$this->input = Factory::getApplication()->getInput();
 		$this->client = $this->input->get('client', '', 'STRING');
 
 		// Check for errors.
@@ -75,7 +75,7 @@ class TjvendorsViewVendorFees extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		$state = $this->get('State');
 		$canDo = TjvendorsHelper::getActions();

@@ -78,7 +78,7 @@ class TjfieldsViewGroups extends HtmlView
 	 */
 	protected function addToolbar()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		JLoader::import('TjfieldsHelper', JPATH_ADMINISTRATOR . '/components/com_tjfields/helpers');
 		$client          = $input->get('client', '', 'STRING');
 

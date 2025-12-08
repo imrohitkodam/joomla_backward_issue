@@ -197,7 +197,7 @@ class JLikeHelper
 	 */
 	public static function addSubmenu($view = '')
 	{
-		$extension   = Factory::getApplication()->input->get('extension', '', 'STRING');
+		$extension   = Factory::getApplication()->getInput()->get('extension', '', 'STRING');
 		$full_client = $extension;
 
 		// Set ordering.

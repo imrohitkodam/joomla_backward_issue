@@ -107,7 +107,7 @@ class PlgActionlogJgive extends CMSPlugin
 			return;
 		}
 
-		$context = Factory::getApplication()->input->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 
 		$user = Factory::getUser();
 
@@ -156,7 +156,7 @@ class PlgActionlogJgive extends CMSPlugin
 			return;
 		}
 
-		$context = Factory::getApplication()->input->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 		$user    = Factory::getUser();
 
 		$messageLanguageKey = 'PLG_ACTIONLOG_JGIVE_CAMPAIGN_DELETED';
@@ -195,7 +195,7 @@ class PlgActionlogJgive extends CMSPlugin
 		}
 
 		$jgiveTableCampaign = Table::getInstance('campaign', 'JGiveTable', array());
-		$context  = Factory::getApplication()->input->get('option');
+		$context  = Factory::getApplication()->getInput()->get('option');
 		$jUser    = Factory::getUser();
 		$userId   = $jUser->id;
 		$userName = $jUser->username;
@@ -271,7 +271,7 @@ class PlgActionlogJgive extends CMSPlugin
 			return;
 		}
 
-		$context = Factory::getApplication()->input->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 
 		$user = Factory::getUser();
 
@@ -321,7 +321,7 @@ class PlgActionlogJgive extends CMSPlugin
 			return;
 		}
 
-		$context = Factory::getApplication()->input->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 		$user    = Factory::getUser();
 
 		$messageLanguageKey = 'PLG_ACTIONLOG_JGIVE_REPORT_DELETED';
@@ -356,7 +356,7 @@ class PlgActionlogJgive extends CMSPlugin
 			return;
 		}
 
-		$context = Factory::getApplication()->input->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 
 		$user = Factory::getUser();
 
@@ -427,7 +427,7 @@ class PlgActionlogJgive extends CMSPlugin
 			return;
 		}
 
-		$context = $this->app->input->get('option');
+		$context = $this->getApplication()->getInput()->get('option');
 
 		$user = Factory::getUser();
 
@@ -545,7 +545,7 @@ class PlgActionlogJgive extends CMSPlugin
 			$type   = 'PLG_ACTIONLOGS_JGIVE_CAMPAIGN_TYPE_INVESTMENT';
 		}
 
-		$context = Factory::getApplication()->input->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 		$user    = Factory::getUser();
 		$messageLanguageKey = 'PLG_ACTIONLOGS_JGIVE_DONATION_DELETE';
 
@@ -580,7 +580,7 @@ class PlgActionlogJgive extends CMSPlugin
 			return;
 		}
 
-		$context = Factory::getApplication()->input->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 		$user    = Factory::getUser();
 
 		if ($orderData['campaign']->type == 'donation')

@@ -28,14 +28,14 @@ class plgCommunityJlike_jomsocial extends CMSPlugin {
 			return;
 		}
 
-		$task       = $app->input->get('task');
-		$view       = $app->input->get('view');
+		$task       = $app->getInput()->get('task');
+		$view       = $app->getInput()->get('view');
 		$item_route = Uri::getInstance()->toString();
 
 		require_once(JPATH_SITE.'/components/com_jlike/helper.php');
-		$Itemid  = Factory::getApplication()->input->get('Itemid');
+		$Itemid  = Factory::getApplication()->getInput()->get('Itemid');
 		$element = '';
-		$option  = Factory::getApplication()->input->get('option');
+		$option  = Factory::getApplication()->getInput()->get('option');
 
 		if (!$option)
 		{
@@ -53,8 +53,8 @@ class plgCommunityJlike_jomsocial extends CMSPlugin {
 		$dbTable = '#__community_' . ('s' === substr ( $element, - 1, 1 ) ? $element : $element . 's');
 		$title = 'this'; // Generic anchor text for link
 
-		$task = Factory::getApplication()->input->get('task');
-		$view = Factory::getApplication()->input->get('view');
+		$task = Factory::getApplication()->getInput()->get('task');
+		$view = Factory::getApplication()->getInput()->get('view');
 
 		if ($task=='')
 		{
@@ -81,7 +81,7 @@ class plgCommunityJlike_jomsocial extends CMSPlugin {
 		switch (strtolower($element))
 		{
 			case 'profile' :
-				$cont_id=Factory::getApplication()->input->get('userid');
+				$cont_id=Factory::getApplication()->getInput()->get('userid');
 				$columnName = 'username';
 				$dbTable = '#__users';
 				$jlikeelement="com_community.profile";
@@ -90,7 +90,7 @@ class plgCommunityJlike_jomsocial extends CMSPlugin {
 			break;
 
 			case 'video':
-				$cont_id=Factory::getApplication()->input->get('videoid');
+				$cont_id=Factory::getApplication()->getInput()->get('videoid');
 				$db->setQuery ( "SELECT creator FROM #__community_videos WHERE id={$cont_id}" );
 				$row = $db->loadAssoc();
 				$dbTable='#__community_videos';
@@ -104,8 +104,8 @@ class plgCommunityJlike_jomsocial extends CMSPlugin {
 			case 'photo':
 			case 'album':
 				$dbTable='#__community_photos';
-				$cont_id=$photoid=Factory::getApplication()->input->get('photoid');
-				$albumid=Factory::getApplication()->input->get('albumid');
+				$cont_id=$photoid=Factory::getApplication()->getInput()->get('photoid');
+				$albumid=Factory::getApplication()->getInput()->get('albumid');
 				$db->setQuery ( "SELECT albumid,creator FROM #__community_photos WHERE id={$albumid}");
 				$row = $db->loadAssoc();
 				$columnName = 'caption';
@@ -132,7 +132,7 @@ class plgCommunityJlike_jomsocial extends CMSPlugin {
 
 			case 'viewgroup':
 			case 'viewmembers':
-				$cont_id=$groupid=Factory::getApplication()->input->get('groupid');
+				$cont_id=$groupid=Factory::getApplication()->getInput()->get('groupid');
 				$title = 'this group';
 				$columnName = 'name';
 				$dbTable='#__community_groups';
@@ -143,7 +143,7 @@ class plgCommunityJlike_jomsocial extends CMSPlugin {
 
 			case 'viewevent':
 			case 'viewguest':
-				$cont_id=$eventid=Factory::getApplication()->input->get('eventid');
+				$cont_id=$eventid=Factory::getApplication()->getInput()->get('eventid');
 				$dbTable='#__community_events';
 				$title = 'title';
 				$jlikeelement="com_community.events";
@@ -162,7 +162,7 @@ class plgCommunityJlike_jomsocial extends CMSPlugin {
 
 		$show_like_buttons = 1;
 
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id'=>$cont_id,'element' => $jlikeelement, 'title' => $title, 'url' => $route,'plg_name'=>'jlike_jomsocial','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id'=>$cont_id,'element' => $jlikeelement, 'title' => $title, 'url' => $route,'plg_name'=>'jlike_jomsocial','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons) ) );
 
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();

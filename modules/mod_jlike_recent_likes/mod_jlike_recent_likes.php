@@ -8,9 +8,9 @@
  */
 // No direct access.
 	defined('_JEXEC') or die('Restricted access');
-	use Joomla\CMS\Factory;
-	use Joomla\CMS\Helper\ModuleHelper;
-	use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\Uri\Uri;
 	require_once JPATH_SITE . '/components/com_jlike/helper.php';
 
 	$input = Factory::getApplication()->getInput();

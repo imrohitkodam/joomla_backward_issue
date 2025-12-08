@@ -20,7 +20,7 @@ class JLikeModelButtonset extends BaseDatabaseModel
 	{
 		parent::__construct();
 
-		$array = Factory::getApplication()->input->get('cid', array(), 'array');
+		$array = Factory::getApplication()->getInput()->get('cid', array(), 'array');
 
 		if (isset($array[0]))
 		{
@@ -59,7 +59,7 @@ class JLikeModelButtonset extends BaseDatabaseModel
 
 	public function store()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->getArray($_POST);
 		$id    = $post['buttonset'];
 		// This looks dumb, but joomla wouldn't allow me to chain them.
@@ -75,7 +75,7 @@ class JLikeModelButtonset extends BaseDatabaseModel
 
 	public function delete()
 	{
-		$id  = Factory::getApplication()->input->get('published', 0);
+		$id  = Factory::getApplication()->getInput()->get('published', 0);
 		$row = $this->getTable();
 
 		if (!$row->delete($id))

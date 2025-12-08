@@ -61,9 +61,9 @@ class TjvendorsControllerVendors extends AdminController
 		Session::checkToken() or Factory::getApplication()->close();
 
 		$app    = Factory::getApplication();
-		$input  = $app->input;
+		$input  = $app->getInput();
 		$client = $input->get('client', '', 'STRING');
-		$cid    = $app->input->get('cid', array(), 'array');
+		$cid    = $app->getInput()->get('cid', array(), 'array');
 		$model  = $this->getModel("vendors");
 
 		foreach ($cid as $vendor_id)
@@ -83,10 +83,10 @@ class TjvendorsControllerVendors extends AdminController
 	public function publish()
 	{
 		$app    = Factory::getApplication();
-		$input  = $app->input;
+		$input  = $app->getInput();
 		$post   = $input->post;
 		$client = $input->get('client', '', 'STRING');
-		$cid    = $app->input->get('cid', array(), 'array');
+		$cid    = $app->getInput()->get('cid', array(), 'array');
 		$data   = array('publish' => 1, 'unpublish' => 0, 'archive' => 2, 'trash' => -2, 'report' => -3);
 		$task   = $this->getTask();
 		$value  = ArrayHelper::getValue($data, $task, 0, 'int');

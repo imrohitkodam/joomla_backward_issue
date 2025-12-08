@@ -117,7 +117,7 @@ class TjfieldsModelGroups extends ListModel
 		// Create a new query object.
 		$db    = $this->getDbo();
 		$query = $db->getQuery(true);
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		// Select the required fields from the table.
 		$query->select($this->getState('list.select', 'a.*'));

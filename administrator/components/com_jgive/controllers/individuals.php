@@ -56,7 +56,7 @@ class JgiveControllerIndividuals extends AdminController
 	public function getIndividuals()
 	{
 		$app    = Factory::getApplication();
-		$search = $app->input->get('search', '', 'STRING');
+		$search = $app->getInput()->get('search', '', 'STRING');
 
 		BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_jgive/models');
 		$JGiveModelIndividuals = BaseDatabaseModel::getInstance("Individuals", 'JgiveModel', array("ignore_request" => true));
@@ -106,7 +106,7 @@ class JgiveControllerIndividuals extends AdminController
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
 		$model = $this->getModel('individuals');
-		$post  = Factory::getApplication()->input->post;
+		$post  = Factory::getApplication()->getInput()->post;
 
 		$individualIdArray = $post->get('cid', '', 'Array');
 

@@ -37,12 +37,12 @@ class plgContentJLike_phocagallery extends CMSPlugin {
 		}
 
 		$route = Uri::getInstance()->toString();
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 		$catid=$input->get('cat_id','','INT');
 		$cont_id	=	$input->get('id','','INT');
 
 		$element	=	'';
-		$input=Factory::getApplication()->input;
+		$input=Factory::getApplication()->getInput();
 		$option=$input->get('option','','STRING');
 		$view=$input->get('view','','STRING');
 		$layout=$input->get('layout','','STRING');
@@ -67,7 +67,7 @@ class plgContentJLike_phocagallery extends CMSPlugin {
 		if($layout)
 			$element	.=	'.'.$layout;
 			//print_r(array ('cont_id' => $cont_id, 'element' => $element, 'title' => $article->slug, 'url' => $route ));
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $article->slug, 'url' => $route,'plg_name'=>'jlike_phocagallery','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $cont_id, 'element' => $element, 'title' => $article->slug, 'url' => $route,'plg_name'=>'jlike_phocagallery','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons) ) );
 
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();

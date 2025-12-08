@@ -51,7 +51,7 @@ class JFormFieldRegions extends ListField
 	{
 		$db = Factory::getDbo();
 		$query = $db->getQuery(true);
-		$client = Factory::getApplication()->input->get('client', '', 'STRING');
+		$client = Factory::getApplication()->getInput()->get('client', '', 'STRING');
 		$options = array();
 
 		// Select the required fields from the table.

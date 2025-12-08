@@ -20,5 +20,5 @@ if (file_exists(JPATH_SITE . '/components/com_tjfields/helpers/tjfields.php'))
 
 // Execute the task.
 $controller	= BaseController::getInstance('Tjfields');
-$controller->execute(Factory::getApplication()->input->get('task'));
+$controller->execute(Factory::getApplication()->getInput()->get('task'));
 $controller->redirect();

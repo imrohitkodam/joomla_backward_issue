@@ -44,7 +44,7 @@ spl_autoload_register(function ($class) {
 });
 
 $controller = BaseController::getInstance('Tjvendors');
-$controller->execute(Factory::getApplication()->input->get('task'));
+$controller->execute(Factory::getApplication()->getInput()->get('task'));
 $controller->redirect();
 $document = Factory::getDocument();
 $document->addScript(Uri::root(true) . '/media/com_tjvendor/js/tjvendors.js');

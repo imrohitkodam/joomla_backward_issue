@@ -42,7 +42,7 @@ class JgiveModelDonation extends ItemModel
 		// Load the parameters.
 		$params = ComponentHelper::getParams('com_jgive');
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		// Get donation id from URL and set into model state
 		$donationId = $input->get('donationid', '', 'INT');

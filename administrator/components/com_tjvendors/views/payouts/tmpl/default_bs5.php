@@ -37,7 +37,7 @@ $listOrder = $this->state->get('list.ordering');
 $listDirn  = $this->state->get('list.direction');
 $canOrder  = $user->authorise('core.edit.state', 'com_tjvendors');
 $saveOrder = $listOrder == 'a.`ordering`';
-$input     = $app->input;
+$input     = $app->getInput();
 $client    = $input->get('client', '', 'STRING');
 
 if ($saveOrder)

@@ -106,7 +106,7 @@ class PlgContentJLike_Articles extends CMSPlugin
 	 */
 	public function onContentAfterDisplay($context, &$article, &$params, $page = 0)
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		// Not to show anything related to commenting
 		$show_comments = -1;
@@ -154,7 +154,7 @@ class PlgContentJLike_Articles extends CMSPlugin
 	 */
 	public function SetValues($context, $article, $params, $page, $show_like_buttons, $show_comments, $show_recommend, $showassignbtn)
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$app   = Factory::getApplication();
 
 		$option = $input->get('option', '', 'STRING');
@@ -192,7 +192,7 @@ class PlgContentJLike_Articles extends CMSPlugin
 			}
 		}
 
-		Factory::getApplication()->input->set('data',
+		Factory::getApplication()->getInput()->set('data',
 			json_encode(
 				array(
 					'cont_id' => $cont_id,

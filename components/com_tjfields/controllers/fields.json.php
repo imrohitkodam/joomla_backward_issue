@@ -41,7 +41,7 @@ class TjfieldsControllerFields extends FormController
 		// Check for request forgeries.
 		Session::checkToken('get') or Session::checkToken() or Factory::getApplication()->close();
 		$app = Factory::getApplication();
-		$jinput = $app->input;
+		$jinput = $app->getInput();
 
 		$data = array();
 		$data['fileName'] = base64_decode($jinput->get('fileName', '', 'BASE64'));

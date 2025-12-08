@@ -34,8 +34,8 @@ class JlikeApiResourceInit extends ApiResource
 	public function post()
 	{
 
-		$input = Factory::getApplication()->input;
-		$post  = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
+		$post  = Factory::getApplication()->getInput();
 
 		$data = array();
 

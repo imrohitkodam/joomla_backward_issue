@@ -43,8 +43,8 @@ class JgiveControllerIndividual extends FormController
 		// Initialise variables.
 		$app   = Factory::getApplication();
 		$model = $this->getModel('Individual', 'JGiveModel');
-		$data  = $app->input->get('jform', array(), 'array');
-		$tmpl  = $app->input->get('tmpl');
+		$data  = $app->getInput()->get('jform', array(), 'array');
+		$tmpl  = $app->getInput()->get('tmpl');
 
 		$all_jform_data = $data;
 

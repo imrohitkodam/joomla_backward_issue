@@ -36,7 +36,7 @@ class JlikeControllerTodoCalendar extends JLikeController
 
 		$model  = BaseDatabaseModel::getInstance('Recommendations', 'JlikeModel');
 		$result = new stdClass;
-		$input  = Factory::getApplication()->input;
+		$input  = Factory::getApplication()->getInput();
 		$data['type']  = $input->get('type', 'todos', 'STRING');
 		$model->setState("type", $data['type']);
 

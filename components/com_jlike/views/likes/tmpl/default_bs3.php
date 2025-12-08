@@ -132,7 +132,7 @@ Text::script('COM_JLIKE_DELETE_LIKE_CONFIRMATION', true);
 					{document.getElementById('show_with_coments_only').value='1'}
 					else
 					{document.getElementById('show_with_coments_only').value='0'};
-					this.form.submit();" title="<?php echo Text::_('COM_JLIKE_SHOW_WITH_COMMENTS_ONLY'); ?>" <?php if(Factory::getApplication()->input->get('show_with_coments_only')=='1') echo 'checked';else echo '';?> /><?php echo Text::_('COM_JLIKE_SHOW_WITH_COMMENTS_ONLY');?>
+					this.form.submit();" title="<?php echo Text::_('COM_JLIKE_SHOW_WITH_COMMENTS_ONLY'); ?>" <?php if(Factory::getApplication()->getInput()->get('show_with_coments_only')=='1') echo 'checked';else echo '';?> /><?php echo Text::_('COM_JLIKE_SHOW_WITH_COMMENTS_ONLY');?>
 				 </label>
 			<?php
 			}

@@ -49,7 +49,7 @@ class PlgContentJLike_Easyblog extends CMSPlugin
 		$show_like_buttons = 1;
 		$cat_url           = 'index.php?option=com_easyblog&view=categories&layout=listings&id=' . $ebcat->id;
 
-		Factory::getApplication()->input->set('data', json_encode(
+		Factory::getApplication()->getInput()->set('data', json_encode(
 		array(
 			'cont_id' => $ebcat->id,
 			'element' => $element,
@@ -103,7 +103,7 @@ class PlgContentJLike_Easyblog extends CMSPlugin
 		$element_id = $item->id;
 		$element    = $context;
 		$title      = $item->title;
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$view  = $input->get('view', '', 'STRING');
 
 		// Not to show anything related to commenting
@@ -124,7 +124,7 @@ class PlgContentJLike_Easyblog extends CMSPlugin
 
 		$show_like_buttons = 0;
 
-		Factory::getApplication()->input->set('data', json_encode(
+		Factory::getApplication()->getInput()->set('data', json_encode(
 		array(
 			'cont_id' => $element_id,
 			'element' => $element,

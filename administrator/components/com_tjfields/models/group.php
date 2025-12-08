@@ -144,7 +144,7 @@ class TjfieldsModelGroup extends AdminModel
 	public function save($data)
 	{
 		$table         = $this->getTable();
-		$input         = Factory::getApplication()->input;
+		$input         = Factory::getApplication()->getInput();
 		$data['name']  = trim($data['name']);
 		$data['title'] = (!empty($data['name'])) ? $data['name'] : trim($data['title']);
 

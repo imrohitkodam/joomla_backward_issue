@@ -42,5 +42,5 @@ TJVendors::init();
 
 // Execute the task.
 $controller = BaseController::getInstance('Tjvendors');
-$controller->execute(Factory::getApplication()->input->get('task'));
+$controller->execute(Factory::getApplication()->getInput()->get('task'));
 $controller->redirect();

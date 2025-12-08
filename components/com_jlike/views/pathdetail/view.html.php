@@ -55,7 +55,7 @@ class JlikeViewpathdetail extends HtmlView
 		$this->state  = $this->get('State');
 		$this->item   = $this->get('Data');
 
-		$this->params = $this->app->getParams('com_jlike');
+		$this->params = $this->getApplication()->getParams('com_jlike');
 
 		if (!empty($this->item))
 		{
@@ -67,7 +67,7 @@ class JlikeViewpathdetail extends HtmlView
 		{
 			$current = Uri::getInstance()->toString();
 			$url     = base64_encode($current);
-			$this->app->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
+			$this->getApplication()->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
 		}
 
 		// Check if user subscribed to the path
@@ -76,15 +76,15 @@ class JlikeViewpathdetail extends HtmlView
 
 		if (empty($isSubscribed))
 		{
-			$this->app->enqueueMessage(Text::_('JERROR_ALERTNOAUTHOR'), 'error');
-			$this->app->redirect('index.php');
+			$this->getApplication()->enqueueMessage(Text::_('JERROR_ALERTNOAUTHOR'), 'error');
+			$this->getApplication()->redirect('index.php');
 		}
 
 		// Check the view access to the path detail view.
 		if ($this->item->get('access-view') == false)
 		{
-			$this->app->enqueueMessage(Text::_('JERROR_ALERTNOAUTHOR'), 'error');
-			$this->app->redirect('index.php');
+			$this->getApplication()->enqueueMessage(Text::_('JERROR_ALERTNOAUTHOR'), 'error');
+			$this->getApplication()->redirect('index.php');
 		}
 
 		// Check for errors.

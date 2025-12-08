@@ -14,7 +14,7 @@ class JgiveControllerVendorReport extends BaseController
 {
     public function display($cachable = false, $urlparams = [])
     {
-        $this->input->set('view', 'vendorreport');
+        $this->getInput()->set('view', 'vendorreport');
         parent::display($cachable, $urlparams);
     }
 
@@ -163,7 +163,7 @@ class JgiveControllerVendorReport extends BaseController
 
         Log::add("--- monthly get data ---",Log::INFO, "reportlog");
 
-        $input = Factory::getApplication()->input;
+        $input = Factory::getApplication()->getInput();
         $input->set('filter_type', 'monthly');
         $model = $this->getModel('VendorReport');
         $items = $model->getItems();
@@ -194,7 +194,7 @@ class JgiveControllerVendorReport extends BaseController
      */
     private function getQuarterlyReportSendEmail() {
 
-        $input = Factory::getApplication()->input;
+        $input = Factory::getApplication()->getInput();
         $input->set('filter_type', 'quarterly');
 
         $model = $this->getModel('VendorReport');
@@ -226,7 +226,7 @@ class JgiveControllerVendorReport extends BaseController
      */
     private function getYearlyReportSendEmail() {
 
-        $input = Factory::getApplication()->input;
+        $input = Factory::getApplication()->getInput();
         $input->set('filter_type', 'yearly');
 
         $model = $this->getModel('VendorReport');

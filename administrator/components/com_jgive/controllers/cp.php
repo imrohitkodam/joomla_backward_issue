@@ -38,7 +38,7 @@ class JgiveControllerCp extends FormController
 	 */
 	public function SetsessionForGraph()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$fromDate = $input->get('fromDate');
 		$toDate = $input->get('toDate');
 		$session = Factory::getSession();
@@ -144,7 +144,7 @@ class JgiveControllerCp extends FormController
 	 */
 	public function setup()
 	{
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 		$takeBackUp = $jinput->get("takeBackUp", 1);
 
 		$client = 0;

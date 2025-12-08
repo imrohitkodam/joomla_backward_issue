@@ -16,7 +16,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Plugin\PluginHelper;
 
-jimport('techjoomla.tjmoney.tjmoney');
+if (!class_exists('TjMoney')) { require_once JPATH_LIBRARIES . '/techjoomla/tjmoney/tjmoney.php'; }
 
 /**
  * JGive utilities class for common methods.

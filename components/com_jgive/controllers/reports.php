@@ -47,7 +47,7 @@ class JgiveControllerReports extends AdminController
 
 		BaseDatabaseModel::addIncludePath(JPATH_SITE . '/components/com_jgive/models', 'Reports');
 		$modelReports = BaseDatabaseModel::getInstance('Reports', 'JGiveModel', array('ignore_request' => true));
-		$jinput       = Factory::getApplication()->input;
+		$jinput       = Factory::getApplication()->getInput();
 		$campaignId   = $jinput->get('campaign_id', 0, 'INT');
 		$listStart    = $jinput->get('limit_offset', 0, 'INT');
 

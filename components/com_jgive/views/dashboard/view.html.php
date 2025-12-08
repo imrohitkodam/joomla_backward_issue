@@ -52,7 +52,7 @@ class JgiveViewDashboard extends HtmlView
 		$app  = Factory::getApplication();
 
 		// Take option value
-		$com_jgive_option = $app->input->get('option');
+		$com_jgive_option = $app->getInput()->get('option');
 
 		$user = Factory::getUser();
 		$this->logged_userid = $user->id;
@@ -121,12 +121,12 @@ class JgiveViewDashboard extends HtmlView
 		);
 		$this->promoterDashboardData['params'] = ComponentHelper::getParams('com_jgive');
 		$this->promoterDashboardData['categories'] = $campaignHelper->getCampaignsCategories();
-		$this->promoterDashboardData['filterCatList'] = $app->input->get('cat');
-		$this->promoterDashboardData['filterCampStatus'] = $app->input->get('campStatus');
+		$this->promoterDashboardData['filterCatList'] = $app->getInput()->get('cat');
+		$this->promoterDashboardData['filterCampStatus'] = $app->getInput()->get('campStatus');
 		$this->promoterDashboardData['campaignType'] = $campaignHelper->getCampaignTypeFilterOptions();
-		$this->promoterDashboardData['filterCampType'] = $app->input->get('campType');
+		$this->promoterDashboardData['filterCampType'] = $app->getInput()->get('campType');
 		$this->promoterDashboardData['organizationType'] = $campaignHelper->organization_individual_type();
-		$this->promoterDashboardData['filterOrgTypeList'] = $app->input->get('orgType');
+		$this->promoterDashboardData['filterOrgTypeList'] = $app->getInput()->get('orgType');
 		$this->promoterDashboardData['language'] = new stdClass;
 		$this->promoterDashboardData['language']->lang = Factory::getLanguage()->getTag();
 

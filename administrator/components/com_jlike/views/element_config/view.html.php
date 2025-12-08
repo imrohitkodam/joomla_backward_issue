@@ -27,7 +27,7 @@ class jlikeViewElement_config extends HtmlView
 
 		//Get the model
 		$model = $this->getModel();
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		$this->sidebar = '';
 		parent::display();

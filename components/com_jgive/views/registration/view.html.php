@@ -50,7 +50,7 @@ class JgiveViewregistration extends BaseHtmlView
 		}
 
 
-		$this->itemId = $app->input->get('Itemid');
+		$this->itemId = $app->getInput()->get('Itemid');
 		parent::display($tpl);
 	}
 }

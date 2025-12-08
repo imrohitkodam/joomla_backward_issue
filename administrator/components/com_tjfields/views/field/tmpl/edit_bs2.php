@@ -24,7 +24,7 @@ if(JVERSION >= '3.0')
 	HTMLHelper::_('formbehavior.chosen', 'select');
 }
 
-$input = Factory::getApplication()->input;
+$input = Factory::getApplication()->getInput();
 $fullClient = $input->get('client','','STRING');
 $fullClient =  explode('.',$fullClient);
 

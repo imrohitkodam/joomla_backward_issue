@@ -351,7 +351,7 @@ class TjStrapper
 	public static  function validateLoading()
 	{
 		$app    = Factory::getApplication();
-		$input  = Factory::getApplication()->input;
+		$input  = Factory::getApplication()->getInput();
 		$option = $input->get('option', '', 'string');
 
 		// Admin side loading
@@ -738,7 +738,7 @@ class TjStrapper
 	public static function getTJCssArray()
 	{
 		$app    = Factory::getApplication();
-		$input  = Factory::getApplication()->input;
+		$input  = Factory::getApplication()->getInput();
 		$option = $input->get('option', '', 'string');
 
 		$loadCssFlag = 1;

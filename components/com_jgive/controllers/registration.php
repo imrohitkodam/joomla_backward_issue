@@ -35,7 +35,7 @@ class JgiveControllerregistration extends FormController
 	{
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
-		$input   = Factory::getApplication()->input;
+		$input   = Factory::getApplication()->getInput();
 		$model   = $this->getModel('registration');
 		$session = Factory::getSession();
 		$post    = $input->post->getArray();
@@ -76,7 +76,7 @@ class JgiveControllerregistration extends FormController
 	public function cancel($key = null)
 	{
 		$msg     = Text::_('COM_JGIVE_REGISTRATION_OPERATION_CANCELLED');
-		$input   = Factory::getApplication()->input;
+		$input   = Factory::getApplication()->getInput();
 		$itemId  = $input->get('Itemid');
 		$session = Factory::getSession();
 		$session->set('quick_reg_no_login', '1');

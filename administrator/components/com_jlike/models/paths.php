@@ -81,7 +81,7 @@ class JLikeModelPaths extends ListModel
 		$published = $app->getUserStateFromRequest($this->context . '.filter.state', 'filter_published', '', 'string');
 		$this->setState('filter.state', $published);
 
-		$orderCol = $app->input->get('filter_order', 'ASC');
+		$orderCol = $app->getInput()->get('filter_order', 'ASC');
 
 		if (!(in_array($orderCol, $this->filter_fields)))
 		{
@@ -89,7 +89,7 @@ class JLikeModelPaths extends ListModel
 		}
 
 		$this->setState('list.ordering', $orderCol);
-		$listOrder = $app->input->get('filter_order_Dir', 'ASC');
+		$listOrder = $app->getInput()->get('filter_order_Dir', 'ASC');
 
 		if (!in_array(strtoupper($listOrder), array('ASC', 'DESC', '')))
 		{

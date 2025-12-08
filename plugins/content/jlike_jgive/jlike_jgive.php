@@ -172,7 +172,7 @@ class PlgContentjlike_Jgive extends CMSPlugin
 	 */
 	public function onContentAfterDisplay($context, &$entity, &$params, $page = 0, $url = null)
 	{
-		$input           = Factory::getApplication()->input;
+		$input           = Factory::getApplication()->getInput();
 		$showComments    = -1;
 		$showLikeButtons = 0;
 		$jlike_comments  = $this->params->get('jlike_comments');

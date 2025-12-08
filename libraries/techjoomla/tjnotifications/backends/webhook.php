@@ -19,7 +19,7 @@ use Joomla\Registry\Registry;
 BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_tjnotifications/models', 'NotificationsModel');
 BaseDatabaseModel::addIncludePath(JPATH_SITE . '/components/com_tjnotifications/models', 'NotificationsModel');
 
-jimport('techjoomla.tjnotifications.backend');
+if (!class_exists('TjNotificationBackend')) { require_once JPATH_LIBRARIES . '/techjoomla/tjnotifications/backend.php'; }
 
 /**
  * Tjnotifications

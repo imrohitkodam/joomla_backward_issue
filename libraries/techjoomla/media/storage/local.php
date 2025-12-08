@@ -19,7 +19,7 @@ use Joomla\CMS\Table\Table;
 use Joomla\CMS\Image\Image;
 use Joomla\Filesystem\File;
 
-defined('JPATH_PLATFORM') or die();
+defined('_JEXEC') or die();
 
 require_once JPATH_LIBRARIES . '/techjoomla/media/tjmedia.php';
 // Note: object/object.php removed - CMSObject is now used via Joomla namespace (Joomla\CMS\Object\CMSObject)

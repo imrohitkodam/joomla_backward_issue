@@ -21,7 +21,7 @@ use Joomla\Filesystem\Folder;
 $document =Factory::getDocument();
 $document->addStyleSheet(Uri::root(true).'/media/com_tjlms/bootstrap3/css/bootstrap.min.css');
 $document->addStyleSheet(Uri::root(true).'/media/techjoomla_strapper/css/bootstrap.j3.css');
-$input = Factory::getApplication()->input;
+$input = Factory::getApplication()->getInput();
 ?>
 <script type="text/javascript">
 

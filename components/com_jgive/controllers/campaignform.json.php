@@ -10,7 +10,7 @@
 
 // No direct access to this file
 defined('_JEXEC') or die;
-jimport('techjoomla.common');
+if (!class_exists('TechjoomlaCommon')) { require_once JPATH_LIBRARIES . '/techjoomla/common.php'; }
 JLoader::import('campaign', JPATH_SITE . '/components/com_jgive/helpers');
 
 use Joomla\CMS\Factory;
@@ -109,9 +109,9 @@ class JGiveControllerCampaignForm extends JGiveController
 		// Prevent CSRF attack
 		Session::checkToken('get') or Factory::getApplication()->close();
 
-		$mediaId  = $this->input->get('id', '0', 'INT');
-		$client   = $this->input->get('client', '', 'STRING');
-		$clientId = $this->input->get('clientId', '0', 'INT');
+		$mediaId  = $this->getInput()->get('id', '0', 'INT');
+		$client   = $this->getInput()->get('client', '', 'STRING');
+		$clientId = $this->getInput()->get('clientId', '0', 'INT');
 		$params   = ComponentHelper::getParams('com_jgive');
 
 		if ($client == 'com_jgive.reportAttachment')
@@ -151,8 +151,8 @@ class JGiveControllerCampaignForm extends JGiveController
 	 */
 	public function setDefaultMedia()
 	{
-		$mediaIds = $this->input->get('mediaIds', 'array()', 'array');
-		$cid      = $this->input->get('cid', 0, 'INT');
+		$mediaIds = $this->getInput()->get('mediaIds', 'array()', 'array');
+		$cid      = $this->getInput()->get('cid', 0, 'INT');
 		$model    = $this->getModel('media');
 		$model->setDefaultMedia($mediaIds, $cid);
 		echo new JsonResponse(1, Text::_('COM_JGIVE_MEDIA_FILE_SET_TO_DEFAULT'));
@@ -167,7 +167,7 @@ class JGiveControllerCampaignForm extends JGiveController
 	 */
 	public function getJSGroups()
 	{
-		$userId = $this->input->get('user', 0, 'INTEGER');
+		$userId = $this->getInput()->get('user', 0, 'INTEGER');
 		$JgiveIntegrationsHelper = new JgiveIntegrationsHelper;
 		$result = $JgiveIntegrationsHelper->getJS_usergroup($userId);
 

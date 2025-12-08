@@ -15,7 +15,7 @@ use Joomla\CMS\Language\Text;
 
 require_once JPATH_COMPONENT . '/controller.php';
 
-jimport('techjoomla.common');
+if (!class_exists('TechjoomlaCommon')) { require_once JPATH_LIBRARIES . '/techjoomla/common.php'; }
 
 /**
  * Controller for single form view
@@ -46,7 +46,7 @@ class JgiveControllerDashboard extends jgiveController
 	 */
 	public function getDashboardGraphData()
 	{
-		$input    = Factory::getApplication()->input;
+		$input    = Factory::getApplication()->getInput();
 
 		// Creating Object of FrontendHelper class
 		$jgiveFrontendHelper = new jgiveFrontendHelper;

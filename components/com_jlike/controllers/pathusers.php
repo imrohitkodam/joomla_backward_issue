@@ -30,11 +30,11 @@ class JlikeControllerPathUsers extends JLikeControllerBase
 	public function __construct()
 	{
 		$this->app = Factory::getApplication();
-		$this->path_id  = $this->app->input->get('path_id');
+		$this->path_id  = $this->getApplication()->getInput()->get('path_id');
 
 		if (empty($this->path_id))
 		{
-			$this->path_id  = $this->app->input->post->get('path_id', '', 'int');
+			$this->path_id  = $this->getApplication()->getInput()->post->get('path_id', '', 'int');
 		}
 	}
 

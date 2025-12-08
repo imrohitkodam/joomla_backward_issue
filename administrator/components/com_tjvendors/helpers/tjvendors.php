@@ -35,7 +35,7 @@ class TjvendorsHelper
 	 */
 	public static function addSubmenu($vName = '')
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$full_client = $input->get('client', '', 'STRING');
 		$full_client = explode('.', $full_client);
 

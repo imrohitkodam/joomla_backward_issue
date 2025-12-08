@@ -8,7 +8,7 @@
  * @license     http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  */
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
@@ -21,7 +21,7 @@ use Joomla\CMS\Plugin\PluginHelper;
 BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_tjnotifications/models', 'NotificationsModel');
 BaseDatabaseModel::addIncludePath(JPATH_SITE . '/components/com_tjnotifications/models', 'NotificationsModel');
 
-jimport('techjoomla.tjnotifications.backend');
+if (!class_exists('TjNotificationBackend')) { require_once JPATH_LIBRARIES . '/techjoomla/tjnotifications/backend.php'; }
 
 /**
  * Tjnotifications

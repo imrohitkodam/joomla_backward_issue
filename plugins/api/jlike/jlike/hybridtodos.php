@@ -68,7 +68,7 @@ class JlikeApiResourceHybridTodos extends ApiResource
 	public function get()
 	{
 
-		$post = Factory::getApplication()->input;
+		$post = Factory::getApplication()->getInput();
 
 		$getContentId               = array();
 		$getContentId['url']        = $post->get('url', '', 'url');
@@ -97,7 +97,7 @@ class JlikeApiResourceHybridTodos extends ApiResource
 		}
 
 		$data  = array();
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		// Get and set limitstart
 		$data['limitstart'] = $input->get('limitstart', '0', 'INT');
@@ -176,8 +176,8 @@ class JlikeApiResourceHybridTodos extends ApiResource
 	public function post()
 	{
 
-		$input = Factory::getApplication()->input;
-		$post  = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
+		$post  = Factory::getApplication()->getInput();
 
 		// Get Content id
 		$getContentId               = array();

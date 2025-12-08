@@ -80,7 +80,7 @@ class JlikeModelPathNodeGraphs extends ListModel
 		}
 
 		$this->setState('list.ordering', $orderCol);
-		$listOrder = $app->input->get('filter_order_Dir', 'ASC');
+		$listOrder = $app->getInput()->get('filter_order_Dir', 'ASC');
 
 		// Get Path Id
 		$pathId = $app->getUserStateFromRequest($this->context . '.filter.path_id', 'path_id');

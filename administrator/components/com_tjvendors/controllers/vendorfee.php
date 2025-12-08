@@ -31,7 +31,7 @@ class TjvendorsControllerVendorFee extends FormController
 	public function __construct()
 	{
 			$this->view_list = 'vendorfees';
-		$this->input = Factory::getApplication()->input;
+		$this->input = Factory::getApplication()->getInput();
 
 		if (empty($this->client))
 		{
@@ -53,7 +53,7 @@ class TjvendorsControllerVendorFee extends FormController
 	 */
 	protected function getRedirectToItemAppend($recordId = null, $urlVar = 'id')
 	{
-		$input     = Factory::getApplication()->input;
+		$input     = Factory::getApplication()->getInput();
 		$client    = $input->get('client', '', 'STRING');
 		$vendor_id = $input->get('vendor_id', '', 'INTEGER');
 		$append    = parent::getRedirectToItemAppend($recordId);
@@ -71,7 +71,7 @@ class TjvendorsControllerVendorFee extends FormController
 	 */
 	protected function getRedirectToListAppend()
 	{
-		$input     = Factory::getApplication()->input;
+		$input     = Factory::getApplication()->getInput();
 		$client    = $input->get('client', '', 'STRING');
 		$vendor_id = $input->get('vendor_id', '', 'STRING');
 		$append    = parent::getRedirectToItemAppend();
@@ -91,7 +91,7 @@ class TjvendorsControllerVendorFee extends FormController
 	 */
 	public function edit($key = null, $urlVar = null)
 	{
-		$input    = Factory::getApplication()->input;
+		$input    = Factory::getApplication()->getInput();
 		$cid      = $input->post->get('cid', array(), 'array');
 		$vendorId = (int) ($input->getInt('vendor_id') ? $input->getInt('vendor_id') : (count($cid) ? $cid[0] : 0));
 		$client   = $input->get('client', '', 'STRING');
@@ -111,7 +111,7 @@ class TjvendorsControllerVendorFee extends FormController
 	 */
 	public function cancel($key = null)
 	{
-		$input     = Factory::getApplication()->input;
+		$input     = Factory::getApplication()->getInput();
 		$client    = $input->get('client', '', 'STRING');
 		$vendor_id = $input->get('vendor_id', '', 'STRING');
 		$append = '&vendor_id=' . $vendor_id . '&client=' . $client;

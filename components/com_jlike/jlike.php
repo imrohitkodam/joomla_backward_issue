@@ -91,7 +91,7 @@ ComjlikeHelper::getLanguageConstant();
 require_once JPATH_COMPONENT . '/controller.php';
 
 // Require specific controller if requested
-if ($controller = Factory::getApplication()->input->get('controller'))
+if ($controller = Factory::getApplication()->getInput()->get('controller'))
 {
 	$path = JPATH_COMPONENT . '/controllers/' . $controller . '.php';
 
@@ -106,5 +106,5 @@ if ($controller = Factory::getApplication()->input->get('controller'))
 }
 
 $controller = BaseController::getInstance('jlike');
-$controller->execute(Factory::getApplication()->input->get('task'));
+$controller->execute(Factory::getApplication()->getInput()->get('task'));
 $controller->redirect();

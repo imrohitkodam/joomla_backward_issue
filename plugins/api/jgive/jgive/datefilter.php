@@ -33,7 +33,7 @@ class JgiveApiResourceDatefilter extends ApiResource
 	public function get()
 	{
 		$userId          = Factory::getUser()->id;
-		$input           = Factory::getApplication()->input;
+		$input           = Factory::getApplication()->getInput();
 		$result          = new stdClass;
 		$result->results = array();
 

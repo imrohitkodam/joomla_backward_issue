@@ -306,7 +306,7 @@ trait TjfieldsFilterField
 	 */
 	public function loadFormDataExtra($data, $id = null)
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$user = Factory::getUser();
 
 		// If id is not present in $data then check if it is available in JInput
@@ -417,7 +417,7 @@ trait TjfieldsFilterField
 	{
 		if (empty($id))
 		{
-			$input = Factory::getApplication()->input;
+			$input = Factory::getApplication()->getInput();
 			$id = (empty($data['content_id'])) ? $input->get('content_id', '', 'INT') : $data['content_id'];
 		}
 

@@ -54,7 +54,7 @@ class JGiveControllerReportForm extends JGiveController
 		$modelCampaignForm = BaseDatabaseModel::getInstance('CampaignForm', 'JGiveModel');
 		$authorised        = $modelCampaignForm->checkOwnership($vendorId, 'save');
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		// Default return message
 		$message = Text::_('COM_JGIVE_FILE_ERROR');

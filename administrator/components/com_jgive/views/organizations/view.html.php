@@ -18,7 +18,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 
-jimport('techjoomla.tjtoolbar.button.csvexport');
+if (!class_exists('TjtoolbarButtonCsvexport')) { require_once JPATH_LIBRARIES . '/techjoomla/tjtoolbar/button/csvexport.php'; }
 
 /**
  * Organizations view class.

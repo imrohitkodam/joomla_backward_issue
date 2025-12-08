@@ -55,7 +55,7 @@ class TjvendorsViewVendors extends HtmlView
 	{
 		$app = Factory::getApplication();
 		$this->user_id = Factory::getUser()->id;
-		$this->input = $app->input;
+		$this->input = $app->getInput();
 
 		// Get data from the model
 		$items_model = BaseDatabaseModel::getInstance('vendors', 'TjvendorsModel');

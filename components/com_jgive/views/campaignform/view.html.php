@@ -192,7 +192,7 @@ class JGiveViewCampaignForm extends HtmlView
 			$this->allowed = 0;
 		}
 
-		$layout = $this->app->input->get('layout', 'default', 'STRING');
+		$layout = $this->getApplication()->getInput()->get('layout', 'default', 'STRING');
 		$this->setLayout($layout);
 		$this->vendorProfileMenuId = $jgiveFrontendHelper->getItemId('index.php?option=com_tjvendors&view=vendor&client=com_jgive');
 		$this->editVendor = Uri::root() .
@@ -306,7 +306,7 @@ class JGiveViewCampaignForm extends HtmlView
 		{
 			$this->allowVendorToShareCampaign = $this->params->get('allow_vendor_to_share_campaign', 1, 'Integer');
 			$this->socialSharingOptions       = $this->params->get('social_sharing_options', array(), 'Array');
-			$input                            = Factory::getApplication()->input;
+			$input                            = Factory::getApplication()->getInput();
 			$this->campaignId                 = $input->get('id', 0, 'INT');
 			$this->campaignTitle              = JGive::campaign($this->campaignId)->getTitle();
 			$this->campaignLink  = Route::_('index.php?option=com_jgive&view=campaign&layout=default&id=' . $this->campaignId, false);

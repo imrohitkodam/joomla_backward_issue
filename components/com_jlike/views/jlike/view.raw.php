@@ -80,12 +80,12 @@ class JlikeViewjlike extends HtmlView
 	public function display($tpl = null)
 	{
 		$this->params        = ComponentHelper::getParams('com_jlike');
-		$input    = Factory::getApplication()->input;
+		$input    = Factory::getApplication()->getInput();
 		$post     = $input->post;
 		$ordering = $post->get('sorting', 'DESC', 'STRING');
 
 		Factory::getLanguage()->load('com_jlike');
-		$setdata = Factory::getApplication()->input;
+		$setdata = Factory::getApplication()->getInput();
 		$this->urldata = json_decode($setdata->get('data', '', 'RAW'));
 
 		if ((!isset($this->urldata->plg_type)) || (isset($this->urldata->plg_type) && empty($this->urldata->plg_type)))

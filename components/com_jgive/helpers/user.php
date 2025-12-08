@@ -38,7 +38,7 @@ class UserHelper
 		$app  = Factory::getApplication();
 		$db   = Factory::getDbo();
 		$user = Factory::getUser();
-		$post = $app->input->getArray($_POST);
+		$post = $app->getInput()->getArray($_POST);
 
 		// First save data to the address table
 		$row = Table::getInstance('Address', 'Table');

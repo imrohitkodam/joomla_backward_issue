@@ -63,7 +63,7 @@ class JgiveViewDonation extends HtmlView
 		$app          = Factory::getApplication();
 		$user         = Factory::getUser();
 		$this->params = ComponentHelper::getParams('com_jgive');
-		$this->layout = $app->input->get('layout', 'default');
+		$this->layout = $app->getInput()->get('layout', 'default');
 
 		$this->jgiveFrontendHelper = new jgiveFrontendHelper;
 		$this->donationsHelper     = new DonationsHelper;
@@ -107,7 +107,7 @@ class JgiveViewDonation extends HtmlView
 			BaseDatabaseModel::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_jgive/models', 'receipttemplate');
 			$receiptTemplateModel = BaseDatabaseModel::getInstance('receipttemplate', 'JGiveModel');
 
-			$this->certificateHtml = $receiptTemplateModel->generateReceipt($app->input->get('donationid'));
+			$this->certificateHtml = $receiptTemplateModel->generateReceipt($app->getInput()->get('donationid'));
 		}
 
 		$this->_setToolbar();

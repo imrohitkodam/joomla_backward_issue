@@ -36,7 +36,7 @@ class JlikeApiResourceAnnotations extends ApiResource
 		$context = "com_jlike.annotations";
 
 		$commentRes = array();
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		$data = array();
 
@@ -112,7 +112,7 @@ class JlikeApiResourceAnnotations extends ApiResource
 	 */
 	public function post()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->post;
 
 		$data = array();
@@ -180,7 +180,7 @@ class JlikeApiResourceAnnotations extends ApiResource
 	 */
 	public function delete()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		$data = array();
 		$data['id'] = $input->getInt('id', '');

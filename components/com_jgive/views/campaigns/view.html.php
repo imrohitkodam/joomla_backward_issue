@@ -78,7 +78,7 @@ class JgiveViewCampaigns extends HtmlView
 		// Condition for checking to show "Launch a campaign" link to user or not
 		$this->canCreate  = $user->authorise('core.create', 'com_jgive');
 
-		$layout = $mainframe->input->get('layout', 'all');
+		$layout = $mainframe->getInput()->get('layout', 'all');
 
 		// My Campaign view
 		if ($layout == 'my')
@@ -86,7 +86,7 @@ class JgiveViewCampaigns extends HtmlView
 			if (!$this->logged_userid)
 			{
 				$msg = Text::_('COM_JGIVE_LOGIN_MSG');
-				$uri = $mainframe->input->get('REQUEST_URI', '', 'server', 'string');
+				$uri = $mainframe->getInput()->get('REQUEST_URI', '', 'server', 'string');
 				$url = base64_encode($uri);
 				$mainframe->enqueueMessage($msg, 'error');
 				$mainframe->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url));
@@ -191,7 +191,7 @@ class JgiveViewCampaigns extends HtmlView
 			$this->campaign_city = $cityArray;
 		}
 
-		$filterOrder                             = $mainframe->input->get('filter_order', '', "STRING");
+		$filterOrder                             = $mainframe->getInput()->get('filter_order', '', "STRING");
 		$this->lists['filter_order']             = ($filterOrder) ? $filterOrder : $this->state->get('filter_order');
 		$this->lists['filter_order_Dir']         = $this->state->get('filter_order_Dir');
 		$this->lists['filter_campaign_cat']      = $this->state->get(

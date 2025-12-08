@@ -53,7 +53,7 @@ class JLikeViewRatings extends HtmlView
 	public function display($tpl = null)
 	{
 		$this->app 			= Factory::getApplication();
-		$jinput				= $this->app->input;
+		$jinput				= $this->getApplication()->input;
 		$this->contentId	= $jinput->get('contentId', 0, 'INT');
 		$this->user			= Factory::getUser();
 
@@ -66,7 +66,7 @@ class JLikeViewRatings extends HtmlView
 		{
 			$current = Uri::getInstance()->toString();
 			$url     = base64_encode($current);
-			$this->app->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
+			$this->getApplication()->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
 		}*/
 
 		$this->model = $this->getModel('ratings');

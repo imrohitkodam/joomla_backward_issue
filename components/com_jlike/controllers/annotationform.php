@@ -116,7 +116,7 @@ class JlikeControllerAnnotationForm extends AdminController
 	 */
 	public function save()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->post;
 
 		$data = array();
@@ -205,7 +205,7 @@ class JlikeControllerAnnotationForm extends AdminController
 	 */
 	public function delete()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 
 		$data = array();
 		$data['id'] = $input->getInt('id', '');

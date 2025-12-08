@@ -162,27 +162,27 @@ class JgiveModelMigration extends BaseDatabaseModel
 		switch (strtolower($integration))
 		{
 			case 'jomsocial':
-				jimport('techjoomla.jsocial.jomsocial');
+				if (!class_exists('JSocialJomsocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jomsocial.php'; }
 				$sociallibraryclass = new JSocialJomsocial;
 				break;
 			case 'easysocial':
-				jimport('techjoomla.jsocial.easysocial');
+				if (!class_exists('JSocialEasysocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/easysocial.php'; }
 				$sociallibraryclass = new JSocialEasysocial;
 				break;
 			case 'joomla':
-				jimport('techjoomla.jsocial.joomla');
+				if (!class_exists('JSocialJoomla')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/joomla.php'; }
 				$sociallibraryclass = new JSocialJoomla;
 				break;
 			case 'cb':
-				jimport('techjoomla.jsocial.cb');
+				if (!class_exists('JSocialCb')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/cb.php'; }
 				$sociallibraryclass = new JSocialCB;
 				break;
 			case 'jomwall':
-				jimport('techjoomla.jsocial.jomwall');
+				if (!class_exists('JSocialJomwall')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jomwall.php'; }
 				$sociallibraryclass = new JSocialJomwall;
 				break;
 			default:
-				jimport('techjoomla.jsocial.joomla');
+				if (!class_exists('JSocialJoomla')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/joomla.php'; }
 				$sociallibraryclass = new JSocialJoomla;
 				break;
 		}

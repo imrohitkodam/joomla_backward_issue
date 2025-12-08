@@ -50,7 +50,7 @@ class JlikeControllerRatingtypes extends AdminController
 	 */
 	public function publish()
 	{
-		$cid = Factory::getApplication()->input->get('cid', array(), 'array');
+		$cid = Factory::getApplication()->getInput()->get('cid', array(), 'array');
 		$data = array(
 			'publish' => 1,
 			'unpublish' => 0
@@ -112,7 +112,7 @@ class JlikeControllerRatingtypes extends AdminController
 		// Check for request forgeries
 		$this->checkToken();
 
-		$pks = $this->input->post->get('cid', array(), 'array');
+		$pks = $this->getInput()->post->get('cid', array(), 'array');
 
 		try
 		{
@@ -159,7 +159,7 @@ class JlikeControllerRatingtypes extends AdminController
 		// Check for request forgeries
 		$this->checkToken('request');
 
-		$pks = $this->input->post->get('cid', array(), 'array');
+		$pks = $this->getInput()->post->get('cid', array(), 'array');
 		$pks = ArrayHelper::toInteger($pks);
 
 		try

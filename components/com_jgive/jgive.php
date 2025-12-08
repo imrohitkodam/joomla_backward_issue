@@ -115,5 +115,5 @@ JGive::init();
 
 // Execute the task.
 $controller = BaseController::getInstance('Jgive');
-$controller->execute(Factory::getApplication()->input->get('task'));
+$controller->execute(Factory::getApplication()->getInput()->get('task'));
 $controller->redirect();

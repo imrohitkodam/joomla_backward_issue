@@ -42,7 +42,7 @@ class JgiveControllerOrganizationform extends FormController
 		// Initialise variables.
 		$app          = Factory::getApplication();
 		$model        = $this->getModel('Organizationform', 'JGiveModel');
-		$data         = $app->input->get('jform', array(), 'array');
+		$data         = $app->getInput()->get('jform', array(), 'array');
 		$allJformData = $data;
 		$form         = $model->getForm();
 

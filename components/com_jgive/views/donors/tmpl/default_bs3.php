@@ -24,7 +24,7 @@ $jgivehelper   = new JgiveFrontendHelper;
 
 // Menu Item Id for redirecting url
 $mainframe = Factory::getApplication();
-$input = Factory::getApplication()->input;
+$input = Factory::getApplication()->getInput();
 $itemidForDonor = $input->get('Itemid', '', 'INT');
 
 // Check here logged user have campaigns.

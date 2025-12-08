@@ -101,7 +101,7 @@ class TjvendorsModelVendors extends ListModel
 	protected function getListQuery()
 	{
 		// Get client
-		$input  = Factory::getApplication()->input;
+		$input  = Factory::getApplication()->getInput();
 		$client = $input->get('client', '', 'STRING');
 
 		// Create a new query object.

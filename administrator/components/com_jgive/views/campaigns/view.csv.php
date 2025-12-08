@@ -10,7 +10,7 @@
 
 // No direct access
 defined('_JEXEC') or die('Restricted access');
-jimport('techjoomla.view.csv');
+if (!class_exists('TjCSVView')) { require_once JPATH_LIBRARIES . '/techjoomla/view/csv.php'; }
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;

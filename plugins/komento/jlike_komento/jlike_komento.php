@@ -30,7 +30,7 @@ class plgKomentojlike_komento extends CMSPlugin {
 		$show_like_buttons=1;
 		$show_comments=-1;
 
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id' => $addata['id'], 'element' => $context, 'title' => $addata['title'], 'url' => $addata['url'], 'plg_name'=>'jlike_komento', 'show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons ) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id' => $addata['id'], 'element' => $context, 'title' => $addata['title'], 'url' => $addata['url'], 'plg_name'=>'jlike_komento', 'show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons ) ) );
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
 		$jlikehelperObj=new comjlikeHelper();
 		$html = $jlikehelperObj->showlike();

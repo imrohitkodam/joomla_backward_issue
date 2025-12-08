@@ -85,7 +85,7 @@ class JLikeModelPathUsers extends ListModel
 		$limitstart = $app->getUserStateFromRequest('limitstart', 'limitstart', 0);
 		$this->setState('list.start', $limitstart);
 
-		$catId  = $app->input->get('catId', '', 'INT');
+		$catId  = $app->getInput()->get('catId', '', 'INT');
 
 		if (!empty($catId))
 		{
@@ -93,7 +93,7 @@ class JLikeModelPathUsers extends ListModel
 		}
 
 		// Get path filters
-		$pathFilter = $app->input->get('path_filters', 'all', 'WORD');
+		$pathFilter = $app->getInput()->get('path_filters', 'all', 'WORD');
 
 		$this->setState('filter.path_filters', $pathFilter);
 

@@ -77,7 +77,7 @@ class JLikeModelDashboard extends BaseDatabaseModel
 	 */
 	public function getLineChartValues()
 	{
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->getArray($_POST);
 
 		// ToDate Value

@@ -22,8 +22,8 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
 
 // Component Helper
-jimport('techjoomla.tjmail.mail');
-jimport('techjoomla.tjmoney.tjmoney');
+if (!class_exists('TjMail')) { require_once JPATH_LIBRARIES . '/techjoomla/tjmail/mail.php'; }
+if (!class_exists('TjMoney')) { require_once JPATH_LIBRARIES . '/techjoomla/tjmoney/tjmoney.php'; }
 
 /**
  * Controller
@@ -75,27 +75,27 @@ class JgiveFrontendHelper
 
 		if ($integration_option == 'cb')
 		{
-			jimport('techjoomla.jsocial.cb');
+			if (!class_exists('JSocialCb')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/cb.php'; }
 			$socialLibraryObject = new JSocialCB;
 		}
 		elseif ($integration_option == 'jomsocial')
 		{
-			jimport('techjoomla.jsocial.jomsocial');
+			if (!class_exists('JSocialJomsocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jomsocial.php'; }
 			$socialLibraryObject = new JSocialJomsocial;
 		}
 		elseif ($integration_option == 'jomwall')
 		{
-			jimport('techjoomla.jsocial.jomwall');
+			if (!class_exists('JSocialJomwall')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/jomwall.php'; }
 			$socialLibraryObject = new JSocialJomwall;
 		}
 		elseif ($integration_option == 'easySocial')
 		{
-			jimport('techjoomla.jsocial.easysocial');
+			if (!class_exists('JSocialEasysocial')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/easysocial.php'; }
 			$socialLibraryObject = new JSocialEasysocial;
 		}
 		else
 		{
-			jimport('techjoomla.jsocial.joomla');
+			if (!class_exists('JSocialJoomla')) { require_once JPATH_LIBRARIES . '/techjoomla/jsocial/joomla.php'; }
 			$socialLibraryObject = new JSocialJoomla;
 		}
 
@@ -227,7 +227,7 @@ class JgiveFrontendHelper
 			}
 			else
 			{
-				$itemId = $mainframe->input->get('Itemid', 0, 'INT');
+				$itemId = $mainframe->getInput()->get('Itemid', 0, 'INT');
 			}
 		}
 
@@ -755,7 +755,7 @@ class JgiveFrontendHelper
 	 */
 	public function getJGiveJsFiles(&$jsFilesArray, &$firstThingsScriptDeclaration)
 	{
-		$input  = Factory::getApplication()->input;
+		$input  = Factory::getApplication()->getInput();
 		$option = $input->get('option', '');
 		$view   = $input->get('view', '');
 		$layout = $input->get('layout', 'default');

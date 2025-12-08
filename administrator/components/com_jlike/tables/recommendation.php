@@ -47,7 +47,7 @@ class JlikeTablerecommendation extends Table
 	{
 
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$task = $input->getString('task', '');
 		if(($task == 'save' || $task == 'apply') && (!Factory::getUser()->authorise('core.edit.state','com_jlike.recommendation.'.$array['id']) && $array['state'] == 1)){
 			$array['state'] = 0;

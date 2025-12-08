@@ -17,7 +17,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Toolbar\Toolbar;
 
-jimport('techjoomla.tjtoolbar.button.csvexport');
+if (!class_exists('TjtoolbarButtonCsvexport')) { require_once JPATH_LIBRARIES . '/techjoomla/tjtoolbar/button/csvexport.php'; }
 
 /**
  * JgiveViewDonors view class.
@@ -52,15 +52,15 @@ class JgiveViewDonors extends HtmlView
 		$input               = $app->input;
 		$this->logged_userid = Factory::getUser()->id;
 
-		$input               = Factory::getApplication()->input;
-		$layout              = Factory::getApplication()->input->get('layout', 'default');
+		$input               = Factory::getApplication()->getInput();
+		$layout              = Factory::getApplication()->getInput()->get('layout', 'default');
 
 		$this->messages = array();
 		$this->messages['success'] = Text::_("COM_JGIVE_EXPORT_FILE_SUCCESS");
 		$this->messages['error'] = Text::_("COM_JGIVE_EXPORT_FILE_ERROR");
 		$this->messages['inprogress'] = Text::_("COM_JGIVE_EXPORT_FILE_NOTICE");
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$this->csv_url = 'index.php?option=' . $input->get('option') . '&view=' . $input->get('view') . '&format=csv';
 
 		// Check login status
@@ -126,12 +126,12 @@ class JgiveViewDonors extends HtmlView
 	 */
 	protected function addTJtoolbar ()
 	{
-		$layout    = Factory::getApplication()->input->get('layout', 'default');
+		$layout    = Factory::getApplication()->getInput()->get('layout', 'default');
 		$user      = Factory::getUser();
 		$canCreate = $user->authorise('core.create', 'com_jgive');
 
 		// Add toolbar buttons
-		jimport('techjoomla.tjtoolbar.toolbar');
+		if (!class_exists('TjToolbar')) { require_once JPATH_LIBRARIES . '/techjoomla/tjtoolbar/toolbar.php'; }
 		$tjbar = TToolbar::getInstance('tjtoolbar', 'pull-right float-end');
 
 		// Load library language file

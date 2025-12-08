@@ -56,7 +56,7 @@ class JLikeController extends BaseController
 	 */
 	public function LoadReviews()
 	{
-		$input       = Factory::getApplication()->input;
+		$input       = Factory::getApplication()->getInput();
 		$post        = $input->post;
 		$element_id  = $post->get('element_id', 0, 'INT');
 		$element     = $post->get('element', '', 'CMD');
@@ -118,7 +118,7 @@ class JLikeController extends BaseController
 	 */
 	public function LoadComment()
 	{
-		$input       = Factory::getApplication()->input;
+		$input       = Factory::getApplication()->getInput();
 		$post        = $input->post;
 		$filter = InputFilter::getInstance();
 		$extraParams = $post->get('extraParams', array(), 'ARRAY');
@@ -213,11 +213,11 @@ class JLikeController extends BaseController
 
 		if (JVERSION < 3.0)
 		{
-			$data = /** @scrutinizer ignore-deprecated */ Factory::getApplication()->input->get('data');
+			$data = /** @scrutinizer ignore-deprecated */ Factory::getApplication()->getInput()->get('data');
 		}
 		else
 		{
-			$input = Factory::getApplication()->input;
+			$input = Factory::getApplication()->getInput();
 			$post  = $input->getArray($_POST);
 			$data  = $post;
 		}
@@ -277,11 +277,11 @@ class JLikeController extends BaseController
 
 		if (JVERSION < 3.0)
 		{
-			$data = /** @scrutinizer ignore-deprecated */ Factory::getApplication()->input->get('data');
+			$data = /** @scrutinizer ignore-deprecated */ Factory::getApplication()->getInput()->get('data');
 		}
 		else
 		{
-			$input = Factory::getApplication()->input;
+			$input = Factory::getApplication()->getInput();
 			$post  = $input->getArray($_POST);
 			$data  = $post;
 		}
@@ -326,11 +326,11 @@ class JLikeController extends BaseController
 
 		if (JVERSION < 3.0)
 		{
-			$data = /** @scrutinizer ignore-deprecated */ Factory::getApplication()->input->get('data');
+			$data = /** @scrutinizer ignore-deprecated */ Factory::getApplication()->getInput()->get('data');
 		}
 		else
 		{
-			$input = Factory::getApplication()->input;
+			$input = Factory::getApplication()->getInput();
 			$post  = $input->getArray($_POST);
 			$data  = $post;
 		}
@@ -375,7 +375,7 @@ class JLikeController extends BaseController
 		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 		header('Content-type: application/json');
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$data = $input->getArray(
 								array(
 									'formdata' => 'string',
@@ -427,7 +427,7 @@ class JLikeController extends BaseController
 			return false;
 		}
 
-		$post         = Factory::getApplication()->input->post;
+		$post         = Factory::getApplication()->getInput()->post;
 		$annotation_id = $post->get('annotation_id', 0, 'INT');
 		$comment       = trim($post->get('comment', '', 'HTML'));
 		$images       = $post->get('reviewImages', array(), 'Array');
@@ -466,7 +466,7 @@ class JLikeController extends BaseController
 			Factory::getApplication()->close();
 		}
 
-		$file = $app->input->files->get('image');
+		$file = $app->getInput()->files->get('image');
 
 		if ($file) {
 			$allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
@@ -514,7 +514,7 @@ class JLikeController extends BaseController
 			return false;
 		}
 
-		$input         = Factory::getApplication()->input;
+		$input         = Factory::getApplication()->getInput();
 		$annotation_id = $input->get('annotation_id', 0, 'INT');
 		$model         = $this->getModel('jlike_likes');
 		$response      = $model->DeleteReviews($annotation_id);
@@ -533,14 +533,14 @@ class JLikeController extends BaseController
 	{
 		Session::checkToken() or Factory::getApplication()->close();
 
-		$extraParams = Factory::getApplication()->input->get('extraParams', array(), 'Array');
+		$extraParams = Factory::getApplication()->getInput()->get('extraParams', array(), 'Array');
 
 		if (!$this->isLoggedInUser())
 		{
 			return false;
 		}
 
-		$input         = Factory::getApplication()->input;
+		$input         = Factory::getApplication()->getInput();
 		$annotation_id = $input->get('annotation_id', 0, 'INT');
 		$model         = $this->getModel('jlike_likes');
 		$response      = $model->DeleteComment($annotation_id, $extraParams);
@@ -562,7 +562,7 @@ class JLikeController extends BaseController
 			return false;
 		}
 
-		$input          = Factory::getApplication()->input;
+		$input          = Factory::getApplication()->getInput();
 		$post           = $input->post;
 		$element_id     = $post->get('element_id', 0, 'INT');
 		$element        = $post->get('element', '', 'CMD');
@@ -596,7 +596,7 @@ class JLikeController extends BaseController
 			return false;
 		}
 
-		$input          = Factory::getApplication()->input;
+		$input          = Factory::getApplication()->getInput();
 		$post           = $input->post;
 		$extraParams = $post->get('extraParams', array(), 'Array');
 		$commentData 	= array();
@@ -626,7 +626,7 @@ class JLikeController extends BaseController
 			return false;
 		}
 
-		$input          = Factory::getApplication()->input;
+		$input          = Factory::getApplication()->getInput();
 		$post           = $input->post;
 		$annotationid   = $post->get('annotationid', 0, 'INT');
 		$comment        = $post->get('comment', '', 'STRING');
@@ -652,7 +652,7 @@ class JLikeController extends BaseController
 			return false;
 		}
 
-		$input          = Factory::getApplication()->input;
+		$input          = Factory::getApplication()->getInput();
 		$post           = $input->post;
 		$annotationid   = $post->get('annotationid', 0, 'INT');
 		$comment        = $post->get('comment', '', 'STRING');
@@ -679,7 +679,7 @@ class JLikeController extends BaseController
 
 		$response = array();
 
-		$input           = Factory::getApplication()->input;
+		$input           = Factory::getApplication()->getInput();
 		$post            = $input->post;
 		$annotationid    = $post->get('annotationid', '-1', 'INT');
 		$likedOrdisliked = $post->get('likedOrdisliked', '1', 'INT');
@@ -704,7 +704,7 @@ class JLikeController extends BaseController
 			return false;
 		}
 
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 
 		// Get list id
 		$lableId = $jinput->get("lableId");
@@ -730,7 +730,7 @@ class JLikeController extends BaseController
 			return false;
 		}
 
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 
 		// Get list id
 		$lableId = $jinput->get("lableId");
@@ -743,7 +743,7 @@ class JLikeController extends BaseController
 	}
 
 	public function deleteReviewImage(){
-		$input         = Factory::getApplication()->input;
+		$input         = Factory::getApplication()->getInput();
 		$filename = $input->get('filename', "", 'STRING');
 		$model         = $this->getModel('jlike_likes');
 		$status = $model->deleteReviewImage($filename);
@@ -769,7 +769,7 @@ class JLikeController extends BaseController
 		}
 
 		$comjlikeHelper = new comjlikeHelper;
-		$jinput = Factory::getApplication()->input;
+		$jinput = Factory::getApplication()->getInput();
 
 		$element = $jinput->get('element', '', 'CMD');
 		$element_id = $jinput->get('element_id', 0, 'INT');
@@ -819,7 +819,7 @@ class JLikeController extends BaseController
 		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 		header('Content-type: application/json');
 
-		$input = Factory::getApplication()->input;
+		$input = Factory::getApplication()->getInput();
 		$post  = $input->getArray($_POST);
 		$model         = $this->getModel('jlike_likes');
 		$result       = 0;

@@ -52,8 +52,8 @@ class JgiveHelper
 			$organizations   = '';
 			$receiptTemplate = '';
 			$app             = Factory::getApplication();
-			$queue           = $app->input->get('layout');
-			$option          = $app->input->get('option');
+			$queue           = $app->getInput()->get('layout');
+			$option          = $app->getInput()->get('option');
 
 			switch ($vName)
 			{

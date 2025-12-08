@@ -196,7 +196,7 @@ class JgiveModelCampaigns extends ListModel
 		$TjfieldsHelper = new TjfieldsHelper;
 		$tjfieldItem_ids = $TjfieldsHelper->getFilterResults();
 
-		$client = $app->input->get('client', '', 'STRING');
+		$client = $app->getInput()->get('client', '', 'STRING');
 
 		if (!empty($client))
 		{
@@ -265,13 +265,13 @@ class JgiveModelCampaigns extends ListModel
 		}
 
 		// Display layoutwise campaign- publish/unpublish
-		if ($app->input->get('layout', '', 'STRING') != 'my')
+		if ($app->getInput()->get('layout', '', 'STRING') != 'my')
 		{
 			$query->where($db->quoteName('camp.published') . ' = ' . $db->quote('1'));
 		}
 
 		// Display login user created campaign on my campaign view
-		if ($app->input->get('layout', '', 'STRING') == 'my')
+		if ($app->getInput()->get('layout', '', 'STRING') == 'my')
 		{
 			if (!empty($user->id))
 			{
@@ -339,26 +339,26 @@ class JgiveModelCampaigns extends ListModel
 		$campaignOrgIndTypeArrayValues = array('non_profit', 'self_help', 'individuals');
 
 		// Campaign Filter
-		$filterSearch = $app->input->get('filter_search', '', 'STRING');
+		$filterSearch = $app->getInput()->get('filter_search', '', 'STRING');
 		$this->setState('filter_search', $filterSearch);
 
 		// Country filter
-		$filterCampaignCountries = $app->input->get('filter_campaign_countries', '', 'INT');
+		$filterCampaignCountries = $app->getInput()->get('filter_campaign_countries', '', 'INT');
 		$this->setState('filter_campaign_countries', $filterCampaignCountries);
 		$this->setState('filter.country', $filterCampaignCountries);
 
 		// State filter
-		$filterCampaignStates = $app->input->get('filter_campaign_states', '', 'INT');
+		$filterCampaignStates = $app->getInput()->get('filter_campaign_states', '', 'INT');
 		$this->setState('filter_campaign_states', $filterCampaignStates);
 		$this->setState('filter.state', $filterCampaignStates);
 
 		// City filter
-		$filterCampaignCity = $app->input->get('filter_campaign_city', '', 'INT');
+		$filterCampaignCity = $app->getInput()->get('filter_campaign_city', '', 'INT');
 		$this->setState('filter_campaign_city', $filterCampaignCity);
 		$this->setState('filter.city', $filterCampaignCity);
 
 		// Filter by campaign creator
-		$filterCampaignCreator = $app->input->get('user_filter', '', 'INT');
+		$filterCampaignCreator = $app->getInput()->get('user_filter', '', 'INT');
 
 		if (!empty($filterCampaignCreator))
 		{
@@ -366,15 +366,15 @@ class JgiveModelCampaigns extends ListModel
 		}
 
 		// Set campaigns start limit
-		$listStart = $app->input->get('limitstart', '', 'INT');
+		$listStart = $app->getInput()->get('limitstart', '', 'INT');
 		$this->setState('list.start', $listStart);
 
 		// Set campaigns limit
-		$listlimit = $app->input->get('limit', '', 'INT');
+		$listlimit = $app->getInput()->get('limit', '', 'INT');
 		$this->setState('list.limit', $listlimit);
 
 		// Campaign Type filter
-		$filterCampaignType = $app->input->get('filter_campaign_type', '', 'STRING');
+		$filterCampaignType = $app->getInput()->get('filter_campaign_type', '', 'STRING');
 
 		if (!in_array($filterCampaignType, $campaignTypeArrayValues))
 		{
@@ -384,7 +384,7 @@ class JgiveModelCampaigns extends ListModel
 		$this->setState('filter_campaign_type', $filterCampaignType);
 
 		// Campaign Organization Individual Type
-		$filterOrgIndType = $app->input->get('filter_org_ind_type', '', 'STRING');
+		$filterOrgIndType = $app->getInput()->get('filter_org_ind_type', '', 'STRING');
 
 		if (!in_array($filterOrgIndType, $campaignOrgIndTypeArrayValues))
 		{
@@ -394,7 +394,7 @@ class JgiveModelCampaigns extends ListModel
 		$this->setState('filter_org_ind_type', $filterOrgIndType);
 
 		// Campaigns to show
-		$filterCampaignsToShow = $app->input->get('filter_campaigns_to_show', '', 'STRING');
+		$filterCampaignsToShow = $app->getInput()->get('filter_campaigns_to_show', '', 'STRING');
 
 		if (!in_array($filterCampaignsToShow, $this->filterValues))
 		{
@@ -404,13 +404,13 @@ class JgiveModelCampaigns extends ListModel
 		$this->setState('filter_campaigns_to_show', $filterCampaignsToShow);
 
 		// Campaign Category filter
-		$filterCampaignCat = $app->input->get(
-		'filter_campaign_cat', '', 'INT')?$app->input->get(
+		$filterCampaignCat = $app->getInput()->get(
+		'filter_campaign_cat', '', 'INT')?$app->getInput()->get(
 		'filter_campaign_cat', '', 'INT'):$params->get('defaultCatId');
 		$this->setState('filter_campaign_cat', $filterCampaignCat);
 
 		// Campaign Sorting order
-		$ListViewSort = $app->input->get('filter_order', '', 'STRING');
+		$ListViewSort = $app->getInput()->get('filter_order', '', 'STRING');
 
 		if (!empty($ListViewSort))
 		{
@@ -431,7 +431,7 @@ class JgiveModelCampaigns extends ListModel
 		}
 
 		// Get sorting direction from URL
-		$direction = $app->input->get('filter_order_Dir', '', 'STRING');
+		$direction = $app->getInput()->get('filter_order_Dir', '', 'STRING');
 
 		// Default sorting direction for columns - for sorting from the list view
 		if (!empty($ListViewSort) && empty($direction))
@@ -557,7 +557,7 @@ class JgiveModelCampaigns extends ListModel
 			if ($derivedSortFieldOption != null && in_array($derivedSortFieldOption, $this->derivedSortingFields))
 			{
 				// Default ordering for derived fields is ASC
-				$orderDirection = Factory::getApplication()->input->get("filter_order_Dir", "asc", "STRING");
+				$orderDirection = Factory::getApplication()->getInput()->get("filter_order_Dir", "asc", "STRING");
 
 				if (!in_array(strtolower($orderDirection), array("asc", "desc")))
 				{

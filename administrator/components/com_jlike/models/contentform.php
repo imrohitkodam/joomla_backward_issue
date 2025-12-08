@@ -43,13 +43,13 @@ class JlikeModelContentForm extends FormModel
 		$app = Factory::getApplication('com_jlike');
 
 		// Load state from the request userState on edit or from the passed variable on default
-		if (Factory::getApplication()->input->get('layout') == 'edit')
+		if (Factory::getApplication()->getInput()->get('layout') == 'edit')
 		{
 			$id = Factory::getApplication()->getUserState('com_jlike.edit.content.id');
 		}
 		else
 		{
-			$id = Factory::getApplication()->input->get('id');
+			$id = Factory::getApplication()->getInput()->get('id');
 			Factory::getApplication()->setUserState('com_jlike.edit.content.id', $id);
 		}
 

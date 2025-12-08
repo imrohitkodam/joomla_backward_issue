@@ -46,7 +46,7 @@ class JlikeViewReminders extends HtmlView
 		$this->activeFilters = $this->get('ActiveFilters');
 
 		$app  = Factory::getApplication();
-		$this->displayExtension = $app->input->getCmd('extension', '', 'string');
+		$this->displayExtension = $app->getInput()->getCmd('extension', '', 'string');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -129,7 +129,7 @@ class JlikeViewReminders extends HtmlView
 
 		if ($canDo->get('core.admin'))
 		{
-			$input     = Factory::getApplication()->input;
+			$input     = Factory::getApplication()->getInput();
 			$extension = $input->get('extension', 'com_jlike');
 
 			ToolbarHelper::preferences($extension);

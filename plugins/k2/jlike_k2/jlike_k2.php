@@ -86,7 +86,7 @@ class plgK2Jlike_k2 extends K2Plugin
 		}
 
 		$show_like_buttons = 1;
-		Factory::getApplication()->input->set ( 'data', json_encode ( array ('cont_id'=>$item->id,'element' => $element, 'title' => $item->title, 'url' => $item_route,'plg_name'=>'jlike_k2','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons ) ) );
+		Factory::getApplication()->getInput()->set ( 'data', json_encode ( array ('cont_id'=>$item->id,'element' => $element, 'title' => $item->title, 'url' => $item_route,'plg_name'=>'jlike_k2','show_comments'=>$show_comments, 'show_like_buttons'=>$show_like_buttons ) ) );
 
 
 		require_once(JPATH_SITE.'/'.'components/com_jlike/helper.php');
