@@ -69,20 +69,20 @@ class JLikeViewtodos extends HtmlView
 		{
 			$current = Uri::getInstance()->toString();
 			$url     = base64_encode($current);
-			$this->getApplication()->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
+			$this->app->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
 		}
 
 		$this->state      = $this->get('State');
 		$this->items = $this->get('Items');
 
 		$this->pagination = $this->get('Pagination');
-		$this->params     = $this->getApplication()->getParams('com_jlike');
+		$this->params     = $this->app->getParams('com_jlike');
 
 		$this->activeFilters = $this->get('ActiveFilters');
 
 		$model = $this->getModel();
 
-		$this->pathId = $this->getApplication()->getInput()->get("path_id", '', 'INT');
+		$this->pathId = $this->app->getInput()->get("path_id", '', 'INT');
 
 		// Load pathuser model
 		BaseDatabaseModel::addIncludePath(JPATH_SITE . '/components/com_jlike/models');
@@ -98,7 +98,7 @@ class JLikeViewtodos extends HtmlView
 			$this->nextPathDetails = $JLikePathUserModel->getPathUserDetails($this->nextPath, $this->user->id);
 		}
 
-		$showDetail = $this->getApplication()->getInput()->get("showDetail", '0', 'INT');
+		$showDetail = $this->app->getInput()->get("showDetail", '0', 'INT');
 
 		if (!$showDetail)
 		{
@@ -106,7 +106,7 @@ class JLikeViewtodos extends HtmlView
 
 			if (!empty($toDoUrl))
 			{
-				$this->getApplication()->redirect($toDoUrl);
+				$this->app->redirect($toDoUrl);
 			}
 		}
 

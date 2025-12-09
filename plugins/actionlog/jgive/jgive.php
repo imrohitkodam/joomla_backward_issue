@@ -427,7 +427,7 @@ class PlgActionlogJgive extends CMSPlugin
 			return;
 		}
 
-		$context = $this->getApplication()->getInput()->get('option');
+		$context = Factory::getApplication()->getInput()->get('option');
 
 		$user = Factory::getUser();
 

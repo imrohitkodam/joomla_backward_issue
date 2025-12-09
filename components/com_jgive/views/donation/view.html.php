@@ -108,6 +108,16 @@ class JgiveViewDonation extends HtmlView
 		$donationId = $app->getInput()->get('donationid');
 		$guestEmail = $app->getInput()->get('email');
 
+		// If donationid is missing, redirect to campaigns page
+		if (!$donationId)
+		{
+			$allCampaignItemId = $this->jgiveFrontendHelper->getItemId('index.php?option=com_jgive&view=campaigns&layout=all');
+			$msg = Text::_('COM_JGIVE_NO_DATA');
+			$app->enqueueMessage($msg, 'error');
+			$app->redirect(Route::_('index.php?option=com_jgive&view=campaigns&layout=all&Itemid=' . $allCampaignItemId, false));
+			return false;
+		}
+
 		if (!($donationId && $guestEmail))
 		{
 			$this->session->clear('JGIVE_order_id');

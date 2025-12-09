@@ -56,14 +56,14 @@ class JLikeViewPathUsers extends HtmlView
 		{
 			$current = Uri::getInstance()->toString();
 			$url     = base64_encode($current);
-			$this->getApplication()->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
+			$this->app->redirect(Route::_('index.php?option=com_users&view=login&return=' . $url, false));
 		}
 
 		$this->state      = $this->get('State');
 		$this->items = $this->get('Items');
 
 		$this->pagination = $this->get('Pagination');
-		$this->params     = $this->getApplication()->getParams('com_jlike');
+		$this->params     = $this->app->getParams('com_jlike');
 
 		$this->filterForm = $this->get('FilterForm');
 

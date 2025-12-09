@@ -192,7 +192,7 @@ class JGiveViewCampaignForm extends HtmlView
 			$this->allowed = 0;
 		}
 
-		$layout = $this->getApplication()->getInput()->get('layout', 'default', 'STRING');
+		$layout = Factory::getApplication()->getInput()->get('layout', 'default', 'STRING');
 		$this->setLayout($layout);
 		$this->vendorProfileMenuId = $jgiveFrontendHelper->getItemId('index.php?option=com_tjvendors&view=vendor&client=com_jgive');
 		$this->editVendor = Uri::root() .

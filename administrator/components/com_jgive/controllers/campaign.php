@@ -49,7 +49,7 @@ class JGiveControllerCampaign extends FormController
 		$model = $this->getModel('Campaign', 'JGiveModel');
 
 		// Get the user data.
-		$data = Factory::getApplication()->getInput()->get('jform', array(), 'array');
+		$data = Factory::getApplication()->input->get('jform', array(), 'array');
 
 		if (empty($data['creator_id']))
 		{
@@ -141,7 +141,7 @@ class JGiveControllerCampaign extends FormController
 		if (!empty($data['id']))
 		{
 			$extraJformData = array_diff_key($allJformData, $data);
-			$filesData = $app->getInput()->files->get('jform', array(), 'ARRAY');
+			$filesData = $app->input->files->get('jform', array(), 'ARRAY');
 
 			unset($filesData['image']);
 			unset($filesData['gallery_file']);
@@ -167,7 +167,7 @@ class JGiveControllerCampaign extends FormController
 			$userPrivacyJformData = array();
 
 			/*User Privacy Policy Data sanitize here*/
-			$userPrivacyJformData['privacy_terms_condition'] = Factory::getApplication()->getInput()->get('terms_condition', '', 'STRING');
+			$userPrivacyJformData['privacy_terms_condition'] = Factory::getApplication()->input->get('terms_condition', '', 'STRING');
 
 			if (!empty($userPrivacyJformData['privacy_terms_condition']) && $userPrivacyJformData['privacy_terms_condition'] == 'on')
 			{
@@ -209,7 +209,7 @@ class JGiveControllerCampaign extends FormController
 		}
 
 		$msg   = Text::_('COM_JGIVE_MSG_SUCCESS_SAVE_CAMPAIGN');
-		$input = Factory::getApplication()->getInput();
+		$input = Factory::getApplication()->input;
 		$id    = $input->get('id');
 
 		if (empty($id))
@@ -258,7 +258,7 @@ class JGiveControllerCampaign extends FormController
 	 */
 	public function changeSuccessState()
 	{
-		$post  = Factory::getApplication()->getInput()->post;
+		$post  = Factory::getApplication()->input->post;
 		$model = $this->getModel('campaign');
 		$model->setState('request', $post);
 

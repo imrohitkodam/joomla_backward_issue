@@ -87,6 +87,23 @@ class JgiveViewDonations extends BaseHtmlView
 		$app          = Factory::getApplication();
 		$this->layout = $app->getInput()->get('layout', 'payment');
 
+		// Check if layout is 'payment' and cid (campaign ID) is missing
+		if ($this->layout == 'payment')
+		{
+			$cid = $app->getInput()->get('cid', 0, 'INT');
+			
+			if (empty($cid))
+			{
+				// Redirect to campaigns page if no campaign ID is provided
+				$jgiveFrontendHelper = new jgiveFrontendHelper;
+				$allCampaignItemId = $jgiveFrontendHelper->getItemId('index.php?option=com_jgive&view=campaigns&layout=all');
+				$msg = Text::_('COM_JGIVE_NO_DATA');
+				$app->enqueueMessage($msg, 'error');
+				$app->redirect(Route::_('index.php?option=com_jgive&view=campaigns&layout=all&Itemid=' . $allCampaignItemId, false));
+				return false;
+			}
+		}
+
 		$this->jgiveFrontendHelper = new jgiveFrontendHelper;
 		$this->donationsHelper     = new DonationsHelper;
 

@@ -42,7 +42,7 @@ class JgiveControllerDonations extends jgiveController
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
 		$model  = $this->getModel('donations');
-		$post   = Factory::getApplication()->getInput()->post;
+		$post   = Factory::getApplication()->input->post;
 		$model->setState('request', $post);
 		$result = $model->changeOrderStatus($post);
 		$msg    = Text::_('COM_JGIVE_ERROR_SAVING_MSG');
@@ -79,7 +79,7 @@ class JgiveControllerDonations extends jgiveController
 	{
 		$model   = $this->getModel('donations');
 		$session = Factory::getSession();
-		$input   = Factory::getApplication()->getInput();
+		$input   = Factory::getApplication()->input;
 		$orderId = $session->get('JGIVE_order_id');
 
 		// Clear JGIVE_order_id from seesion to place new order after click on donate
@@ -111,7 +111,7 @@ class JgiveControllerDonations extends jgiveController
 	 */
 	public function donate()
 	{
-		$input               = Factory::getApplication()->getInput();
+		$input               = Factory::getApplication()->input;
 		$post                = $input->post;
 		$cid                 = $post->get('cid', '', 'INT') ? $post->get('cid', '', 'INT'): $input->get('cid', '', 'INT');
 		$jgiveFrontendHelper = new jgiveFrontendHelper;
@@ -155,7 +155,7 @@ class JgiveControllerDonations extends jgiveController
 
 		$msg                 = '';
 		$jgiveFrontendHelper = new jgiveFrontendHelper;
-		$input               = Factory::getApplication()->getInput();
+		$input               = Factory::getApplication()->input;
 		$post                = $input->post->getArray();
 		$result              = 0;
 
@@ -231,7 +231,7 @@ class JgiveControllerDonations extends jgiveController
 	 */
 	public function retryPayment()
 	{
-		$input             = Factory::getApplication()->getInput();
+		$input             = Factory::getApplication()->input;
 		$getdata           = $input->get;
 		$pgPlugin          = $getdata->get('gateway_name', '', 'STRING');
 		$orderId           = $getdata->get('order', '', 'STRING');
@@ -462,7 +462,7 @@ class JgiveControllerDonations extends jgiveController
 	 */
 	public function chkmail()
 	{
-		$email  = Factory::getApplication()->getInput()->get('email', '', 'STRING');
+		$email  = Factory::getApplication()->input->get('email', '', 'STRING');
 		$model  = $this->getModel('donations');
 		$status = $model->checkMailExists($email);
 		$e[]    = $status;
@@ -488,11 +488,11 @@ class JgiveControllerDonations extends jgiveController
 		$app                 = Factory::getApplication();
 		$user                = Factory::getUser();
 		$json                = array();
-		$cid                 = $app->getInput()->get('cid');
+		$cid                 = $app->input->get('cid');
 		$jgiveFrontendHelper = new jgiveFrontendHelper;
 
 		$itemId      = $jgiveFrontendHelper->getItemId('index.php?option=com_jgive&view=campaigns&layout=all');
-		$itemId      = (!empty($itemId)) ? $itemId : $app->getInput()->get('Itemid', '', 'INT');
+		$itemId      = (!empty($itemId)) ? $itemId : $app->input->get('Itemid', '', 'INT');
 		$redirectUrl = Route::_('index.php?option=com_jgive&view=donations&layout=payment&cid=' . $cid . '&Itemid=' . $itemId, false);
 
 		if ($user->id)
@@ -506,7 +506,7 @@ class JgiveControllerDonations extends jgiveController
 			$userHelper = new UserHelper;
 
 			// Login the user.
-			if (!$userHelper->login(array('username' => $app->getInput()->getString('email'), 'password' => $app->getInput()->getString('password'))))
+			if (!$userHelper->login(array('username' => $app->input->getString('email'), 'password' => $app->input->getString('password'))))
 			{
 				$json['error']['warning'] = Text::_('COM_JGIVE_CHECKOUT_ERROR_LOGIN');
 			}
@@ -531,7 +531,7 @@ class JgiveControllerDonations extends jgiveController
 		Session::checkToken() or Factory::getApplication()->close();
 
 		$redirectUrl = Route::_('index.php?option=com_jgive&view=donations');
-		$input       = Factory::getApplication()->getInput();
+		$input       = Factory::getApplication()->input;
 		$post        = $input->post;
 		$model       = $this->getModel('donations');
 
@@ -695,7 +695,7 @@ class JgiveControllerDonations extends jgiveController
 	public function getRoundedValue()
 	{
 		$jgiveFrontendHelper = new JgiveFrontendHelper;
-		$amount              = $this->getInput()->get('amount', 'float');
+		$amount              = $this->input->get('amount', 'float');
 		$roundedValue        = $jgiveFrontendHelper->getRoundedAmount($amount);
 		echo new JsonResponse($roundedValue);
 		Factory::getApplication()->close();
@@ -711,7 +711,7 @@ class JgiveControllerDonations extends jgiveController
 	 * @since 4.1.0
 	 */
 	public function panVerification(){
-		$pannumber = $this->getInput()->get('pannumber', 'string');
+		$pannumber = $this->input->get('pannumber', 'string');
 
 		$plugins = PluginHelper::getPlugin('panverification');
 		if ( count($plugins) > 0) {
@@ -726,9 +726,9 @@ class JgiveControllerDonations extends jgiveController
 
 	public function sendAmoutThresholdMail()
 	{
-		$email = $this->getInput()->get('email', 'string' , '');
-		$phone = $this->getInput()->get('phone', 'string' , '');
-		$time = $this->getInput()->get('time', 'string' , '');
+		$email = $this->input->get('email', 'string' , '');
+		$phone = $this->input->get('phone', 'string' , '');
+		$time = $this->input->get('time', 'string' , '');
 
 		if ($email)
 		{

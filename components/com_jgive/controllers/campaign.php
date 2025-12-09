@@ -41,7 +41,7 @@ class JGiveControllerCampaign extends JGiveController
 		Session::checkToken() or Factory::getApplication()->close();
 		$model          = $this->getModel('Campaign', 'JGiveModel');
 		$app            = Factory::getApplication();
-		$data           = Factory::getApplication()->getInput()->get('jform', array(), 'array');
+		$data           = Factory::getApplication()->input->get('jform', array(), 'array');
 		$all_jform_data = $data;
 
 		// Validate the posted data.
@@ -229,7 +229,7 @@ class JGiveControllerCampaign extends JGiveController
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
 
-		$input = Factory::getApplication()->getInput();
+		$input = Factory::getApplication()->input;
 		$activityData = array();
 		$postText = $input->get('activity-post-text', '', 'STRING');
 		$cid = $input->get('id', '0', 'INT');

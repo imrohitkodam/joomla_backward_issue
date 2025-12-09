@@ -329,6 +329,7 @@ class JGiveRouter extends RouterBase
 			{
 				array_shift($segments);
 				$vars['view'] = 'donation';
+				$vars['layout'] = 'default';
 
 				$donationId = array_shift($segments);
 
@@ -336,8 +337,6 @@ class JGiveRouter extends RouterBase
 				{
 					$vars['donationid'] = $donationId;
 				}
-
-				$vars['layout'] = 'default';
 			}
 			elseif ($segments[0] == 'campaigns')
 			{

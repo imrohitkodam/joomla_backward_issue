@@ -37,7 +37,7 @@ class JGiveControllerCampaign extends JGiveController
 	 */
 	public function getCampaignGraphData()
 	{
-		$input            = Factory::getApplication()->getInput();
+		$input            = Factory::getApplication()->input;
 		$techjoomlacommon = new TechjoomlaCommon;
 		$lastTwelveMonth  = $techjoomlacommon->getLastTwelveMonths();
 		$campaignHelper   = new CampaignHelper;
@@ -234,7 +234,7 @@ class JGiveControllerCampaign extends JGiveController
 	public function getState()
 	{
 		$jgiveFrontendHelper = new jgiveFrontendHelper;
-		$country             = $this->getInput()->get('country', '', 'INT');
+		$country             = $this->input->get('country', '', 'INT');
 		$defaultState        = array("id" => 0, "region" => Text::_('COM_JGIVE_STATE'),"region_text" => Text::_('COM_JGIVE_STATE'));
 
 		// Use helper file function
@@ -257,7 +257,7 @@ class JGiveControllerCampaign extends JGiveController
 	public function getCity()
 	{
 		$jgiveFrontendHelper = new jgiveFrontendHelper;
-		$country             = $this->getInput()->get('country', '', 'INT');
+		$country             = $this->input->get('country', '', 'INT');
 		$defaultCity         = array("id" => 0, "city" => Text::_('COM_JGIVE_CITY'),"city_text" => Text::_('COM_JGIVE_CITY'));
 
 		// Use helper file function
@@ -280,7 +280,7 @@ class JGiveControllerCampaign extends JGiveController
 	 */
 	public function showMoreDonors()
 	{
-		$input = Factory::getApplication()->getInput();
+		$input = Factory::getApplication()->input;
 		$post  = $input->post;
 		$cid         = $post->get('cid', '', 'INT');
 		$jgive_index = $post->get('jgive_index', '', 'INT');

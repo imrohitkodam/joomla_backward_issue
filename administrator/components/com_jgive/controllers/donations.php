@@ -61,7 +61,7 @@ class JgiveControllerDonations extends JGiveController
 			require_once JPATH_SITE . '/components/com_jgive/models/donations.php';
 		}
 		$jgiveModelDonorsObj = BaseDatabaseModel::getInstance('Donations', 'JgiveModel');
-		$post                = Factory::getApplication()->getInput()->post;
+		$post                = Factory::getApplication()->input->post;
 		$result              = $jgiveModelDonorsObj->changeOrderStatus($post);
 		$msg                 = Text::_('COM_JGIVE_ERROR_SAVING_MSG');
 
@@ -102,7 +102,7 @@ class JgiveControllerDonations extends JGiveController
 	 */
 	public function loadprofiledata()
 	{
-		$compaignUserid = Factory::getApplication()->getInput()->get('compaignuserid');
+		$compaignUserid = Factory::getApplication()->input->get('compaignuserid');
 		$path           = JPATH_ADMINISTRATOR . '/components/com_jgive/helpers/integrations.php';
 
 		if (!class_exists('JgiveIntegrationsHelper_backend'))
@@ -151,7 +151,7 @@ class JgiveControllerDonations extends JGiveController
 		}
 
 		$redirectUrl            = Route::_('index.php?option=com_jgive&view=donations');
-		$input                  = Factory::getApplication()->getInput();
+		$input                  = Factory::getApplication()->input;
 		$post                   = $input->post;
 		$donationsBackendHelper = new donations_backendHelper;
 		$result                 = $donationsBackendHelper->addOrder($post);
@@ -222,7 +222,7 @@ class JgiveControllerDonations extends JGiveController
 	 */
 	public function getGiveBackAgainstCampaign()
 	{
-		$cid = Factory::getApplication()->getInput()->post->get('cid', '', 'INT');
+		$cid = Factory::getApplication()->input->post->get('cid', '', 'INT');
 
 		if (file_exists(JPATH_SITE . '/components/com_jgive/helpers/campaign.php')) {
 			require_once JPATH_SITE . '/components/com_jgive/helpers/campaign.php';
@@ -245,7 +245,7 @@ class JgiveControllerDonations extends JGiveController
 		// Check for request forgeries
 		Session::checkToken() or Factory::getApplication()->close();
 		$model           = $this->getModel('donations');
-		$donationIdArray = Factory::getApplication()->getInput()->post->get('cid', '', 'Array');
+		$donationIdArray = Factory::getApplication()->input->post->get('cid', '', 'Array');
 		$msg             = Text::_('COM_JGIVE_ERR_DONATION_DELETED');
 
 		if (!empty($donationIdArray))
@@ -383,7 +383,7 @@ class JgiveControllerDonations extends JGiveController
 		$app  = Factory::getApplication();
 		$link = Route::_(Uri::base() . 'index.php?option=com_jgive&view=donors');
 
-		if ($app->getInput()->get('redirect') == 'donations')
+		if ($app->input->get('redirect') == 'donations')
 		{
 			$link = Route::_(Uri::base() . 'index.php?option=com_jgive&view=donations');
 		}
@@ -401,7 +401,7 @@ class JgiveControllerDonations extends JGiveController
 	public function getRoundedValue()
 	{
 		$jgiveFrontendHelper = new JgiveFrontendHelper;
-		$value               = $this->getInput()->get('amount', 'float');
+		$value               = $this->input->get('amount', 'float');
 		$roundedValue        = $jgiveFrontendHelper->getRoundedAmount($value);
 		echo new JsonResponse($roundedValue);
 		Factory::getApplication()->close();

@@ -4,6 +4,8 @@
  *  @license    GNU General Public License version 2, or later
  */
 defined('_JEXEC') or die('Restricted access');
+
+use Joomla\CMS\Language\Text;
 ?>
 <div class="tjcpg-wrapper">
 	<form action="<?php echo $vars->action_url; //$vars->submiturl; ?>" class="form-horizontal" method="post">

@@ -5,6 +5,8 @@
  */
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Language\Text;
+
 ?>
 
 <div class="tjcpg-wrapper">

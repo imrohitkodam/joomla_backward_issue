@@ -62,21 +62,23 @@ class JLikeModelPathDetail extends FormModel
 	 */
 	protected function populateState()
 	{
+		$app = Factory::getApplication();
+		
 		// Load state from the request userState on edit or from the passed variable on default
-		if ($this->getApplication()->getInput()->get('layout') == 'edit')
+		if ($app->getInput()->get('layout') == 'edit')
 		{
-			$id = $this->getApplication()->getUserState('com_jlike.edit.path.path_id');
+			$id = $app->getUserState('com_jlike.edit.path.path_id');
 		}
 		else
 		{
-			$id = $this->getApplication()->getInput()->get('path_id');
-			$this->getApplication()->setUserState('com_jlike.edit.path.path_id', $id);
+			$id = $app->getInput()->get('path_id');
+			$app->setUserState('com_jlike.edit.path.path_id', $id);
 		}
 
 		$this->setState('path.path_id', $id);
 
 		// Load the parameters.
-		$params = $this->getApplication()->getParams();
+		$params = $app->getParams();
 
 		$this->setState('params', $params);
 	}
